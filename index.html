@@ -3,147 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Código Divino | La Proporción Áurea</title>
+    <title>Próximamente</title>
     <style>
-        /* Estilos Base - Design White Page */
-        :root {
-            --primary-color: #2c3e50;
-            --bg-color: #ffffff;
-            --text-color: #333333;
-            --accent-color: #d4af37; /* Dourado suave para destaque */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.8;
-            margin: 0;
-            padding: 0;
-            -webkit-font-smoothing: antialiased;
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        header {
+        .content {
             text-align: center;
-            margin-bottom: 50px;
+            padding: 20px;
         }
 
         h1 {
-            color: var(--primary-color);
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: #666;
+            font-size: 2.5rem;
             font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #e2e8f0;
         }
 
-        h2 {
-            color: var(--primary-color);
-            font-size: 1.8rem;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 10px;
-            margin-top: 50px;
+        .status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #38bdf8;
+            border-radius: 50%;
+            margin-left: 6px;
+            animation: pulse 1.8s infinite ease-in-out;
         }
 
-        p {
-            font-size: 1.1rem;
-            margin-bottom: 24px;
-            color: #4a4a4a;
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.3);
+            }
         }
 
-        .highlight {
-            font-weight: bold;
-            color: var(--accent-color);
-        }
-
-        .quote {
-            font-style: italic;
-            border-left: 4px solid var(--accent-color);
-            padding-left: 20px;
-            margin: 30px 0;
-            color: #555;
-            background-color: #fcfcfc;
-            padding: 20px;
-            border-radius: 0 8px 8px 0;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 80px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            font-size: 0.9rem;
-            color: #888;
-        }
-
-        /* Responsividade para Mobile */
         @media (max-width: 600px) {
-            .container {
-                padding: 40px 20px;
-            }
             h1 {
-                font-size: 2.2rem;
-            }
-            h2 {
-                font-size: 1.5rem;
-            }
-            p {
-                font-size: 1rem;
+                font-size: 1.8rem;
+                letter-spacing: 2px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>El Código Divino</h1>
-            <p class="subtitle">Descubriendo la huella matemática del universo</p>
-        </header>
-
-        <section>
-            <h2>¿Qué es el Código Divino?</h2>
-            <p>El "Código Divino", científicamente conocido como la <span class="highlight">Proporción Áurea</span> o el número de oro, es un número irracional que se aproxima a <strong>1.6180339887</strong>. Representado por la letra griega Phi (Φ), ha sido reverenciado a lo largo de la historia como una especie de código fuente de la creación, debido a su aparición constante y perfecta en el mundo natural.</p>
-        </section>
-
-        <section>
-            <h2>La Secuencia de Fibonacci</h2>
-            <p>Para entender este código, primero debemos observar la famosa Secuencia de Fibonacci: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55... En esta progresión matemática infinita, cada número es la suma de los dos anteriores.</p>
-            <p>La verdadera magia ocurre cuando dividimos un número de la secuencia por su predecesor (por ejemplo, 55 ÷ 34). A medida que la secuencia avanza hacia el infinito, el resultado de esta división se acerca cada vez más al número áureo: 1.618.</p>
-        </section>
-
-        <section>
-            <h2>La Geometría en la Naturaleza</h2>
-            <div class="quote">
-                "Las matemáticas son el alfabeto con el cual Dios ha escrito el universo." — Galileo Galilei
-            </div>
-            <p>El Código Divino no es solo una curiosidad matemática; es un principio de diseño fundamental de la naturaleza. La espiral logarítmica que se deriva de esta proporción dicta el crecimiento de innumerables formas de vida y fenómenos naturales:</p>
-            <ul>
-                <li>La disposición de los pétalos de una rosa y las semillas de un girasol.</li>
-                <li>Las elegantes curvas de la concha de un nautilo.</li>
-                <li>La formación de huracanes y la estructura de las galaxias espirales.</li>
-                <li>Incluso las proporciones de la molécula de ADN humano.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Arte, Arquitectura y Estética</h2>
-            <p>El cerebro humano está naturalmente predispuesto a encontrar belleza en los objetos que siguen el Código Divino. Durante siglos, artistas y arquitectos han utilizado esta proporción para crear obras que transmiten equilibrio, armonía y perfección.</p>
-            <p>Obras maestras de la antigüedad como el Partenón en Atenas y la Gran Pirámide de Guiza muestran evidencia de la proporción áurea. Durante el Renacimiento, genios como Leonardo da Vinci la utilizaron meticulosamente en obras como "El Hombre de Vitruvio" y "La Última Cena" para alcanzar la perfección visual.</p>
-        </section>
-
-        <footer>
-            <p>&copy; 2026 Exploración del Código Divino. Creado para educar e inspirar.</p>
-        </footer>
+    <div class="content">
+        <h1>Próximamente<span class="status-dot"></span></h1>
     </div>
 </body>
 </html>
