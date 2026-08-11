@@ -12,22 +12,19 @@
 
   <style>
     /* =========================================================
-       LUXURY AUTOMOTIVE DESIGN SYSTEM
+       LUXURY AUTOMOTIVE DESIGN SYSTEM (CLEAN)
     ========================================================= */
     :root {
       --bg-dark: #050506;
       --bg-surface: #0c0d10;
       --bg-card: #131419;
-      --bg-card-hover: #1a1c23;
       --red-racing: #e10600;
       --red-bright: #ff2a2a;
-      --red-glow: rgba(225, 6, 0, 0.5);
       --green-wa: #25d366;
       --gold-star: #ffb400;
       --text-main: #f0f0f2;
       --text-muted: #8e9299;
       --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-red: rgba(225, 6, 0, 0.3);
       --font-heading: 'Syne', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
     }
@@ -51,7 +48,6 @@
       padding-bottom: 70px;
     }
 
-    /* Scrollbar */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg-dark); }
     ::-webkit-scrollbar-thumb { background: #22242a; border-radius: 3px; }
@@ -62,7 +58,7 @@
     .top-bar {
       background: linear-gradient(90deg, #101115 0%, #1a0202 50%, #101115 100%);
       border-bottom: 1px solid var(--border-subtle);
-      padding: 6px 5%;
+      padding: 8px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -93,15 +89,15 @@
       position: sticky;
       top: 0;
       width: 100%;
-      height: 68px;
+      height: 70px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 5%;
       z-index: 1000;
-      background: rgba(7, 7, 8, 0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: rgba(5, 5, 6, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-subtle);
     }
 
@@ -113,20 +109,19 @@
     }
 
     .emblem {
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       background: linear-gradient(145deg, #181a20 0%, #0a0b0d 100%);
-      border: 1px solid var(--border-red);
-      border-radius: 10px;
+      border: 1px solid rgba(225, 6, 0, 0.3);
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 12px rgba(225, 6, 0, 0.25);
     }
 
     .emblem svg {
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
     }
 
     .logo-text {
@@ -136,7 +131,7 @@
 
     .brand-title {
       font-family: var(--font-heading);
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 800;
       color: #fff;
       line-height: 1;
@@ -147,7 +142,7 @@
     }
 
     .brand-sub {
-      font-size: 8px;
+      font-size: 8.5px;
       font-weight: 700;
       letter-spacing: 1.5px;
       color: var(--text-muted);
@@ -156,8 +151,8 @@
     }
 
     .menu-toggle {
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border-subtle);
       border-radius: 8px;
@@ -198,17 +193,17 @@
       position: fixed;
       top: 0;
       right: -100%;
-      width: 82%;
+      width: 80%;
       max-width: 320px;
       height: 100vh;
       background: var(--bg-surface);
       border-left: 1px solid var(--border-subtle);
       z-index: 1100;
-      padding: 80px 24px 30px;
+      padding: 90px 24px 30px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: right 0.35s ease;
     }
 
     .mobile-drawer.active { right: 0; }
@@ -234,161 +229,81 @@
     .drawer-nav a span { color: var(--red-bright); font-size: 12px; }
 
     /* =========================================================
-       HERO SECTION WITH ANIMATED CAR & EFFECTS
+       HERO SECTION (CLEAN & PROFESSIONAL)
     ========================================================= */
     .hero {
       position: relative;
-      padding: 30px 5% 40px;
-      overflow: hidden;
-      background: radial-gradient(circle at 50% 20%, rgba(225, 6, 0, 0.18) 0%, transparent 70%);
+      padding: 50px 5% 60px;
+      background: linear-gradient(180deg, rgba(225, 6, 0, 0.05) 0%, var(--bg-dark) 100%);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(225, 6, 0, 0.12);
-      border: 1px solid var(--border-red);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
       padding: 6px 14px;
       border-radius: 20px;
       font-size: 11px;
       font-weight: 700;
-      color: var(--red-bright);
-      margin-bottom: 16px;
+      color: var(--gold-star);
+      margin-bottom: 20px;
     }
 
     .hero h1 {
       font-family: var(--font-heading);
-      font-size: clamp(30px, 8vw, 42px);
-      font-weight: 900;
-      line-height: 1.05;
-      text-transform: uppercase;
+      font-size: clamp(34px, 9vw, 46px);
+      font-weight: 800;
+      line-height: 1.1;
       letter-spacing: -1px;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
     }
 
     .hero h1 span {
-      background: linear-gradient(180deg, #ffffff 30%, #777 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero h1 em {
-      font-style: normal;
       color: var(--red-bright);
-      -webkit-text-fill-color: initial;
-      text-shadow: 0 0 20px var(--red-glow);
     }
 
     .hero-desc {
-      font-size: 13.5px;
+      font-size: 14px;
       line-height: 1.6;
       color: var(--text-muted);
-      margin-bottom: 24px;
+      margin-bottom: 30px;
     }
 
-    /* CAR ANIMATION STAGE */
-    .car-stage-container {
-      position: relative;
-      width: 100%;
-      height: 220px;
-      margin: 10px 0 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* Grid Tech Pattern behind car */
-    .car-stage-bg {
-      position: absolute;
-      inset: 0;
-      background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-      background-size: 24px 24px;
-      border-radius: 16px;
-      mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
-      border: 1px solid var(--border-subtle);
-      background-color: var(--bg-surface);
-    }
-
-    /* Neon Underglow Effect */
-    .car-neon-glow {
-      position: absolute;
-      bottom: 20px;
-      width: 70%;
-      height: 30px;
-      background: var(--red-racing);
-      filter: blur(25px);
-      border-radius: 50%;
-      opacity: 0.85;
-      animation: neonPulse 3s infinite ease-in-out;
-    }
-
-    /* THE CAR IMAGE WITH ZOOM & PULSE ANIMATION */
-    .animated-car {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: 380px;
-      height: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.8));
-      /* CONTINUOUS ZOOM ANIMATION */
-      animation: carZoomPulse 5s infinite ease-in-out;
-      transform-origin: center center;
-    }
-
-    /* KEYFRAMES FOR CONTINUOUS CAR ZOOM */
-    @keyframes carZoomPulse {
-      0% {
-        transform: scale(0.95) translateY(0px) rotate(0deg);
-      }
-      50% {
-        transform: scale(1.12) translateY(-6px) rotate(-0.5deg);
-        filter: drop-shadow(0 25px 25px rgba(225, 6, 0, 0.35));
-      }
-      100% {
-        transform: scale(0.95) translateY(0px) rotate(0deg);
-      }
-    }
-
-    @keyframes neonPulse {
-      0%, 100% { opacity: 0.6; transform: scaleX(0.9); }
-      50% { opacity: 1; transform: scaleX(1.15); }
-    }
-
-    /* CTA BUTTONS HERO */
+    /* CTA BUTTONS */
     .hero-actions {
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
 
-    .btn-primary-tech {
-      background: linear-gradient(135deg, var(--red-racing) 0%, #900000 100%);
+    .btn-primary {
+      background: var(--red-racing);
       color: #fff;
       height: 52px;
-      border-radius: 10px;
-      font-size: 13px;
+      border-radius: 8px;
+      font-size: 14px;
       font-weight: 800;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
       text-decoration: none;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 8px 25px rgba(225, 6, 0, 0.4);
+      border: none;
+      box-shadow: 0 8px 20px rgba(225, 6, 0, 0.3);
     }
 
-    .btn-secondary-tech {
-      background: var(--bg-card);
+    .btn-secondary {
+      background: transparent;
       color: var(--text-main);
-      height: 48px;
-      border-radius: 10px;
-      font-size: 13px;
+      height: 50px;
+      border-radius: 8px;
+      font-size: 14px;
       font-weight: 700;
       text-decoration: none;
       display: flex;
@@ -399,44 +314,39 @@
     }
 
     /* =========================================================
-       QUICK STATS STRIP
+       QUICK STATS
     ========================================================= */
     .stats-bar {
       background: var(--bg-surface);
-      border-y: 1px solid var(--border-subtle);
-      padding: 20px 5%;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 24px 5%;
+      display: flex;
+      justify-content: space-between;
       text-align: center;
     }
 
     .stat-card h3 {
       font-family: var(--font-heading);
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 800;
       color: #fff;
     }
 
     .stat-card h3 span { color: var(--red-bright); }
-    .stat-card p { font-size: 10px; color: var(--text-muted); text-transform: uppercase; font-weight: 700; margin-top: 2px;}
+    .stat-card p { font-size: 10px; color: var(--text-muted); text-transform: uppercase; font-weight: 700; margin-top: 4px;}
 
     /* =========================================================
-       INTERACTIVE BUDGET CALCULATOR / SIMULATOR
+       SECTIONS PADDING & TITLES
     ========================================================= */
     .section-padding { padding: 40px 5%; }
-
-    .section-title-wrap {
-      margin-bottom: 24px;
-    }
 
     .section-tag {
       color: var(--red-bright);
       font-size: 10px;
       font-weight: 800;
-      letter-spacing: 2.5px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       display: block;
     }
 
@@ -444,78 +354,66 @@
       font-family: var(--font-heading);
       font-size: 24px;
       font-weight: 800;
-      line-height: 1.1;
+      line-height: 1.15;
+      margin-bottom: 24px;
     }
 
+    /* =========================================================
+       SIMULADOR DE ORÇAMENTO
+    ========================================================= */
     .simulator-card {
       background: var(--bg-card);
-      border: 1px solid var(--border-red);
-      border-radius: 16px;
-      padding: 22px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 24px;
     }
 
-    .form-group {
-      margin-bottom: 14px;
-    }
+    .form-group { margin-bottom: 16px; }
 
     .form-group label {
       display: block;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
       text-transform: uppercase;
       color: var(--text-muted);
       margin-bottom: 6px;
-      letter-spacing: 0.5px;
     }
 
     .form-control {
       width: 100%;
-      height: 46px;
+      height: 48px;
       background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
       border-radius: 8px;
       padding: 0 14px;
       color: #fff;
-      font-size: 13px;
+      font-size: 14px;
       outline: none;
       font-family: var(--font-body);
     }
 
-    .form-control:focus {
-      border-color: var(--red-bright);
-    }
+    .form-control:focus { border-color: var(--red-bright); }
 
     /* =========================================================
-       EXPANDED SERVICES GRID
+       SERVICES & DIFFERENTIALS
     ========================================================= */
-    .services-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
+    .services-grid { display: grid; gap: 14px; }
 
     .service-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 20px;
+      border-radius: 10px;
+      padding: 18px;
       display: flex;
       gap: 16px;
-      align-items: flex-start;
-      transition: border-color 0.3s;
-    }
-
-    .service-card:active {
-      border-color: var(--red-bright);
+      align-items: center;
     }
 
     .service-icon {
-      width: 44px;
-      height: 44px;
+      width: 40px;
+      height: 40px;
       background: rgba(225, 6, 0, 0.1);
-      border: 1px solid rgba(225, 6, 0, 0.2);
-      border-radius: 10px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -523,62 +421,16 @@
       flex-shrink: 0;
     }
 
-    .service-info h4 {
-      font-size: 15px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-
-    .service-info p {
-      font-size: 12px;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
+    .service-info h4 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .service-info p { font-size: 12.5px; color: var(--text-muted); line-height: 1.4; }
 
     /* =========================================================
-       DIFFERENTIALS / EQUIPE (DAVID & IGOR)
-    ========================================================= */
-    .differentials-box {
-      background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-card) 100%);
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 24px;
-    }
-
-    .diff-item {
-      display: flex;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
-    .diff-item:last-child { margin-bottom: 0; }
-
-    .diff-check {
-      width: 24px;
-      height: 24px;
-      background: var(--red-racing);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 12px;
-      font-weight: 900;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .diff-text h5 { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 2px;}
-    .diff-text p { font-size: 12px; color: var(--text-muted); line-height: 1.4;}
-
-    /* =========================================================
-       REAL REVIEWS
+       REVIEWS (GOOGLE DATA)
     ========================================================= */
     .review-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: 14px;
+      border-radius: 10px;
       padding: 20px;
       margin-bottom: 14px;
     }
@@ -587,47 +439,43 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .reviewer-name { font-size: 14px; font-weight: 700; color: #fff; }
     .stars { color: var(--gold-star); font-size: 12px; }
-    .review-body { font-size: 12.5px; color: #c5c8ce; font-style: italic; line-height: 1.5; }
+    .review-body { font-size: 13px; color: #c5c8ce; font-style: italic; line-height: 1.5; }
     
     .reply-tag {
-      margin-top: 10px;
+      margin-top: 12px;
       padding: 8px 12px;
       background: rgba(255, 255, 255, 0.03);
       border-left: 2px solid var(--red-bright);
-      font-size: 11px;
+      font-size: 11.5px;
       color: var(--text-muted);
       border-radius: 0 6px 6px 0;
     }
 
     /* =========================================================
-       LOCATION & MAP BUTTONS
+       LOCATION & FOOTER
     ========================================================= */
     .location-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 22px;
+      border-radius: 10px;
+      padding: 24px;
       text-align: center;
     }
 
-    .location-title { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
-    .location-address { font-size: 12px; color: var(--text-muted); margin-bottom: 18px; }
+    .location-title { font-size: 16px; font-weight: 800; margin-bottom: 6px; }
+    .location-address { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
 
-    .map-buttons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
+    .map-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
     .btn-map {
-      height: 44px;
-      border-radius: 8px;
-      font-size: 12px;
+      height: 46px;
+      border-radius: 6px;
+      font-size: 13px;
       font-weight: 700;
       text-decoration: none;
       display: flex;
@@ -639,9 +487,6 @@
       color: #fff;
     }
 
-    /* =========================================================
-       FOOTER INSTITUCIONAL
-    ========================================================= */
     .footer {
       background: var(--bg-surface);
       border-top: 1px solid var(--border-subtle);
@@ -649,45 +494,27 @@
       text-align: center;
     }
 
-    .footer-logo {
-      font-family: var(--font-heading);
-      font-size: 18px;
-      font-weight: 900;
-      margin-bottom: 8px;
-    }
-
+    .footer-logo { font-family: var(--font-heading); font-size: 18px; font-weight: 900; margin-bottom: 10px; }
     .footer-logo span { color: var(--red-bright); }
-
-    .footer-info {
-      font-size: 11px;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .footer-copy {
-      font-size: 10px;
-      color: #555;
-      border-top: 1px solid var(--border-subtle);
-      padding-top: 16px;
-    }
+    .footer-info { font-size: 12px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+    .footer-copy { font-size: 10px; color: #555; border-top: 1px solid var(--border-subtle); padding-top: 16px; }
 
     /* =========================================================
-       FIXED BOTTOM ACTION BAR (CTA BAR)
+       FIXED BOTTOM BAR (MOBILE)
     ========================================================= */
     .fixed-bottom-bar {
       position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 64px;
+      height: 66px;
       background: rgba(12, 13, 16, 0.95);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-top: 1px solid var(--border-subtle);
       z-index: 1000;
       display: grid;
-      grid-template-columns: 1fr 1.4fr;
+      grid-template-columns: 1fr 1.5fr;
       gap: 10px;
       padding: 10px 5%;
     }
@@ -702,7 +529,7 @@
       justify-content: center;
       gap: 6px;
       text-decoration: none;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
     }
 
@@ -715,7 +542,7 @@
       justify-content: center;
       gap: 6px;
       text-decoration: none;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 800;
       box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
     }
@@ -725,7 +552,7 @@
 
   <div class="top-bar">
     <div class="top-bar-status">
-      <span class="dot"></span> Oficina Aberta em Franca-SP
+      <span class="dot"></span> Aberto hoje até 18:00
     </div>
     <div>(16) 99152-0843</div>
   </div>
@@ -741,7 +568,7 @@
       </div>
       <div class="logo-text">
         <span class="brand-title">DOCTOR <span>CAR</span></span>
-        <span class="brand-sub">AUTO MECÂNICA</span>
+        <span class="brand-sub">FRANCA - SP</span>
       </div>
     </a>
 
@@ -755,51 +582,38 @@
   <div class="drawer-overlay" id="overlay"></div>
   <nav class="mobile-drawer" id="drawer">
     <div>
-      <div style="font-family: var(--font-heading); font-size: 18px; font-weight:800; margin-bottom: 20px;">
+      <div style="font-family: var(--font-heading); font-size: 18px; font-weight:800; margin-bottom: 24px;">
         DOCTOR <span style="color:var(--red-bright)">CAR</span>
       </div>
       <div class="drawer-nav">
         <a href="#hero" onclick="closeMenu()">Início <span>01</span></a>
-        <a href="#simulador" onclick="closeMenu()">Simular Orçamento <span>02</span></a>
+        <a href="#simulador" onclick="closeMenu()">Orçamento Online <span>02</span></a>
         <a href="#servicos" onclick="closeMenu()">Especialidades <span>03</span></a>
-        <a href="#diferenciais" onclick="closeMenu()">Sobre David & Igor <span>04</span></a>
-        <a href="#avaliacoes" onclick="closeMenu()">Avaliações Google <span>05</span></a>
-        <a href="#localizacao" onclick="closeMenu()">Como Chegar <span>06</span></a>
+        <a href="#avaliacoes" onclick="closeMenu()">Avaliações <span>04</span></a>
+        <a href="#localizacao" onclick="closeMenu()">Endereço <span>05</span></a>
       </div>
-    </div>
-
-    <div>
-      <a href="https://wa.me/5516991520843" target="_blank" class="btn-primary-tech" style="height: 46px; font-size: 12px;">
-        Falar no WhatsApp
-      </a>
     </div>
   </nav>
 
   <section class="hero" id="hero">
     <div class="hero-badge">
-      ★ 4.9 no Google • Especialistas em Manutenção
+      ★ 4.9 de 5.0 (80 Avaliações)
     </div>
 
     <h1>
-      Engenharia & <span>Precisão</span> Para <em>Seu Carro</em>
+      Seu Carro em <br><span>Boas Mãos</span>.
     </h1>
 
     <p class="hero-desc">
-      Diagnóstico computadorizado de ponta, manutenção preventiva e reparos mecânicos com transparência total na Vila Nicacio.
+      Na Doctor Car (Vila Nicacio, Franca-SP), a equipe do David e Igor entrega diagnóstico honesto, preço justo e manutenção de ponta.
     </p>
 
-    <div class="car-stage-container">
-      <div class="car-stage-bg"></div>
-      <div class="car-neon-glow"></div>
-      <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1000&auto=format&fit=crop" alt="Supercar Doctor Car" class="animated-car">
-    </div>
-
     <div class="hero-actions">
-      <a href="#simulador" class="btn-primary-tech">
-        ⚡ Simular Orçamento Rápido
+      <a href="#simulador" class="btn-primary">
+        Fazer Orçamento Online
       </a>
-      <a href="https://wa.me/5516991520843?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20preciso%20de%20atendimento." target="_blank" class="btn-secondary-tech">
-        💬 Conversar via WhatsApp
+      <a href="https://wa.me/5516991520843?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20preciso%20de%20atendimento." target="_blank" class="btn-secondary">
+        💬 Chamar no WhatsApp
       </a>
     </div>
   </section>
@@ -807,58 +621,53 @@
   <section class="stats-bar">
     <div class="stat-card">
       <h3>4.9<span>★</span></h3>
-      <p>Google</p>
+      <p>Nota Google</p>
     </div>
     <div class="stat-card">
-      <h3>80<span>+</span></h3>
-      <p>Avaliações</p>
+      <h3>David</h3>
+      <p>& Igor</p>
     </div>
     <div class="stat-card">
       <h3>100<span>%</span></h3>
-      <p>Garantia</p>
+      <p>Transparente</p>
     </div>
   </section>
 
   <section class="section-padding" id="simulador">
-    <div class="section-title-wrap">
-      <span class="section-tag">Agilidade no Atendimento</span>
-      <h2 class="section-title">Monte Seu Orçamento</h2>
-    </div>
+    <span class="section-tag">Agilidade no Atendimento</span>
+    <h2 class="section-title">Monte Seu Orçamento</h2>
 
     <div class="simulator-card">
       <div class="form-group">
-        <label>Seu Nome</label>
+        <label>Nome Completo</label>
         <input type="text" id="simNome" class="form-control" placeholder="Digite seu nome">
       </div>
 
       <div class="form-group">
-        <label>Marca / Modelo do Veículo</label>
+        <label>Veículo (Marca/Modelo/Ano)</label>
         <input type="text" id="simCarro" class="form-control" placeholder="Ex: Civic 2020 / Gol G6">
       </div>
 
       <div class="form-group">
-        <label>Serviço Necessário</label>
+        <label>Problema / Serviço</label>
         <select id="simServico" class="form-control">
-          <option value="Revisão Geral / Diagnóstico">Revisão Geral / Diagnóstico</option>
-          <option value="Freios & Suspensão">Freios & Suspensão</option>
-          <option value="Troca de Óleo & Filtros">Troca de Óleo & Filtros</option>
-          <option value="Sistema de Injeção Eletrônica">Sistema de Injeção Eletrônica</option>
-          <option value="Câmbio / Embreagem">Câmbio / Embreagem</option>
-          <option value="Barulho Estranho ou Outro">Outro Problema</option>
+          <option value="Revisão Preventiva">Revisão Preventiva</option>
+          <option value="Problema nos Freios">Problema nos Freios</option>
+          <option value="Troca de Óleo/Filtro">Troca de Óleo / Filtro</option>
+          <option value="Suspensão / Barulhos">Suspensão / Barulhos</option>
+          <option value="Outro (Detalhar no Whats)">Outro (Vou detalhar no Whats)</option>
         </select>
       </div>
 
-      <button type="button" onclick="enviarSimulacao()" class="btn-primary-tech" style="width: 100%; margin-top: 10px;">
+      <button type="button" onclick="enviarSimulacao()" class="btn-primary" style="width: 100%; margin-top: 8px;">
         Enviar para WhatsApp →
       </button>
     </div>
   </section>
 
   <section class="section-padding" id="servicos" style="background: var(--bg-surface);">
-    <div class="section-title-wrap">
-      <span class="section-tag">Serviços Especializados</span>
-      <h2 class="section-title">Soluções Mecânicas</h2>
-    </div>
+    <span class="section-tag">Nossas Especialidades</span>
+    <h2 class="section-title">Serviços Oferecidos</h2>
 
     <div class="services-grid">
       <div class="service-card">
@@ -866,8 +675,8 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
         </div>
         <div class="service-info">
-          <h4>Diagnóstico Computadorizado</h4>
-          <p>Leitura rápida de falhas via scanner para identificar problemas de injeção e módulos com precisão.</p>
+          <h4>Diagnóstico Especializado</h4>
+          <p>Leitura de injeção eletrônica com scanner.</p>
         </div>
       </div>
 
@@ -876,18 +685,8 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m10 15 5-3-5-3v6z"/></svg>
         </div>
         <div class="service-info">
-          <h4>Sistema de Freios</h4>
-          <p>Substituição de pastilhas, discos, sangria de fluido e manutenção de ABS com total segurança.</p>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div class="service-info">
-          <h4>Suspensão & Amortecedores</h4>
-          <p>Eliminação de ruídos, troca de buchas, pivôs, bieletas e amortecedores para rodar macio.</p>
+          <h4>Freios e Suspensão</h4>
+          <p>Pastilhas, discos, amortecedores e alinhamento.</p>
         </div>
       </div>
 
@@ -897,50 +696,15 @@
         </div>
         <div class="service-info">
           <h4>Revisão Preventiva</h4>
-          <p>Checklist rigoroso de itens essenciais antes de viajar ou para manter o veículo sempre novo.</p>
+          <p>Checklist completo de óleos, filtros e correias.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section-padding" id="diferenciais">
-    <div class="section-title-wrap">
-      <span class="section-tag">Por Que Escolher a Doctor Car?</span>
-      <h2 class="section-title">Qualidade & Atendimento</h2>
-    </div>
-
-    <div class="differentials-box">
-      <div class="diff-item">
-        <div class="diff-check">✓</div>
-        <div class="diff-text">
-          <h5>Atendimento Direto com Profissionais</h5>
-          <p>David, Igor e equipe técnica treinada prestam atendimento transparente e amigo.</p>
-        </div>
-      </div>
-
-      <div class="diff-item">
-        <div class="diff-check">✓</div>
-        <div class="diff-text">
-          <h5>Preço Justo em Mão de Obra e Peças</h5>
-          <p>Valores competitivos com procedência comprovada em peças originais e de reposição premium.</p>
-        </div>
-      </div>
-
-      <div class="diff-item">
-        <div class="diff-check">✓</div>
-        <div class="diff-text">
-          <h5>Honestidade do Diagnóstico à Entrega</h5>
-          <p>Aprovamos o orçamento antes de executar qualquer serviço no seu carro.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-padding" id="avaliacoes" style="background: var(--bg-surface);">
-    <div class="section-title-wrap">
-      <span class="section-tag">Depoimentos Reais no Google</span>
-      <h2 class="section-title">O Que Dizem Nossos Clientes</h2>
-    </div>
+  <section class="section-padding" id="avaliacoes">
+    <span class="section-tag">O que Dizem Nossos Clientes</span>
+    <h2 class="section-title">Avaliações do Google</h2>
 
     <div class="review-card">
       <div class="review-header">
@@ -968,26 +732,20 @@
     </div>
   </section>
 
-  <section class="section-padding" id="localizacao">
-    <div class="section-title-wrap">
-      <span class="section-tag">Localização Conveniente</span>
-      <h2 class="section-title">Venha Conhecer</h2>
-    </div>
+  <section class="section-padding" id="localizacao" style="background: var(--bg-surface);">
+    <span class="section-tag">Venha nos Visitar</span>
+    <h2 class="section-title">Nossa Localização</h2>
 
     <div class="location-card">
-      <div style="font-size: 28px; margin-bottom: 8px;">📍</div>
+      <div style="font-size: 26px; margin-bottom: 8px;">📍</div>
       <h3 class="location-title">Auto Mecânica Doctor Car</h3>
       <p class="location-address">
         R. Torquato Caleiro, 341 - Vila Nicacio<br>Franca - SP, 14405-118
       </p>
 
       <div class="map-buttons">
-        <a href="https://maps.google.com/?q=Auto+Mecanica+Doctor+Car+Franca+SP" target="_blank" class="btn-map">
-          🗺️ Google Maps
-        </a>
-        <a href="https://waze.com/ul?q=Rua+Torquato+Caleiro+341+Franca" target="_blank" class="btn-map">
-          🚗 Abrir no Waze
-        </a>
+        <a href="https://maps.google.com/?q=Auto+Mecanica+Doctor+Car+Franca+SP" target="_blank" class="btn-map">🗺️ Google Maps</a>
+        <a href="https://waze.com/ul?q=Rua+Torquato+Caleiro+341+Franca" target="_blank" class="btn-map">🚗 Waze</a>
       </div>
     </div>
   </section>
@@ -995,12 +753,11 @@
   <footer class="footer">
     <div class="footer-logo">DOCTOR <span>CAR</span></div>
     <p class="footer-info">
-      Oficina Mecânica Especializada • Franca / SP<br>
-      Segunda a Sexta: 08:00 às 18:00<br>
-      Telefone / WhatsApp: (16) 99152-0843
+      (16) 99152-0843<br>
+      Seg - Sex: 08:00 às 18:00
     </p>
     <div class="footer-copy">
-      © 2026 Auto Mecânica Doctor Car. Todos os direitos reservados.
+      © 2026 Auto Mecânica Doctor Car.
     </div>
   </footer>
 
@@ -1009,12 +766,12 @@
       📞 Ligar
     </a>
     <a href="https://wa.me/5516991520843?text=Ol%C3%A1,%20gostaria%20de%20agendar%20um%20servi%C3%A7o!" target="_blank" class="bar-btn-wa">
-      💬 WhatsApp Direto
+      💬 Chamar no Whats
     </a>
   </div>
 
   <script>
-    // Controls Menu Mobile Drawer
+    // Menu
     const menuBtn = document.getElementById('menuBtn');
     const drawer = document.getElementById('drawer');
     const overlay = document.getElementById('overlay');
@@ -1034,13 +791,13 @@
     menuBtn.addEventListener('click', toggleMenu);
     overlay.addEventListener('click', closeMenu);
 
-    // Dynamic WhatsApp Quote Simulator
+    // Simulador
     function enviarSimulacao() {
       const nome = document.getElementById('simNome').value || 'Cliente';
       const carro = document.getElementById('simCarro').value || 'Veículo não informado';
       const servico = document.getElementById('simServico').value;
 
-      const texto = `Olá! Meu nome é *${nome}*.\nGostaria de um orçamento para o meu veículo: *${carro}*.\nServiço pretendido: *${servico}*.`;
+      const texto = `Olá! Meu nome é *${nome}*.\nGostaria de falar sobre o veículo: *${carro}*.\nAssunto: *${servico}*.`;
       const url = `https://wa.me/5516991520843?text=${encodeURIComponent(texto)}`;
       
       window.open(url, '_blank');
