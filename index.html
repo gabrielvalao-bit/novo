@@ -3,475 +3,707 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doctor Car — Engenharia Automotiva</title>
-  <meta name="description" content="Doctor Car — diagnóstico, manutenção e cuidados automotivos com precisão, transparência e tecnologia.">
+  <title>Doctor Car — Centro de Engenharia & Performance Automotiva</title>
+  <meta name="description" content="Doctor Car — Oficina especializada em diagnóstico avançado, mecânica de precisão e alta performance automotiva.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
   <style>
     /* =========================================================
-       RESET & VARIABLES
+       DESIGN SYSTEM & LUXURY AUTOMOTIVE VARIABLES
     ========================================================= */
+    :root {
+      --bg-dark: #070708;
+      --bg-surface: #0f1013;
+      --bg-card: #15161b;
+      --red-racing: #e10600;
+      --red-glow: rgba(225, 6, 0, 0.45);
+      --red-bright: #ff2a2a;
+      --text-main: #f0f0f2;
+      --text-muted: #8e9299;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-active: rgba(225, 6, 0, 0.5);
+      --font-heading: 'Syne', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    :root {
-      --black: #0b0c0d;
-      --black2: #151617;
-      --red: #e51c23;
-      --red-bright: #ff333a;
-      --red-dark: #b91016;
-      --red-glow: rgba(229, 28, 35, 0.45);
-      --cream: #f5f5f2;
-      --white: #fff;
-      --gray: #777a7c;
-      --line: #deded9;
-    }
-
     html {
       scroll-behavior: smooth;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
     }
 
-    body {
-      background: var(--black);
-      color: var(--white);
-      font-family: "DM Sans", sans-serif;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-      cursor: pointer;
-    }
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-dark); }
+    ::-webkit-scrollbar-thumb { background: #22242a; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--red-racing); }
 
     /* =========================================================
-       SCROLLBAR
+       HEADER & NAVIGATION (Glassmorphism)
     ========================================================= */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: var(--black);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #222;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--red);
-    }
-
-    /* =========================================================
-       NAVBAR
-    ========================================================= */
-    .nav {
+    .header {
       position: fixed;
-      left: 0;
       top: 0;
+      left: 0;
       width: 100%;
-      height: 80px;
+      height: 84px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 5.5%;
+      padding: 0 5%;
       z-index: 1000;
-      color: var(--white);
-      transition: background 0.35s, backdrop-filter 0.35s, height 0.35s, border-bottom 0.35s;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      border-bottom: 1px solid transparent;
     }
 
-    .nav.scrolled {
-      height: 68px;
-      background: rgba(11, 12, 13, 0.92);
+    .header.scrolled {
+      height: 70px;
+      background: rgba(7, 7, 8, 0.85);
       backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
-    /* Novo Logo Futurista / Tecnológico */
-    .logo {
+    /* Redesigned Porsche-Inspired SVG Emblem Logo */
+    .logo-container {
       display: flex;
       align-items: center;
       gap: 14px;
-      font-family: "Manrope", sans-serif;
-      font-weight: 900;
-      font-size: 20px;
-      letter-spacing: -0.5px;
-      text-transform: uppercase;
-      user-select: none;
+      text-decoration: none;
       cursor: pointer;
     }
 
-    .logo-badge {
+    .emblem {
       position: relative;
-      width: 44px;
-      height: 44px;
-      display: grid;
-      place-items: center;
-      border-radius: 10px;
-      background: linear-gradient(135deg, rgba(229, 28, 35, 0.2) 0%, rgba(15, 15, 15, 0.8) 100%);
-      border: 1px solid rgba(229, 28, 35, 0.4);
-      box-shadow: 0 0 20px rgba(229, 28, 35, 0.25);
-      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s, border-color 0.4s;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #181a20 0%, #0a0b0d 100%);
+      border: 1px solid rgba(225, 6, 0, 0.4);
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(225, 6, 0, 0.2);
+      transition: all 0.4s ease;
     }
 
-    .logo-badge svg {
-      width: 26px;
-      height: 26px;
-      filter: drop-shadow(0 0 6px rgba(255, 51, 58, 0.8));
-    }
-
-    .logo:hover .logo-badge {
-      transform: scale(1.08) rotate(-3deg);
+    .logo-container:hover .emblem {
       border-color: var(--red-bright);
       box-shadow: 0 0 30px var(--red-glow);
+      transform: scale(1.05) translateY(-1px);
+    }
+
+    .emblem svg {
+      width: 28px;
+      height: 28px;
+      filter: drop-shadow(0 0 6px var(--red-glow));
     }
 
     .logo-text {
       display: flex;
       flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #fff;
       line-height: 1;
     }
 
-    .logo-text .brand {
-      font-size: 18px;
-      font-weight: 900;
-      color: var(--white);
-      letter-spacing: -0.5px;
-    }
-
-    .logo-text .brand span {
+    .brand-title span {
       color: var(--red-bright);
-      text-shadow: 0 0 12px rgba(229, 28, 35, 0.6);
+      text-shadow: 0 0 10px rgba(225, 6, 0, 0.5);
     }
 
-    .logo-text .tagline {
-      font-size: 8.5px;
+    .brand-sub {
+      font-size: 9px;
       font-weight: 700;
-      color: #888;
-      letter-spacing: 2.2px;
-      margin-top: 3px;
+      letter-spacing: 2.5px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 4px;
     }
 
+    /* Nav Items */
     .nav-links {
       display: flex;
-      gap: 34px;
+      gap: 36px;
       list-style: none;
-      font-size: 13px;
-      font-weight: 500;
-      color: #b5b5b3;
     }
 
     .nav-links a {
+      color: #b0b4ba;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
       position: relative;
-      transition: 0.3s;
     }
 
     .nav-links a:hover {
-      color: var(--white);
+      color: #fff;
     }
 
     .nav-links a::after {
-      content: "";
+      content: '';
       position: absolute;
       bottom: -6px;
       left: 0;
-      width: 0;
+      width: 0%;
       height: 2px;
-      background: var(--red-bright);
-      border-radius: 2px;
-      transition: 0.3s;
-      box-shadow: 0 0 8px var(--red);
+      background: var(--red-racing);
+      box-shadow: 0 0 8px var(--red-racing);
+      transition: width 0.3s ease;
     }
 
     .nav-links a:hover::after {
       width: 100%;
     }
 
-    .nav-right {
+    .btn-cta {
+      background: linear-gradient(135deg, var(--red-racing) 0%, #a00400 100%);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(225, 6, 0, 0.35);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(225, 6, 0, 0.6);
+      background: linear-gradient(135deg, #ff1a14 0%, var(--red-racing) 100%);
+    }
+
+    /* =========================================================
+       HERO SECTION (High Performance Aesthetic)
+    ========================================================= */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 140px 5% 80px;
+      background: radial-gradient(circle at 80% 30%, rgba(225, 6, 0, 0.12) 0%, transparent 50%),
+                  radial-gradient(circle at 20% 70%, rgba(15, 16, 19, 0.8) 0%, var(--bg-dark) 100%);
+      overflow: hidden;
+    }
+
+    /* Technical Grid Pattern Overlay */
+    .hero-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+    }
+
+    .badge-certified {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(225, 6, 0, 0.1);
+      border: 1px solid rgba(225, 6, 0, 0.3);
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--red-bright);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .badge-certified .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--red-bright);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--red-bright);
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(44px, 5.5vw, 76px);
+      font-weight: 800;
+      line-height: 0.98;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(180deg, #ffffff 0%, #888b94 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--red-bright);
+      -webkit-text-fill-color: initial;
+      text-shadow: 0 0 25px rgba(225, 6, 0, 0.4);
+    }
+
+    .hero-description {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 38px;
+      max-width: 560px;
+    }
+
+    .hero-actions {
       display: flex;
       align-items: center;
       gap: 20px;
     }
 
-    .nav-phone {
-      color: #a0a09e;
-      font-size: 12px;
-      font-weight: 600;
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
       letter-spacing: 0.5px;
-    }
-
-    .nav-cta {
-      background: var(--white);
-      color: #0d0d0e;
-      padding: 12px 22px;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.3px;
+      padding: 12px 20px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
     }
 
-    .nav-cta:hover {
-      background: var(--red-bright);
-      color: var(--white);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(229, 28, 35, 0.4);
+    .btn-secondary:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Visual High Tech Glow Element */
+    .hero-graphic {
+      position: absolute;
+      right: -5%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 55vw;
+      height: 55vw;
+      max-width: 700px;
+      max-height: 700px;
+      background: radial-gradient(circle, rgba(225, 6, 0, 0.18) 0%, transparent 65%);
+      border-radius: 50%;
+      filter: blur(50px);
+      pointer-events: none;
     }
 
     /* =========================================================
-       HERO SECTION
+       SPECIFICATIONS / STATS STRIP
     ========================================================= */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      background: #08090a;
-      color: var(--white);
-      overflow: hidden;
+    .stats-strip {
+      background: var(--bg-surface);
+      border-y: 1px solid var(--border-subtle);
+      padding: 35px 5%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .stat-item {
       display: flex;
-      align-items: flex-end;
-      padding: 160px 5.5% 90px;
+      flex-direction: column;
+      gap: 6px;
     }
 
-    .hero-number {
-      position: absolute;
-      right: -1%;
-      top: -2%;
-      font-family: "Manrope", sans-serif;
-      font-size: clamp(250px, 35vw, 560px);
-      line-height: 1;
-      font-weight: 900;
-      color: rgba(255, 255, 255, 0.015);
-      letter-spacing: -30px;
-      user-select: none;
-      pointer-events: none;
+    .stat-number {
+      font-family: var(--font-heading);
+      font-size: 32px;
+      font-weight: 800;
+      color: #fff;
     }
 
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      opacity: 0.12;
-      background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
-      background-size: 70px 70px;
-      mask-image: radial-gradient(circle at 60% 40%, black 20%, transparent 80%);
+    .stat-number span {
+      color: var(--red-bright);
     }
 
-    .hero-light {
-      position: absolute;
-      width: 750px;
-      height: 750px;
-      right: -100px;
-      top: 50px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(229, 28, 35, 0.3) 0%, transparent 65%);
-      filter: blur(60px);
-      animation: lightMove 9s ease-in-out infinite alternate;
-      pointer-events: none;
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
     }
 
-    @keyframes lightMove {
-      from { transform: translate(0, 0) scale(1); }
-      to { transform: translate(-100px, 60px) scale(1.15); }
+    /* =========================================================
+       SERVICES GRID SECTION
+    ========================================================= */
+    .services {
+      padding: 100px 5%;
+      background: var(--bg-dark);
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 10;
-      width: 52%;
-      max-width: 700px;
+    .section-header {
+      margin-bottom: 60px;
+      text-align: left;
     }
 
-    .eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .section-subtitle {
       color: var(--red-bright);
       font-size: 11px;
       font-weight: 800;
       letter-spacing: 3px;
       text-transform: uppercase;
-      margin-bottom: 24px;
+      margin-bottom: 10px;
     }
 
-    .eyebrow span {
-      width: 32px;
-      height: 2px;
-      background: var(--red-bright);
-      box-shadow: 0 0 10px var(--red);
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 800;
+      letter-spacing: -1px;
     }
 
-    .hero h1 {
-      font-family: "Manrope", sans-serif;
-      font-size: clamp(52px, 6vw, 92px);
-      line-height: 0.92;
-      letter-spacing: -4px;
-      font-weight: 900;
-      margin-bottom: 28px;
+    .grid-services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
     }
 
-    .hero h1 em {
-      color: #888b8d;
-      font-style: normal;
+    .card-service {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 36px 28px;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero-text {
-      color: #9a9d9f;
-      max-width: 520px;
-      font-size: 16px;
-      line-height: 1.7;
-      margin-bottom: 36px;
+    .card-service::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--red-racing), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
     }
 
-    .hero-buttons {
+    .card-service:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-active);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-service:hover::before {
+      opacity: 1;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
       display: flex;
       align-items: center;
-      gap: 16px;
+      justify-content: center;
+      margin-bottom: 24px;
+      color: var(--red-bright);
     }
 
-    .primary {
-      display: inline-flex;
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .card-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* =========================================================
+       MODAL (Agendamento VIP)
+    ========================================================= */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      z-index: 2000;
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 14px;
-      padding: 18px 32px;
-      background: linear-gradient(135deg, var(--red-bright) 0%, var(--red-dark) 100%);
-      color: var(--white);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      border-radius: 4px;
-      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-      box-shadow: 0 10px 30px rgba(229, 28, 35, 0.35);
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
     }
 
-    .primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(229, 28, 35, 0.5);
-      background: linear-gradient(135deg, #ff4d53 0%, var(--red) 100%);
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: all;
     }
 
-    .secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      color: #ccc;
-      font-size: 12px;
+    .modal-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-active);
+      border-radius: 16px;
+      padding: 40px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 20px 50px rgba(225, 6, 0, 0.3);
+      position: relative;
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.active .modal-box {
+      transform: scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
       font-weight: 700;
-      padding: 18px 12px;
-      transition: color 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      color: var(--text-muted);
     }
 
-    .secondary:hover {
-      color: var(--white);
+    .form-group input, .form-group select {
+      width: 100%;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      padding: 12px 16px;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 14px;
+      outline: none;
     }
 
-    .secondary .arrow {
-      width: 36px;
-      height: 36px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      transition: all 0.3s;
-    }
-
-    .secondary:hover .arrow {
+    .form-group input:focus {
       border-color: var(--red-bright);
-      color: var(--red-bright);
-      transform: translateX(5px);
     }
 
-    @media (max-width: 992px) {
-      .hero-content { width: 100%; }
+    /* Responsive adjustments */
+    @media (max-width: 868px) {
       .nav-links { display: none; }
+      .hero { padding-top: 120px; }
+      .hero h1 { font-size: 42px; }
     }
   </style>
 </head>
 <body>
 
-  <header class="nav" id="navbar">
-    <a href="#" class="logo">
-      <div class="logo-badge">
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 19C3 19 6 18 10 18C13 18 15 14 17 14C19 14 21 21 23 21C25 21 27 19 29 19" stroke="#FF333A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M4 14.5L8 10.5H20L27 15.5V18.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="8.5" cy="19.5" r="2.5" fill="#FF333A"/>
-          <circle cx="22.5" cy="19.5" r="2.5" fill="#FF333A"/>
+  <header class="header" id="mainHeader">
+    <a href="#" class="logo-container">
+      <div class="emblem">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 3L4 9V17C4 24.5 10 30.5 18 33C26 30.5 32 24.5 32 17V9L18 3Z" fill="#0F1013" stroke="#FF2A2A" stroke-width="2"/>
+          <path d="M8 19C12 19 14 13 18 13C22 13 24 21 28 21" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="18" cy="13" r="2.5" fill="#FF2A2A"/>
         </svg>
       </div>
       <div class="logo-text">
-        <span class="brand">DOCTOR<span>CAR</span></span>
-        <span class="tagline">ENGENHARIA AUTOMOTIVA</span>
+        <span class="brand-title">DOCTOR <span>CAR</span></span>
+        <span class="brand-sub">ENGENHARIA & PERFORMANCE</span>
       </div>
     </a>
 
-    <ul class="nav-links">
-      <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#diagnostico">Diagnóstico Precision</a></li>
-      <li><a href="#sobre">Sobre Nós</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#especialidades">Especialidades</a></li>
+        <li><a href="#diagnostico">Diagnóstico Computadorizado</a></li>
+        <li><a href="#performance">Engenharia</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
 
-    <div class="nav-right">
-      <span class="nav-phone">(11) 99999-8888</span>
-      <a href="#agendamento" class="nav-cta">AGENDAR VISITA</a>
-    </div>
+    <a href="javascript:void(0)" class="btn-cta" onclick="toggleModal(true)">Agendar Visita</a>
   </header>
 
   <section class="hero">
-    <div class="hero-number">01</div>
-    <div class="hero-grid"></div>
-    <div class="hero-light"></div>
+    <div class="hero-grid-bg"></div>
+    <div class="hero-graphic"></div>
 
     <div class="hero-content">
-      <div class="eyebrow">
-        <span></span>
-        Precisão & Tecnologias Automotivas
+      <div class="badge-certified">
+        <span class="dot"></span>
+        Diagnóstico Nível Concessionária Premium
       </div>
 
       <h1>
-        ENGENHARIA DE <em>ALTA PERFORMANCE</em>
+        Cuidamos da <span>Sua Máquina</span> Com <em>Precisão Absoluta</em>
       </h1>
 
-      <p class="hero-text">
-        A combinação perfeita entre diagnóstico computadorizado avançado, ciência mecânica e transparência absoluta para o seu veículo.
+      <p class="hero-description">
+        Oficina especializada em veículos de alta performance. Tecnologia avançada de diagnóstico, mecânica de engenharia e transparência total para quem exige o melhor.
       </p>
 
-      <div class="hero-buttons">
-        <a href="#agendamento" class="primary">
-          Agendar Diagnóstico
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-        </a>
-        <a href="#servicos" class="secondary">
-          <span>Ver Serviços</span>
-          <div class="arrow">→</div>
-        </a>
+      <div class="hero-actions">
+        <a href="javascript:void(0)" class="btn-cta" onclick="toggleModal(true)">Agendar Diagnóstico VIP</a>
+        <a href="#especialidades" class="btn-secondary">Conhecer Serviços →</a>
       </div>
     </div>
   </section>
 
+  <section class="stats-strip">
+    <div class="stat-item">
+      <div class="stat-number">100<span>%</span></div>
+      <div class="stat-label">Equipamentos Originais</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">+15<span>mil</span></div>
+      <div class="stat-label">Diagnósticos Precisos</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">01<span>s</span></div>
+      <div class="stat-label">Telemetria de Ponta</div>
+    </div>
+  </section>
+
+  <section class="services" id="especialidades">
+    <div class="section-header">
+      <div class="section-subtitle">Alta Engenharia</div>
+      <h2 class="section-title">Serviços Especializados</h2>
+    </div>
+
+    <div class="grid-services">
+      <div class="card-service">
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3 class="card-title">Diagnóstico Computadorizado</h3>
+        <p class="card-desc">Scanners dedicados aos protocolos de fábrica para leitura exata de parâmetros de injeção, sensores e módulos eletrônicos.</p>
+      </div>
+
+      <div class="card-service">
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m10 15 5-3-5-3v6z"/></svg>
+        </div>
+        <h3 class="card-title">Câmbio Automático & PDK</h3>
+        <p class="card-desc">Manutenção preventiva, troca fluídica por diálise e reprogramação de transmissões de dupla embreagem de alta performance.</p>
+      </div>
+
+      <div class="card-service">
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="card-title">Revisão Preventiva Premium</h3>
+        <p class="card-desc">Checklist rigoroso com mais de 100 itens inspecionados para garantir máxima confiabilidade em pistas e rodovias.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="toggleModal(false)">&times;</button>
+      <h3 style="font-family: var(--font-heading); font-size: 22px; margin-bottom: 8px;">Agende Seu Atendimento</h3>
+      <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">Preencha os dados do seu veículo para um diagnóstico prioritário.</p>
+      
+      <form onsubmit="handleFormSubmit(event)">
+        <div class="form-group">
+          <label>Nome Completo</label>
+          <input type="text" placeholder="Seu nome" required>
+        </div>
+        <div class="form-group">
+          <label>Modelo do Veículo & Ano</label>
+          <input type="text" placeholder="Ex: Porsche 911 / BMW M3 - 2022" required>
+        </div>
+        <div class="form-group">
+          <label>Serviço Desejado</label>
+          <select required>
+            <option value="">Selecione a especialidade</option>
+            <option>Diagnóstico Eletrônico Avançado</option>
+            <option>Revisão Periódica / Preventiva</option>
+            <option>Câmbio & Transmissão</option>
+            <option>Suspensão & Freios de Alta Performance</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-cta" style="width: 100%; padding: 14px; margin-top: 10px;">Confirmar Solicitação</button>
+      </form>
+    </div>
+  </div>
+
   <script>
-    // Efeito na Navbar ao rolar a página
+    // Glassmorphism Navbar Effect on Scroll
     window.addEventListener('scroll', () => {
-      const nav = document.getElementById('navbar');
-      if (window.scrollY > 40) {
-        nav.classList.add('scrolled');
+      const header = document.getElementById('mainHeader');
+      if (window.scrollY > 30) {
+        header.classList.add('scrolled');
       } else {
-        nav.classList.remove('scrolled');
+        header.classList.remove('scrolled');
       }
     });
+
+    // Modal Control
+    function toggleModal(show) {
+      const modal = document.getElementById('bookingModal');
+      if (show) {
+        modal.classList.add('active');
+      } else {
+        modal.classList.remove('active');
+      }
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      alert('Solicitação enviada com sucesso! Nossa equipe entrará em contato em breve.');
+      toggleModal(false);
+    }
   </script>
 </body>
 </html>
