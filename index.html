@@ -3,13 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Doctor Car | Oficina Mecânica</title>
+
+<title>Doctor Car | Engenharia Automotiva</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -21,53 +24,99 @@ html{
 }
 
 body{
-    font-family:'Inter',sans-serif;
-    background:#050608;
-    color:#fff;
+    background:#030405;
+    color:white;
+    font-family:Inter,Arial,sans-serif;
     overflow-x:hidden;
 }
 
 :root{
     --red:#ff1717;
     --red2:#ff3b3b;
-    --dark:#050608;
-    --card:#0c0e12;
-    --gray:#9da3ad;
+    --white:#fff;
+    --gray:#8d949e;
 }
 
-/* CURSOR LIGHT */
-.cursor-light{
+/* =========================================
+   PRELOADER
+========================================= */
+
+#loader{
     position:fixed;
-    width:350px;
-    height:350px;
-    border-radius:50%;
-    pointer-events:none;
-    background:radial-gradient(circle,rgba(255,20,20,.12),transparent 65%);
-    transform:translate(-50%,-50%);
-    z-index:0;
+    inset:0;
+    background:#020304;
+    z-index:99999;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    transition:opacity 1s;
 }
 
-/* NAV */
+.loader-logo{
+    font-size:34px;
+    font-weight:900;
+    letter-spacing:-2px;
+}
+
+.loader-logo span{
+    color:#ff1717;
+}
+
+.loader-line{
+    width:180px;
+    height:2px;
+    background:#202328;
+    margin-top:25px;
+    overflow:hidden;
+}
+
+.loader-line div{
+    width:40%;
+    height:100%;
+    background:#ff1717;
+    box-shadow:0 0 20px red;
+    animation:loader 1.2s infinite;
+}
+
+@keyframes loader{
+    from{
+        transform:translateX(-100%);
+    }
+    to{
+        transform:translateX(350%);
+    }
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
 nav{
     position:fixed;
     top:0;
     left:0;
     width:100%;
-    height:80px;
+    height:82px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 7%;
-    z-index:100;
-    background:rgba(5,6,8,.72);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(255,255,255,.05);
+
+    padding:0 6%;
+
+    z-index:1000;
+
+    background:rgba(2,3,4,.65);
+    backdrop-filter:blur(20px);
+
+    border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .logo{
-    font-size:24px;
+    font-size:25px;
     font-weight:900;
-    letter-spacing:-1px;
+    letter-spacing:-1.5px;
 }
 
 .logo span{
@@ -75,832 +124,1162 @@ nav{
 }
 
 nav ul{
-    display:flex;
-    gap:35px;
     list-style:none;
+    display:flex;
+    gap:38px;
 }
 
 nav a{
-    color:#ddd;
     text-decoration:none;
-    font-size:14px;
+    color:#b8bdc5;
+    font-size:13px;
+    font-weight:600;
     transition:.3s;
 }
 
 nav a:hover{
-    color:var(--red);
+    color:#fff;
 }
 
-.nav-btn{
-    background:var(--red);
-    padding:13px 22px;
-    border-radius:8px;
-    font-weight:700;
+.nav-button{
     color:#fff;
     text-decoration:none;
+    background:#e81717;
+    padding:13px 21px;
+    border-radius:7px;
+    font-size:13px;
+    font-weight:800;
     box-shadow:0 0 25px rgba(255,0,0,.25);
+    transition:.3s;
 }
 
-/* HERO */
+.nav-button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 35px rgba(255,0,0,.5);
+}
+
+/* =========================================
+   HERO
+========================================= */
+
 .hero{
     min-height:100vh;
     position:relative;
+
     display:flex;
     align-items:center;
-    padding:130px 7% 70px;
+
+    padding:120px 6% 60px;
+
     overflow:hidden;
+
     background:
-    radial-gradient(circle at 75% 50%,rgba(255,0,0,.13),transparent 35%),
-    linear-gradient(110deg,#050608 40%,#090b10);
+    radial-gradient(
+        circle at 78% 50%,
+        rgba(255,0,0,.13),
+        transparent 35%
+    ),
+    linear-gradient(
+        110deg,
+        #030405 35%,
+        #07090c
+    );
 }
 
 .grid{
     position:absolute;
     inset:0;
-    opacity:.18;
+
+    opacity:.15;
+
     background-image:
-    linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
-    background-size:50px 50px;
-    mask-image:linear-gradient(to bottom,transparent,black,transparent);
+        linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+
+    background-size:55px 55px;
+
+    mask-image:linear-gradient(
+        to bottom,
+        transparent,
+        black 25%,
+        black 70%,
+        transparent
+    );
 }
 
+/* =========================================
+   HERO TEXT
+========================================= */
+
 .hero-content{
+    width:48%;
     position:relative;
-    z-index:5;
-    max-width:650px;
+    z-index:10;
 }
 
 .badge{
     display:inline-flex;
     align-items:center;
-    gap:8px;
-    border:1px solid rgba(255,30,30,.35);
-    background:rgba(255,0,0,.07);
+    gap:9px;
+
+    border:1px solid rgba(255,0,0,.3);
+    background:rgba(255,0,0,.06);
+
+    color:#ff6666;
+
     padding:8px 13px;
-    border-radius:30px;
-    color:#ff6b6b;
-    font-size:12px;
-    font-weight:700;
+
+    border-radius:50px;
+
+    font-size:11px;
+    font-weight:800;
+
+    letter-spacing:1px;
+
     margin-bottom:25px;
 }
 
 .badge i{
     width:7px;
     height:7px;
+
+    background:#ff1616;
     border-radius:50%;
-    background:#ff2222;
-    box-shadow:0 0 12px red;
+
+    box-shadow:0 0 15px red;
+
+    animation:blink 1.5s infinite;
 }
 
-h1{
-    font-size:clamp(48px,6vw,86px);
-    line-height:.95;
-    letter-spacing:-5px;
+@keyframes blink{
+    50%{
+        opacity:.3;
+    }
+}
+
+.hero h1{
+    font-size:clamp(52px,6vw,88px);
+    line-height:.92;
+
+    letter-spacing:-6px;
+
     margin-bottom:28px;
 }
 
-h1 span{
-    color:var(--red);
-    text-shadow:0 0 40px rgba(255,0,0,.3);
+.hero h1 span{
+    color:#ff1717;
+
+    text-shadow:
+        0 0 25px rgba(255,0,0,.3),
+        0 0 70px rgba(255,0,0,.1);
 }
 
-.hero p{
-    color:#a9adb5;
-    max-width:570px;
-    line-height:1.7;
-    font-size:17px;
-    margin-bottom:35px;
+.hero-description{
+    color:#969da6;
+
+    max-width:580px;
+
+    line-height:1.8;
+
+    font-size:16px;
+
+    margin-bottom:34px;
 }
 
 .buttons{
     display:flex;
-    gap:15px;
+    gap:14px;
     flex-wrap:wrap;
 }
 
 .btn{
-    padding:16px 25px;
-    border-radius:9px;
     text-decoration:none;
+
+    padding:16px 24px;
+
+    border-radius:8px;
+
+    font-size:13px;
     font-weight:800;
+
     transition:.3s;
 }
 
 .btn-red{
-    background:var(--red);
     color:white;
-    box-shadow:0 10px 35px rgba(255,0,0,.25);
+
+    background:#ef1717;
+
+    box-shadow:
+        0 10px 35px rgba(255,0,0,.25);
 }
 
 .btn-red:hover{
     transform:translateY(-4px);
-    box-shadow:0 15px 45px rgba(255,0,0,.4);
+
+    box-shadow:
+        0 15px 50px rgba(255,0,0,.45);
 }
 
-.btn-dark{
+.btn-outline{
+    color:white;
+
     border:1px solid rgba(255,255,255,.12);
-    color:#fff;
-    background:rgba(255,255,255,.03);
+
+    background:rgba(255,255,255,.025);
 }
 
-.btn-dark:hover{
-    border-color:var(--red);
+.btn-outline:hover{
+    border-color:#ff1717;
 }
 
-/* ENGINE */
-.engine-area{
+/* =========================================
+   ENGINE WEBGL
+========================================= */
+
+.engine-wrapper{
     position:absolute;
+
     right:-4%;
     top:50%;
+
     transform:translateY(-50%);
-    width:54vw;
+
+    width:58%;
+    height:720px;
+
+    z-index:3;
+}
+
+#engineCanvas{
+    width:100%;
+    height:100%;
+
+    display:block;
+}
+
+.engine-glow{
+    position:absolute;
+
+    width:650px;
     height:650px;
-    perspective:1200px;
-}
 
-.engine{
-    position:absolute;
-    width:500px;
-    height:330px;
     left:50%;
     top:50%;
-    transform:translate(-50%,-50%) rotateX(12deg) rotateY(-20deg);
-    transform-style:preserve-3d;
-    animation:floatEngine 5s ease-in-out infinite;
-}
 
-@keyframes floatEngine{
-    0%,100%{transform:translate(-50%,-50%) rotateX(12deg) rotateY(-20deg) translateY(0)}
-    50%{transform:translate(-50%,-50%) rotateX(12deg) rotateY(-20deg) translateY(-15px)}
-}
-
-.engine-block{
-    position:absolute;
-    width:430px;
-    height:210px;
-    left:35px;
-    top:70px;
-    border-radius:25px;
-    background:
-    linear-gradient(145deg,#24282e,#080a0d);
-    border:2px solid #393e45;
-    box-shadow:
-    0 35px 70px rgba(0,0,0,.8),
-    inset 0 0 40px rgba(255,255,255,.04);
-    transform:translateZ(20px);
-}
-
-.engine-top{
-    position:absolute;
-    width:390px;
-    height:75px;
-    left:20px;
-    top:-45px;
-    border-radius:20px;
-    background:linear-gradient(145deg,#15181c,#30343a);
-    border:2px solid #4a4f56;
-    transform:skewX(-10deg) translateZ(40px);
-}
-
-.engine-top:after{
-    content:"DOCTOR CAR";
-    position:absolute;
-    inset:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:#ff2020;
-    font-weight:900;
-    letter-spacing:4px;
-    text-shadow:0 0 15px red;
-}
-
-.cylinder{
-    position:absolute;
-    width:70px;
-    height:145px;
-    top:92px;
-    border-radius:15px;
-    background:linear-gradient(90deg,#111,#4b5057,#111);
-    border:2px solid #5a6068;
-    box-shadow:inset 0 0 20px #000;
-    transform:translateZ(70px);
-}
-
-.c1{left:70px}
-.c2{left:150px}
-.c3{left:230px}
-.c4{left:310px}
-
-.piston{
-    position:absolute;
-    width:50px;
-    height:65px;
-    background:linear-gradient(90deg,#999,#eee,#777);
-    border-radius:8px;
-    left:10px;
-    top:20px;
-    animation:piston 1s infinite ease-in-out;
-}
-
-.c2 .piston{animation-delay:.15s}
-.c3 .piston{animation-delay:.3s}
-.c4 .piston{animation-delay:.45s}
-
-@keyframes piston{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(42px)}
-}
-
-.crank{
-    position:absolute;
-    width:400px;
-    height:30px;
-    left:50px;
-    top:250px;
-    background:linear-gradient(#777,#222,#777);
-    border-radius:20px;
-    transform:translateZ(100px) rotateZ(-5deg);
-    box-shadow:0 0 20px rgba(255,0,0,.2);
-}
-
-.gear{
-    position:absolute;
-    border:10px dashed #777;
-    border-radius:50%;
-    animation:spin 2s linear infinite;
-}
-
-.gear1{
-    width:110px;
-    height:110px;
-    right:-30px;
-    top:20px;
-}
-
-.gear2{
-    width:75px;
-    height:75px;
-    right:65px;
-    top:75px;
-    animation-direction:reverse;
-}
-
-@keyframes spin{
-    to{transform:rotate(360deg)}
-}
-
-.pipe{
-    position:absolute;
-    width:260px;
-    height:35px;
-    border:9px solid #777;
-    border-left-color:#222;
-    border-radius:40px;
-    right:-70px;
-    top:120px;
-    transform:rotate(-25deg) translateZ(100px);
-}
-
-.glow-ring{
-    position:absolute;
-    width:620px;
-    height:620px;
-    left:50%;
-    top:50%;
     transform:translate(-50%,-50%);
-    border:1px solid rgba(255,0,0,.12);
+
     border-radius:50%;
-    box-shadow:0 0 100px rgba(255,0,0,.08);
+
+    background:radial-gradient(
+        circle,
+        rgba(255,0,0,.13),
+        transparent 65%
+    );
+
+    pointer-events:none;
+
+    z-index:-1;
 }
 
-/* SCROLL INDICATOR */
-.scroll{
+/* =========================================
+   ENGINE HUD
+========================================= */
+
+.engine-hud{
     position:absolute;
-    bottom:30px;
-    left:7%;
-    color:#666;
-    font-size:11px;
-    letter-spacing:3px;
+
+    right:8%;
+    top:20%;
+
+    padding:14px 17px;
+
+    border-left:2px solid #ff1717;
+
+    background:rgba(3,4,5,.7);
+
+    backdrop-filter:blur(10px);
+
+    font-size:10px;
+
+    letter-spacing:1.5px;
+
+    color:#777f89;
 }
 
-/* STATS */
+.engine-hud strong{
+    display:block;
+
+    color:#ff3535;
+
+    font-size:11px;
+
+    margin-bottom:5px;
+}
+
+.engine-hud-bottom{
+    position:absolute;
+
+    bottom:12%;
+    right:10%;
+
+    color:#646b74;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+}
+
+/* =========================================
+   STATS
+========================================= */
+
 .stats{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    max-width:700px;
+    display:flex;
+
+    gap:45px;
+
     margin-top:55px;
-    border-top:1px solid rgba(255,255,255,.08);
+
     padding-top:25px;
+
+    border-top:1px solid rgba(255,255,255,.07);
 }
 
 .stat strong{
-    font-size:27px;
+    display:block;
+
+    font-size:25px;
 }
 
 .stat span{
     display:block;
-    color:#777;
-    font-size:12px;
+
     margin-top:5px;
+
+    color:#646a73;
+
+    font-size:9px;
+
+    letter-spacing:1.5px;
 }
 
-/* SERVICES */
+/* =========================================
+   SECTION
+========================================= */
+
 section{
+    padding:130px 6%;
+
     position:relative;
-    padding:120px 7%;
 }
 
-.section-title{
-    max-width:700px;
-    margin-bottom:60px;
+.section-head{
+    max-width:720px;
+
+    margin-bottom:65px;
 }
 
-.section-title small{
-    color:var(--red);
-    font-weight:800;
+.section-label{
+    color:#ff2525;
+
+    font-size:11px;
+
+    font-weight:900;
+
     letter-spacing:3px;
 }
 
-.section-title h2{
-    font-size:clamp(38px,5vw,65px);
-    line-height:1;
-    margin:15px 0;
-    letter-spacing:-3px;
+.section-head h2{
+    font-size:clamp(40px,5vw,68px);
+
+    line-height:.98;
+
+    letter-spacing:-4px;
+
+    margin:15px 0 22px;
 }
 
-.section-title p{
-    color:#8c9199;
-    line-height:1.7;
+.section-head p{
+    color:#808791;
+
+    line-height:1.8;
+
+    max-width:600px;
 }
+
+/* =========================================
+   SERVICES
+========================================= */
 
 .services{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:20px;
 }
 
-.card{
-    padding:35px;
-    background:linear-gradient(145deg,#101216,#090a0c);
-    border:1px solid rgba(255,255,255,.07);
-    border-radius:18px;
-    transition:.5s;
+.service-card{
     position:relative;
-    overflow:hidden;
-}
 
-.card:before{
-    content:"";
-    position:absolute;
-    width:150px;
-    height:150px;
-    background:var(--red);
-    filter:blur(100px);
-    opacity:0;
+    padding:35px;
+
+    min-height:260px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.01)
+        );
+
+    border:1px solid rgba(255,255,255,.07);
+
+    border-radius:16px;
+
+    overflow:hidden;
+
     transition:.5s;
-    right:-50px;
-    top:-50px;
+
+    transform-style:preserve-3d;
 }
 
-.card:hover{
-    transform:translateY(-10px);
+.service-card:hover{
     border-color:rgba(255,0,0,.35);
+
+    transform:
+        translateY(-10px)
+        rotateX(2deg);
 }
 
-.card:hover:before{
-    opacity:.25;
+.service-card:before{
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    right:-80px;
+    top:-80px;
+
+    background:#ff0000;
+
+    filter:blur(100px);
+
+    opacity:0;
+
+    transition:.5s;
 }
 
-.icon{
-    width:55px;
-    height:55px;
+.service-card:hover:before{
+    opacity:.2;
+}
+
+.service-number{
+    color:#ff2020;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    margin-bottom:35px;
+}
+
+.service-card h3{
+    font-size:21px;
+
+    margin-bottom:14px;
+}
+
+.service-card p{
+    color:#777f89;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+/* =========================================
+   3D DIAGNOSTIC
+========================================= */
+
+.diagnostic{
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255,0,0,.07),
+            transparent 40%
+        ),
+        #050608;
+}
+
+.diagnostic-grid{
     display:grid;
-    place-items:center;
-    border-radius:12px;
-    background:rgba(255,0,0,.1);
-    color:#ff2929;
-    font-size:25px;
-    margin-bottom:25px;
-}
 
-.card h3{
-    margin-bottom:12px;
-}
+    grid-template-columns:
+        1fr 1fr;
 
-.card p{
-    color:#858a92;
-    font-size:14px;
-    line-height:1.7;
-}
+    gap:100px;
 
-/* 5D SECTION */
-.xray{
-    background:#08090c;
-    overflow:hidden;
-}
-
-.xray-container{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:80px;
     align-items:center;
 }
 
-.car-visual{
+.diagnostic-visual{
     height:550px;
+
     position:relative;
-    perspective:1000px;
+
+    perspective:1200px;
 }
 
-.car-body{
+.car-xray{
     position:absolute;
+
     width:520px;
-    height:220px;
+    height:250px;
+
     left:50%;
     top:50%;
-    transform:translate(-50%,-50%) rotateX(55deg) rotateZ(-8deg);
-    border-radius:50% 50% 20% 20%;
-    background:linear-gradient(145deg,#191c21,#050607);
-    border:2px solid #3b3e43;
-    box-shadow:0 40px 80px #000;
+
+    transform:
+        translate(-50%,-50%)
+        rotateX(58deg)
+        rotateZ(-7deg);
+
+    transform-style:preserve-3d;
 }
 
-.car-body:before{
-    content:"";
+.car-floor{
     position:absolute;
-    width:330px;
-    height:110px;
-    left:95px;
-    top:-70px;
-    border:2px solid #555;
-    border-bottom:none;
-    border-radius:100px 100px 0 0;
-    background:rgba(255,255,255,.02);
+
+    inset:0;
+
+    border-radius:35px;
+
+    border:2px solid rgba(255,255,255,.25);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.05),
+            rgba(255,255,255,.01)
+        );
+
+    box-shadow:
+        0 40px 80px rgba(0,0,0,.7);
 }
 
-.component{
+.wheel{
     position:absolute;
+
+    width:115px;
+    height:115px;
+
     border-radius:50%;
-    background:#222;
-    border:3px solid #777;
-    box-shadow:0 0 30px rgba(255,0,0,.25);
+
+    border:12px solid #292d32;
+
+    background:
+        radial-gradient(
+            circle,
+            #080909 35%,
+            #51565c 36%,
+            #111 55%
+        );
+
+    box-shadow:
+        0 0 35px rgba(255,0,0,.15);
+
+    transform:translateZ(35px);
 }
 
-.component.one{
-    width:100px;
-    height:100px;
-    left:100px;
-    top:65px;
+.wheel-a{
+    left:45px;
+    top:45px;
 }
 
-.component.two{
-    width:75px;
-    height:75px;
-    right:100px;
-    top:80px;
+.wheel-b{
+    right:45px;
+    top:45px;
 }
 
-.component.three{
-    width:45px;
-    height:45px;
-    left:235px;
-    top:100px;
-    background:#ff1717;
-    box-shadow:0 0 40px red;
-    animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-    50%{box-shadow:0 0 80px red}
-}
-
-.energy{
+.engine-core{
     position:absolute;
-    width:300px;
-    height:3px;
-    background:linear-gradient(90deg,transparent,red,transparent);
-    left:110px;
-    top:150px;
-    animation:energy 1s linear infinite;
+
+    width:180px;
+    height:110px;
+
+    left:170px;
+    top:70px;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #25292e,
+            #070809
+        );
+
+    border:2px solid #555b62;
+
+    transform:translateZ(60px);
+
+    box-shadow:
+        0 0 35px rgba(255,0,0,.2);
 }
 
-@keyframes energy{
-    from{transform:translateX(-200px)}
-    to{transform:translateX(300px)}
+.core-light{
+    position:absolute;
+
+    width:12px;
+    height:12px;
+
+    background:#ff1717;
+
+    border-radius:50%;
+
+    left:84px;
+    top:49px;
+
+    box-shadow:
+        0 0 15px red,
+        0 0 40px red;
+
+    animation:corepulse 1s infinite;
 }
 
-.xray-text h2{
+@keyframes corepulse{
+
+    50%{
+        transform:scale(1.5);
+    }
+
+}
+
+.scan-line{
+    position:absolute;
+
+    width:550px;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ff1717,
+            transparent
+        );
+
+    left:-15px;
+
+    top:0;
+
+    box-shadow:0 0 20px red;
+
+    animation:scan 3s infinite;
+}
+
+@keyframes scan{
+
+    0%{
+        transform:translateY(-150px);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    80%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(350px);
+        opacity:0;
+    }
+
+}
+
+/* =========================================
+   DIAGNOSTIC TEXT
+========================================= */
+
+.diagnostic-text h2{
     font-size:clamp(40px,5vw,65px);
-    line-height:1;
-    letter-spacing:-3px;
+
+    line-height:.98;
+
+    letter-spacing:-4px;
+
     margin:15px 0 25px;
 }
 
-.xray-text p{
-    color:#8e939c;
+.diagnostic-text p{
+    color:#828993;
+
     line-height:1.8;
+
     margin-bottom:30px;
 }
 
-.features{
+.check-list{
     display:flex;
+
     flex-direction:column;
+
     gap:15px;
 }
 
-.feature{
+.check{
     display:flex;
+
     align-items:center;
-    gap:15px;
-    color:#ddd;
+
+    gap:14px;
+
+    font-size:13px;
+
+    color:#d3d6da;
 }
 
-.feature span{
-    width:28px;
-    height:28px;
-    border-radius:50%;
-    background:rgba(255,0,0,.1);
+.check i{
+    width:25px;
+    height:25px;
+
     display:grid;
+
     place-items:center;
-    color:red;
+
+    border-radius:50%;
+
+    background:rgba(255,0,0,.1);
+
+    color:#ff2727;
+
+    font-style:normal;
 }
 
-/* CTA */
+/* =========================================
+   CTA
+========================================= */
+
 .cta{
     text-align:center;
+
+    padding:150px 20px;
+
     background:
-    radial-gradient(circle at center,rgba(255,0,0,.12),transparent 45%),
-    #050608;
+        radial-gradient(
+            circle at center,
+            rgba(255,0,0,.13),
+            transparent 45%
+        );
 }
 
 .cta h2{
-    font-size:clamp(40px,6vw,75px);
-    letter-spacing:-4px;
+    font-size:clamp(43px,6vw,80px);
+
+    line-height:.95;
+
+    letter-spacing:-5px;
+
     max-width:850px;
+
     margin:auto;
 }
 
+.cta h2 span{
+    color:#ff1717;
+}
+
 .cta p{
-    color:#858991;
-    max-width:600px;
+    max-width:580px;
+
     margin:25px auto 35px;
-    line-height:1.7;
+
+    color:#858c95;
+
+    line-height:1.8;
 }
 
-/* FOOTER */
+/* =========================================
+   FOOTER
+========================================= */
+
 footer{
-    padding:35px 7%;
+    padding:35px 6%;
+
     border-top:1px solid rgba(255,255,255,.07);
+
     display:flex;
+
     justify-content:space-between;
-    color:#666;
-    font-size:12px;
+
+    color:#5d636c;
+
+    font-size:10px;
+
+    letter-spacing:1px;
 }
 
-/* PARTICLES */
-.particle{
-    position:absolute;
-    width:2px;
-    height:2px;
-    background:#ff2222;
-    border-radius:50%;
-    box-shadow:0 0 10px red;
-    animation:particle linear infinite;
-}
+/* =========================================
+   MOBILE
+========================================= */
 
-@keyframes particle{
-    from{transform:translateY(100vh);opacity:0}
-    20%{opacity:1}
-    80%{opacity:1}
-    to{transform:translateY(-100px);opacity:0}
-}
+@media(max-width:950px){
 
-/* MOBILE */
-@media(max-width:900px){
+    nav{
+        padding:0 5%;
+    }
 
     nav ul{
         display:none;
     }
 
     .hero{
+        padding-top:130px;
+
+        flex-direction:column;
+
         min-height:auto;
-        padding-top:140px;
     }
 
-    .engine-area{
-        position:relative;
+    .hero-content{
         width:100%;
-        height:400px;
+    }
+
+    .engine-wrapper{
+        position:relative;
+
         right:auto;
         top:auto;
+
         transform:none;
-        margin-top:30px;
-    }
 
-    .engine{
-        transform:translate(-50%,-50%) scale(.65) rotateX(12deg) rotateY(-20deg);
-    }
+        width:120%;
+        height:500px;
 
-    .hero{
-        flex-direction:column;
+        margin-left:-10%;
+
+        margin-top:20px;
     }
 
     .stats{
-        grid-template-columns:1fr 1fr 1fr;
+        gap:20px;
     }
 
     .services{
         grid-template-columns:1fr;
     }
 
-    .xray-container{
+    .diagnostic-grid{
         grid-template-columns:1fr;
+
+        gap:30px;
     }
 
-    .car-visual{
-        transform:scale(.75);
-        margin-left:-12%;
+    .diagnostic-visual{
+        transform:scale(.7);
+
+        margin-left:-15%;
     }
 
     footer{
         flex-direction:column;
+
         gap:10px;
     }
+
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="cursor-light"></div>
+<!-- =========================================
+     LOADER
+========================================= -->
 
-<!-- PARTICULAS -->
-<div class="particle" style="left:5%;animation-duration:9s"></div>
-<div class="particle" style="left:15%;animation-duration:13s"></div>
-<div class="particle" style="left:28%;animation-duration:8s"></div>
-<div class="particle" style="left:45%;animation-duration:11s"></div>
-<div class="particle" style="left:62%;animation-duration:15s"></div>
-<div class="particle" style="left:78%;animation-duration:10s"></div>
-<div class="particle" style="left:91%;animation-duration:12s"></div>
+<div id="loader">
+
+    <div class="loader-logo">
+        DOCTOR<span>CAR</span>
+    </div>
+
+    <div class="loader-line">
+        <div></div>
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     NAV
+========================================= -->
 
 <nav>
-    <div class="logo">DOCTOR<span>CAR</span></div>
+
+    <div class="logo">
+        DOCTOR<span>CAR</span>
+    </div>
 
     <ul>
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#tecnologia">Tecnologia</a></li>
-        <li><a href="#contato">Contato</a></li>
+
+        <li>
+            <a href="#inicio">
+                Início
+            </a>
+        </li>
+
+        <li>
+            <a href="#servicos">
+                Serviços
+            </a>
+        </li>
+
+        <li>
+            <a href="#diagnostico">
+                Diagnóstico
+            </a>
+        </li>
+
+        <li>
+            <a href="#contato">
+                Contato
+            </a>
+        </li>
+
     </ul>
 
-    <a class="nav-btn" href="https://wa.me/5516999999999">
-        Agendar
+    <a
+        href="https://wa.me/5516999999999"
+        class="nav-button"
+    >
+        AGENDAR
     </a>
+
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="inicio">
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section
+    class="hero"
+    id="inicio"
+>
 
     <div class="grid"></div>
 
     <div class="hero-content">
 
         <div class="badge">
+
             <i></i>
-            OFICINA MECÂNICA PREMIUM
+
+            ENGENHARIA AUTOMOTIVA
+
         </div>
 
         <h1>
-            Seu carro merece
-            <span>mais.</span>
+
+            Seu carro.
+            <br>
+
+            Nossa
+            <span>especialidade.</span>
+
         </h1>
 
-        <p>
+        <p class="hero-description">
+
             Diagnóstico preciso, tecnologia avançada e profissionais
-            especializados para deixar seu veículo funcionando como novo.
+            especializados para manter seu veículo no máximo desempenho.
+
         </p>
 
         <div class="buttons">
-            <a href="https://wa.me/5516999999999" class="btn btn-red">
-                Agendar diagnóstico →
+
+            <a
+                href="https://wa.me/5516999999999"
+                class="btn btn-red"
+            >
+                AGENDAR DIAGNÓSTICO →
             </a>
 
-            <a href="#tecnologia" class="btn btn-dark">
-                Ver tecnologia
+            <a
+                href="#diagnostico"
+                class="btn btn-outline"
+            >
+                EXPLORAR TECNOLOGIA
             </a>
+
         </div>
+
 
         <div class="stats">
-            <div class="stat">
-                <strong>4.9★</strong>
-                <span>AVALIAÇÃO GOOGLE</span>
-            </div>
 
             <div class="stat">
-                <strong>80+</strong>
-                <span>AVALIAÇÕES</span>
+
+                <strong>
+                    4.9★
+                </strong>
+
+                <span>
+                    GOOGLE
+                </span>
+
             </div>
 
             <div class="stat">
-                <strong>100%</strong>
-                <span>TRANSPARÊNCIA</span>
-            </div>
-        </div>
 
-    </div>
+                <strong>
+                    80+
+                </strong>
 
-    <!-- MOTOR 3D -->
-    <div class="engine-area">
+                <span>
+                    AVALIAÇÕES
+                </span>
 
-        <div class="glow-ring"></div>
-
-        <div class="engine">
-
-            <div class="engine-block"></div>
-
-            <div class="engine-top"></div>
-
-            <div class="cylinder c1">
-                <div class="piston"></div>
             </div>
 
-            <div class="cylinder c2">
-                <div class="piston"></div>
+            <div class="stat">
+
+                <strong>
+                    100%
+                </strong>
+
+                <span>
+                    TRANSPARÊNCIA
+                </span>
+
             </div>
-
-            <div class="cylinder c3">
-                <div class="piston"></div>
-            </div>
-
-            <div class="cylinder c4">
-                <div class="piston"></div>
-            </div>
-
-            <div class="crank"></div>
-
-            <div class="gear gear1"></div>
-            <div class="gear gear2"></div>
-
-            <div class="pipe"></div>
 
         </div>
 
     </div>
 
-    <div class="scroll">
-        SCROLL ↓
+
+    <!-- =====================================
+         WEBGL ENGINE
+    ====================================== -->
+
+    <div class="engine-wrapper">
+
+        <div class="engine-glow"></div>
+
+        <canvas id="engineCanvas"></canvas>
+
+        <div class="engine-hud">
+
+            <strong>
+                ENGINE SYSTEM
+            </strong>
+
+            WEBGL // 3D VISUALIZATION
+
+        </div>
+
+        <div class="engine-hud-bottom">
+
+            DRAG TO ROTATE
+            &nbsp; • &nbsp;
+            SCROLL TO ZOOM
+
+        </div>
+
     </div>
 
 </section>
 
 
-<!-- SERVIÇOS -->
+<!-- =========================================
+     SERVIÇOS
+========================================= -->
+
 <section id="servicos">
 
-    <div class="section-title">
-        <small>ESPECIALISTAS</small>
+    <div class="section-head">
+
+        <div class="section-label">
+            NOSSOS SERVIÇOS
+        </div>
 
         <h2>
-            Cuidamos do seu carro
-            <span style="color:red">por inteiro.</span>
+            Engenharia para
+            seu veículo.
         </h2>
 
         <p>
-            Da manutenção preventiva ao diagnóstico eletrônico,
-            utilizamos equipamentos modernos para encontrar o problema
-            antes que ele vire um prejuízo.
+            Trabalhamos com diagnóstico, manutenção e reparos
+            utilizando equipamentos modernos e processos precisos.
         </p>
+
     </div>
+
 
     <div class="services">
 
-        <div class="card">
-            <div class="icon">⚙</div>
-            <h3>Diagnóstico Eletrônico</h3>
+        <div class="service-card">
+
+            <div class="service-number">
+                01 / DIAGNÓSTICO
+            </div>
+
+            <h3>
+                Diagnóstico Eletrônico
+            </h3>
+
             <p>
-                Identificamos falhas eletrônicas e mecânicas
-                utilizando equipamentos profissionais de diagnóstico.
+                Identificação precisa de falhas eletrônicas,
+                sensores, módulos e sistemas do veículo.
             </p>
+
         </div>
 
-        <div class="card">
-            <div class="icon">🔧</div>
-            <h3>Manutenção Preventiva</h3>
+
+        <div class="service-card">
+
+            <div class="service-number">
+                02 / MECÂNICA
+            </div>
+
+            <h3>
+                Manutenção Completa
+            </h3>
+
             <p>
-                Evite problemas inesperados realizando revisões
-                e substituições no momento correto.
+                Revisões e manutenção dos principais sistemas
+                mecânicos para manter seu carro confiável.
             </p>
+
         </div>
 
-        <div class="card">
-            <div class="icon">🚗</div>
-            <h3>Suspensão e Freios</h3>
+
+        <div class="service-card">
+
+            <div class="service-number">
+                03 / SEGURANÇA
+            </div>
+
+            <h3>
+                Freios & Suspensão
+            </h3>
+
             <p>
-                Segurança em primeiro lugar. Revisamos suspensão,
-                freios e componentes essenciais do veículo.
+                Avaliação dos componentes responsáveis pela
+                estabilidade, frenagem e segurança do veículo.
             </p>
+
         </div>
 
     </div>
@@ -908,66 +1287,93 @@ footer{
 </section>
 
 
-<!-- 5D / RAIO X -->
-<section class="xray" id="tecnologia">
+<!-- =========================================
+     DIAGNÓSTICO 3D
+========================================= -->
 
-    <div class="xray-container">
+<section
+    class="diagnostic"
+    id="diagnostico"
+>
 
-        <div class="car-visual">
+    <div class="diagnostic-grid">
 
-            <div class="car-body">
 
-                <div class="component one"></div>
+        <div class="diagnostic-visual">
 
-                <div class="component two"></div>
+            <div class="car-xray">
 
-                <div class="component three"></div>
+                <div class="car-floor"></div>
 
-                <div class="energy"></div>
+                <div class="wheel wheel-a"></div>
+
+                <div class="wheel wheel-b"></div>
+
+                <div class="engine-core">
+
+                    <div class="core-light"></div>
+
+                </div>
+
+                <div class="scan-line"></div>
 
             </div>
 
         </div>
 
-        <div class="xray-text">
 
-            <small style="color:red;font-weight:800;letter-spacing:3px;">
-                TECNOLOGIA 5D
-            </small>
+        <div class="diagnostic-text">
+
+            <div class="section-label">
+                VISÃO INTERNA
+            </div>
 
             <h2>
-                Nós enxergamos
-                o problema antes
-                de você.
+                Enxergamos o que
+                você não consegue.
             </h2>
 
             <p>
-                Nossa tecnologia permite analisar os principais sistemas
-                do veículo e identificar componentes que precisam de
-                atenção antes que uma pequena falha se transforme em
-                um grande problema.
+
+                Utilizamos equipamentos de diagnóstico para analisar
+                os sistemas do veículo e encontrar a origem do problema,
+                evitando trocas desnecessárias de peças.
+
             </p>
 
-            <div class="features">
 
-                <div class="feature">
-                    <span>✓</span>
+            <div class="check-list">
+
+                <div class="check">
+
+                    <i>✓</i>
+
                     Diagnóstico computadorizado
+
                 </div>
 
-                <div class="feature">
-                    <span>✓</span>
+                <div class="check">
+
+                    <i>✓</i>
+
                     Análise completa do veículo
+
                 </div>
 
-                <div class="feature">
-                    <span>✓</span>
+                <div class="check">
+
+                    <i>✓</i>
+
                     Orçamento transparente
+
                 </div>
 
-                <div class="feature">
-                    <span>✓</span>
+                <div class="check">
+
+                    <i>✓</i>
+
                     Profissionais especializados
+
                 </div>
 
             </div>
@@ -979,21 +1385,34 @@ footer{
 </section>
 
 
-<!-- CTA -->
-<section class="cta" id="contato">
+<!-- =========================================
+     CTA
+========================================= -->
+
+<section
+    class="cta"
+    id="contato"
+>
 
     <h2>
-        Seu carro está pedindo
-        <span style="color:red">socorro?</span>
+
+        Seu carro está
+        <span>pedindo atenção?</span>
+
     </h2>
 
     <p>
-        Não espere a luz do painel virar um problema maior.
-        Agende uma avaliação com a Doctor Car.
+
+        Não espere uma pequena falha se transformar em
+        um grande problema. Fale agora com a Doctor Car.
+
     </p>
 
-    <a href="https://wa.me/5516999999999" class="btn btn-red">
-        Falar com a Doctor Car pelo WhatsApp →
+    <a
+        href="https://wa.me/5516999999999"
+        class="btn btn-red"
+    >
+        FALAR NO WHATSAPP →
     </a>
 
 </section>
@@ -1002,94 +1421,1030 @@ footer{
 <footer>
 
     <div>
-        © 2026 Doctor Car — Oficina Mecânica
+        © 2026 DOCTOR CAR
     </div>
 
     <div>
-        Qualidade • Tecnologia • Transparência
+        TECNOLOGIA • PRECISÃO • CONFIANÇA
     </div>
 
 </footer>
 
 
-<script>
+<!-- =========================================
+     THREE.JS
+========================================= -->
 
-/* CURSOR */
-const cursor = document.querySelector('.cursor-light');
+<script type="module">
 
-document.addEventListener('mousemove',(e)=>{
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
+import * as THREE from
+'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+
+import { OrbitControls } from
+'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js';
+
+
+/* =========================================
+   SCENE
+========================================= */
+
+const canvas =
+document.getElementById("engineCanvas");
+
+const scene =
+new THREE.Scene();
+
+scene.background =
+new THREE.Color(0x030405);
+
+
+/* =========================================
+   CAMERA
+========================================= */
+
+const camera =
+new THREE.PerspectiveCamera(
+    40,
+    canvas.clientWidth / canvas.clientHeight,
+    0.1,
+    100
+);
+
+camera.position.set(
+    6,
+    3.5,
+    7
+);
+
+
+/* =========================================
+   RENDERER
+========================================= */
+
+const renderer =
+new THREE.WebGLRenderer({
+
+    canvas,
+
+    antialias:true,
+
+    alpha:true,
+
+    powerPreference:"high-performance"
+
+});
+
+renderer.setPixelRatio(
+    Math.min(window.devicePixelRatio,2)
+);
+
+renderer.setSize(
+    canvas.clientWidth,
+    canvas.clientHeight,
+    false
+);
+
+renderer.shadowMap.enabled = true;
+
+renderer.shadowMap.type =
+THREE.PCFSoftShadowMap;
+
+
+/* =========================================
+   CONTROLS
+========================================= */
+
+const controls =
+new OrbitControls(
+    camera,
+    renderer.domElement
+);
+
+controls.enableDamping = true;
+
+controls.dampingFactor = .06;
+
+controls.enablePan = false;
+
+controls.minDistance = 4;
+
+controls.maxDistance = 11;
+
+controls.autoRotate = true;
+
+controls.autoRotateSpeed = .7;
+
+
+/* =========================================
+   LIGHTS
+========================================= */
+
+const ambient =
+new THREE.HemisphereLight(
+    0xffffff,
+    0x080808,
+    2
+);
+
+scene.add(ambient);
+
+
+const redLight =
+new THREE.PointLight(
+    0xff1111,
+    18,
+    12
+);
+
+redLight.position.set(
+    2,
+    2,
+    3
+);
+
+scene.add(redLight);
+
+
+const redLight2 =
+new THREE.PointLight(
+    0xff0000,
+    12,
+    10
+);
+
+redLight2.position.set(
+    -4,
+    0,
+    -3
+);
+
+scene.add(redLight2);
+
+
+const whiteLight =
+new THREE.DirectionalLight(
+    0xffffff,
+    4
+);
+
+whiteLight.position.set(
+    4,
+    7,
+    5
+);
+
+whiteLight.castShadow = true;
+
+scene.add(whiteLight);
+
+
+/* =========================================
+   MATERIALS
+========================================= */
+
+const metal =
+new THREE.MeshStandardMaterial({
+
+    color:0x383c40,
+
+    metalness:.9,
+
+    roughness:.27
+
 });
 
 
-/* PARALLAX MOTOR */
-const engine = document.querySelector('.engine');
+const darkMetal =
+new THREE.MeshStandardMaterial({
 
-document.addEventListener('mousemove',(e)=>{
+    color:0x111315,
 
-    if(window.innerWidth < 900) return;
+    metalness:.9,
 
-    const x = (window.innerWidth/2 - e.clientX) / 45;
-    const y = (window.innerHeight/2 - e.clientY) / 45;
+    roughness:.3
 
-    engine.style.transform =
-        `translate(-50%,-50%) rotateX(${12+y}deg) rotateY(${-20+x}deg)`;
 });
 
 
-/* REVEAL ANIMATION */
-const observer = new IntersectionObserver((entries)=>{
+const black =
+new THREE.MeshStandardMaterial({
 
-    entries.forEach(entry=>{
+    color:0x050607,
 
-        if(entry.isIntersecting){
+    metalness:.8,
 
-            entry.target.style.opacity='1';
-            entry.target.style.transform='translateY(0)';
+    roughness:.35
+
+});
+
+
+const chrome =
+new THREE.MeshStandardMaterial({
+
+    color:0xb7bcc1,
+
+    metalness:1,
+
+    roughness:.15
+
+});
+
+
+const red =
+new THREE.MeshStandardMaterial({
+
+    color:0xff1111,
+
+    emissive:0x550000,
+
+    emissiveIntensity:2,
+
+    metalness:.6,
+
+    roughness:.2
+
+});
+
+
+/* =========================================
+   ENGINE GROUP
+========================================= */
+
+const engine =
+new THREE.Group();
+
+scene.add(engine);
+
+
+/* =========================================
+   ENGINE BLOCK
+========================================= */
+
+const blockGeometry =
+new THREE.BoxGeometry(
+    4.3,
+    2.2,
+    2.6
+);
+
+const block =
+new THREE.Mesh(
+    blockGeometry,
+    darkMetal
+);
+
+block.castShadow = true;
+
+block.receiveShadow = true;
+
+engine.add(block);
+
+
+/* =========================================
+   CYLINDERS
+========================================= */
+
+const cylinders = [];
+
+for(let i=0;i<4;i++){
+
+    const cylinderGroup =
+    new THREE.Group();
+
+    cylinderGroup.position.x =
+    -1.5 + i * 1;
+
+    cylinderGroup.position.y =
+    .25;
+
+    cylinderGroup.position.z =
+    .1;
+
+    engine.add(cylinderGroup);
+
+
+    /* CYLINDER */
+
+    const cylinderGeometry =
+    new THREE.CylinderGeometry(
+        .38,
+        .38,
+        1.65,
+        32
+    );
+
+    const cylinder =
+    new THREE.Mesh(
+        cylinderGeometry,
+        metal
+    );
+
+    cylinder.castShadow = true;
+
+    cylinderGroup.add(cylinder);
+
+
+    /* PISTON */
+
+    const pistonGeometry =
+    new THREE.CylinderGeometry(
+        .30,
+        .30,
+        .35,
+        32
+    );
+
+    const piston =
+    new THREE.Mesh(
+        pistonGeometry,
+        chrome
+    );
+
+    piston.position.y =
+    -.15;
+
+    piston.castShadow = true;
+
+    cylinderGroup.add(piston);
+
+
+    /* ROD */
+
+    const rodGeometry =
+    new THREE.BoxGeometry(
+        .10,
+        1.2,
+        .10
+    );
+
+    const rod =
+    new THREE.Mesh(
+        rodGeometry,
+        chrome
+    );
+
+    rod.position.y =
+    -.65;
+
+    cylinderGroup.add(rod);
+
+
+    cylinders.push({
+        group:cylinderGroup,
+        piston:piston,
+        rod:rod,
+        offset:i*.35
+    });
+
+}
+
+
+/* =========================================
+   ENGINE HEAD
+========================================= */
+
+const headGeometry =
+new THREE.BoxGeometry(
+    4.5,
+    .65,
+    2.8
+);
+
+const head =
+new THREE.Mesh(
+    headGeometry,
+    metal
+);
+
+head.position.y =
+1.25;
+
+head.castShadow = true;
+
+engine.add(head);
+
+
+/* =========================================
+   RED ENGINE COVER
+========================================= */
+
+const coverGeometry =
+new THREE.BoxGeometry(
+    3.9,
+    .35,
+    2.15
+);
+
+const cover =
+new THREE.Mesh(
+    coverGeometry,
+    red
+);
+
+cover.position.y =
+1.7;
+
+cover.castShadow = true;
+
+engine.add(cover);
+
+
+/* =========================================
+   COVER DETAILS
+========================================= */
+
+for(let i=0;i<5;i++){
+
+    const lineGeometry =
+    new THREE.BoxGeometry(
+        .05,
+        .05,
+        1.7
+    );
+
+    const line =
+    new THREE.Mesh(
+        lineGeometry,
+        chrome
+    );
+
+    line.position.set(
+        -1.5 + i*.75,
+        1.9,
+        0
+    );
+
+    engine.add(line);
+
+}
+
+
+/* =========================================
+   CRANKSHAFT
+========================================= */
+
+const crankGeometry =
+new THREE.CylinderGeometry(
+    .14,
+    .14,
+    4,
+    24
+);
+
+const crank =
+new THREE.Mesh(
+    crankGeometry,
+    chrome
+);
+
+crank.rotation.z =
+Math.PI/2;
+
+crank.position.y =
+-1.05;
+
+crank.position.x =
+0;
+
+engine.add(crank);
+
+
+/* =========================================
+   GEARS
+========================================= */
+
+function createGear(
+    radius,
+    thickness,
+    teeth
+){
+
+    const group =
+    new THREE.Group();
+
+    const gearBody =
+    new THREE.Mesh(
+        new THREE.CylinderGeometry(
+            radius,
+            radius,
+            thickness,
+            teeth
+        ),
+        metal
+    );
+
+    gearBody.rotation.x =
+    Math.PI/2;
+
+    group.add(gearBody);
+
+
+    for(let i=0;i<teeth;i++){
+
+        const tooth =
+        new THREE.Mesh(
+
+            new THREE.BoxGeometry(
+                .18,
+                thickness,
+                .28
+            ),
+
+            chrome
+
+        );
+
+        const angle =
+        i / teeth * Math.PI * 2;
+
+        tooth.position.x =
+        Math.cos(angle) * radius;
+
+        tooth.position.z =
+        Math.sin(angle) * radius;
+
+        tooth.rotation.y =
+        angle;
+
+        group.add(tooth);
+
+    }
+
+    return group;
+
+}
+
+
+const gear1 =
+createGear(
+    .72,
+    .25,
+    20
+);
+
+gear1.position.set(
+    2.25,
+    .1,
+    1.1
+);
+
+engine.add(gear1);
+
+
+const gear2 =
+createGear(
+    .45,
+    .3,
+    16
+);
+
+gear2.position.set(
+    2.9,
+    .1,
+    1.1
+);
+
+engine.add(gear2);
+
+
+/* =========================================
+   EXHAUST PIPES
+========================================= */
+
+function pipe(x,z){
+
+    const geometry =
+    new THREE.TorusGeometry(
+        .45,
+        .12,
+        16,
+        40,
+        Math.PI
+    );
+
+    const mesh =
+    new THREE.Mesh(
+        geometry,
+        chrome
+    );
+
+    mesh.rotation.z =
+    Math.PI/2;
+
+    mesh.position.set(
+        x,
+        .3,
+        z
+    );
+
+    engine.add(mesh);
+
+}
+
+pipe(-1.4,-1.45);
+
+pipe(-.45,-1.45);
+
+pipe(.55,-1.45);
+
+pipe(1.5,-1.45);
+
+
+/* =========================================
+   SPARK PLUGS
+========================================= */
+
+for(let i=0;i<4;i++){
+
+    const spark =
+    new THREE.Mesh(
+
+        new THREE.CylinderGeometry(
+            .08,
+            .08,
+            .5,
+            16
+        ),
+
+        chrome
+
+    );
+
+    spark.position.set(
+        -1.5 + i,
+        2,
+        0
+    );
+
+    engine.add(spark);
+
+}
+
+
+/* =========================================
+   ENGINE LABEL
+========================================= */
+
+const labelCanvas =
+document.createElement("canvas");
+
+labelCanvas.width = 512;
+labelCanvas.height = 128;
+
+const ctx =
+labelCanvas.getContext("2d");
+
+ctx.fillStyle =
+"#111111";
+
+ctx.fillRect(
+    0,
+    0,
+    512,
+    128
+);
+
+ctx.fillStyle =
+"#ff2222";
+
+ctx.font =
+"bold 55px Arial";
+
+ctx.textAlign =
+"center";
+
+ctx.textBaseline =
+"middle";
+
+ctx.fillText(
+    "DOCTOR CAR",
+    256,
+    64
+);
+
+const texture =
+new THREE.CanvasTexture(
+    labelCanvas
+);
+
+const label =
+new THREE.Mesh(
+
+    new THREE.PlaneGeometry(
+        2.7,
+        .65
+    ),
+
+    new THREE.MeshBasicMaterial({
+        map:texture,
+        transparent:true
+    })
+
+);
+
+label.position.set(
+    0,
+    1.9,
+    1.12
+);
+
+engine.add(label);
+
+
+/* =========================================
+   PARTICLES
+========================================= */
+
+const particleCount =
+500;
+
+const particlePositions =
+new Float32Array(
+    particleCount * 3
+);
+
+for(let i=0;i<particleCount;i++){
+
+    particlePositions[i*3] =
+    (Math.random()-.5)*14;
+
+    particlePositions[i*3+1] =
+    (Math.random()-.5)*10;
+
+    particlePositions[i*3+2] =
+    (Math.random()-.5)*12;
+
+}
+
+const particleGeometry =
+new THREE.BufferGeometry();
+
+particleGeometry.setAttribute(
+    "position",
+    new THREE.BufferAttribute(
+        particlePositions,
+        3
+    )
+);
+
+const particleMaterial =
+new THREE.PointsMaterial({
+
+    color:0xff2020,
+
+    size:.025,
+
+    transparent:true,
+
+    opacity:.55
+
+});
+
+const particles =
+new THREE.Points(
+    particleGeometry,
+    particleMaterial
+);
+
+scene.add(particles);
+
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+const clock =
+new THREE.Clock();
+
+function animate(){
+
+    requestAnimationFrame(
+        animate
+    );
+
+    const time =
+    clock.getElapsedTime();
+
+
+    /* PISTONS */
+
+    cylinders.forEach(
+        cylinder => {
+
+            const movement =
+            Math.sin(
+                time * 5 +
+                cylinder.offset
+            );
+
+            cylinder.piston.position.y =
+            -.15 +
+            movement * .35;
+
+            cylinder.rod.position.y =
+            -.65 +
+            movement * .17;
 
         }
-
-    });
-
-},{threshold:.15});
+    );
 
 
-document.querySelectorAll('.card,.section-title,.xray-text,.car-visual')
-.forEach(el=>{
+    /* GEARS */
 
-    el.style.opacity='0';
-    el.style.transform='translateY(40px)';
-    el.style.transition='1s ease';
+    gear1.rotation.y =
+    time * 2;
 
-    observer.observe(el);
+    gear2.rotation.y =
+    -time * 3;
+
+
+    /* ENGINE SUBTLE MOVEMENT */
+
+    engine.rotation.y =
+    Math.sin(time*.3)*.08;
+
+
+    /* PARTICLES */
+
+    particles.rotation.y =
+    time*.015;
+
+
+    controls.update();
+
+    renderer.render(
+        scene,
+        camera
+    );
+
+}
+
+animate();
+
+
+/* =========================================
+   RESIZE
+========================================= */
+
+function resize(){
+
+    const width =
+    canvas.clientWidth;
+
+    const height =
+    canvas.clientHeight;
+
+    camera.aspect =
+    width / height;
+
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(
+        width,
+        height,
+        false
+    );
+
+}
+
+window.addEventListener(
+    "resize",
+    resize
+);
+
+resize();
+
+
+/* =========================================
+   LOADER
+========================================= */
+
+window.addEventListener(
+    "load",
+    ()=>{
+
+        setTimeout(()=>{
+
+            const loader =
+            document.getElementById(
+                "loader"
+            );
+
+            loader.style.opacity="0";
+
+            setTimeout(()=>{
+
+                loader.style.display="none";
+
+            },1000);
+
+        },900);
+
+    }
+);
+
+</script>
+
+
+<!-- =========================================
+     CARD 3D EFFECT
+========================================= -->
+
+<script>
+
+document
+.querySelectorAll(".service-card")
+.forEach(card=>{
+
+    card.addEventListener(
+        "mousemove",
+        e=>{
+
+            const rect =
+            card.getBoundingClientRect();
+
+            const x =
+            e.clientX -
+            rect.left;
+
+            const y =
+            e.clientY -
+            rect.top;
+
+            const rotateY =
+            (x - rect.width/2) /
+            18;
+
+            const rotateX =
+            -(y - rect.height/2) /
+            18;
+
+            card.style.transform =
+            `
+            perspective(800px)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+            translateY(-10px)
+            `;
+
+        }
+    );
+
+    card.addEventListener(
+        "mouseleave",
+        ()=>{
+
+            card.style.transform="";
+
+        }
+    );
 
 });
 
 
-/* 3D TILT NOS CARDS */
-document.querySelectorAll('.card').forEach(card=>{
+/* SCROLL REVEAL */
 
-    card.addEventListener('mousemove',(e)=>{
+const reveal =
+new IntersectionObserver(
+    entries=>{
 
-        const rect=card.getBoundingClientRect();
+        entries.forEach(
+            entry=>{
 
-        const x=e.clientX-rect.left;
-        const y=e.clientY-rect.top;
+                if(entry.isIntersecting){
 
-        const rotateX=(y-rect.height/2)/15;
-        const rotateY=(rect.width/2-x)/15;
+                    entry.target.style.opacity="1";
 
-        card.style.transform=
-            `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+                    entry.target.style.transform=
+                    "translateY(0)";
 
-    });
+                }
 
-    card.addEventListener('mouseleave',()=>{
+            }
+        );
 
-        card.style.transform='';
+    },
+    {
+        threshold:.15
+    }
+);
 
-    });
+
+document
+.querySelectorAll(
+    ".section-head,.service-card,.diagnostic-text,.diagnostic-visual"
+)
+.forEach(el=>{
+
+    el.style.opacity="0";
+
+    el.style.transform=
+    "translateY(50px)";
+
+    el.style.transition=
+    "1s cubic-bezier(.2,.7,.2,1)";
+
+    reveal.observe(el);
 
 });
 
