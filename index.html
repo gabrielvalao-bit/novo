@@ -3,30 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Clínica Odontológica do Terminal | Franca-SP</title>
-  <meta name="description" content="Sua saúde bucal em excelentes mãos no centro de Franca. Atendimento humano, infantil e adulto com preços acessíveis. Avaliação 5.0 no Google.">
+  <title>Clínica Ateliê do Sorriso | Dentista em Franca - SP</title>
+  <meta name="description" content="A melhor clínica odontológica de Franca-SP. Atendimento humano, inclusivo, tecnologia avançada e higiene impecável. Agende sua consulta no Ateliê do Sorriso.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     /* =========================================================
-       DESIGN SYSTEM - MEDICAL & DENTAL HIGH-TECH
+       PALETA DE CORES & DESIGN SYSTEM - ATELIÊ LUXURY & CLEAN
     ========================================================= */
     :root {
-      --primary: #0F52BA;        /* Azul Safira */
-      --primary-dark: #0A367C;
-      --accent: #00B4D8;         /* Ciano Dente / Higiene */
-      --accent-light: #E0F7FA;
-      --bg-light: #F8FAFC;
+      --primary: #0F2027;        /* Azul Marinho Nobre */
+      --primary-light: #2C5364;
+      --gold: #C5A059;           /* Dourado Ateliê */
+      --gold-light: #F4EAD3;
+      --bg-page: #FAF8F5;        /* Off-white Acolhedor */
       --surface: #FFFFFF;
-      --text-main: #1E293B;
-      --text-muted: #64748B;
-      --gold-star: #FFB800;
+      --text-main: #2D3748;
+      --text-muted: #718096;
       --green-wa: #25D366;
-      --border-color: #E2E8F0;
+      --border: rgba(197, 160, 89, 0.2);
       
+      --font-title: 'Cormorant Garamond', serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
     }
 
@@ -39,7 +39,7 @@
 
     html {
       scroll-behavior: smooth;
-      background-color: var(--bg-light);
+      background-color: var(--bg-page);
       color: var(--text-main);
       font-family: var(--font-body);
     }
@@ -52,47 +52,37 @@
     a { text-decoration: none; color: inherit; }
 
     /* =========================================================
-       TOP BAR
+       TOP BAR & HEADER
     ========================================================= */
     .top-bar {
-      background: var(--primary-dark);
-      color: rgba(255, 255, 255, 0.9);
+      background: var(--primary);
+      color: rgba(255, 255, 255, 0.85);
       padding: 8px 5%;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 500;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-bottom: 1px solid var(--border);
     }
 
-    .status-badge {
-      display: flex;
+    .badge-inclusive {
+      display: inline-flex;
       align-items: center;
-      gap: 6px;
-      color: #4ADE80;
+      gap: 5px;
+      color: #F6AD55;
       font-weight: 600;
     }
 
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      background-color: #4ADE80;
-      border-radius: 50%;
-      box-shadow: 0 0 8px #4ADE80;
-    }
-
-    /* =========================================================
-       HEADER
-    ========================================================= */
     .header {
       position: sticky;
       top: 0;
       width: 100%;
-      height: 72px;
-      background: rgba(255, 255, 255, 0.95);
+      height: 76px;
+      background: rgba(250, 248, 245, 0.95);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -102,105 +92,88 @@
 
     .brand-logo {
       display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-icon {
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-weight: 800;
-      font-size: 20px;
-      box-shadow: 0 4px 12px rgba(15, 82, 186, 0.25);
-    }
-
-    .logo-text {
-      display: flex;
       flex-direction: column;
     }
 
-    .logo-title {
-      font-size: 16px;
-      font-weight: 800;
-      color: var(--primary-dark);
-      line-height: 1.1;
+    .brand-name {
+      font-family: var(--font-title);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+      letter-spacing: 0.5px;
     }
 
-    .logo-subtitle {
-      font-size: 10px;
+    .brand-tag {
+      font-size: 9px;
       font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 1px;
+      color: var(--gold);
+      letter-spacing: 2px;
       text-transform: uppercase;
+      margin-top: 3px;
     }
 
     .btn-header {
       background: var(--primary);
-      color: #fff;
-      padding: 10px 18px;
-      border-radius: 8px;
-      font-size: 13px;
+      color: var(--gold-light);
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 12px;
       font-weight: 700;
-      transition: background 0.3s;
+      letter-spacing: 0.5px;
+      border: 1px solid var(--gold);
+      transition: all 0.3s;
     }
 
     /* =========================================================
        HERO SECTION
     ========================================================= */
     .hero {
-      position: relative;
-      padding: 60px 5% 80px;
-      background: linear-gradient(135deg, rgba(224, 247, 250, 0.5) 0%, var(--bg-light) 100%);
+      padding: 50px 5% 70px;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 40px;
+      gap: 30px;
       align-items: center;
+      background: linear-gradient(180deg, rgba(244, 234, 211, 0.3) 0%, var(--bg-page) 100%);
     }
 
     @media (min-width: 900px) {
       .hero {
-        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-columns: 1fr 1fr;
         padding: 80px 8%;
+        gap: 50px;
       }
     }
 
-    .badge-google {
+    .google-rating {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       background: var(--surface);
-      border: 1px solid var(--border-color);
-      padding: 6px 14px;
+      border: 1px solid var(--border);
+      padding: 6px 16px;
       border-radius: 30px;
       font-size: 12px;
       font-weight: 700;
-      color: var(--text-main);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+      color: var(--primary);
       margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
     }
 
-    .stars { color: var(--gold-star); }
+    .stars { color: #F59E0B; }
 
     .hero-title {
-      font-size: clamp(32px, 5vw, 48px);
-      font-weight: 800;
-      line-height: 1.15;
-      color: var(--primary-dark);
-      margin-bottom: 16px;
-      letter-spacing: -0.5px;
+      font-family: var(--font-title);
+      font-size: clamp(36px, 6vw, 54px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--primary);
+      margin-bottom: 18px;
     }
 
     .hero-title span {
-      color: var(--accent);
-      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--gold);
+      font-style: italic;
     }
 
     .hero-desc {
@@ -208,7 +181,7 @@
       line-height: 1.6;
       color: var(--text-muted);
       margin-bottom: 30px;
-      max-width: 520px;
+      max-width: 500px;
     }
 
     .hero-buttons {
@@ -218,24 +191,24 @@
     }
 
     .btn-main {
-      background: var(--primary);
-      color: #fff;
+      background: var(--gold);
+      color: var(--primary);
       padding: 16px 28px;
-      border-radius: 10px;
+      border-radius: 8px;
       font-size: 14px;
       font-weight: 700;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 8px 20px rgba(15, 82, 186, 0.25);
+      box-shadow: 0 8px 20px rgba(197, 160, 89, 0.3);
     }
 
     .btn-outline {
-      background: var(--surface);
-      color: var(--primary-dark);
-      border: 1px solid var(--border-color);
+      background: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary);
       padding: 16px 24px;
-      border-radius: 10px;
+      border-radius: 8px;
       font-size: 14px;
       font-weight: 700;
       display: inline-flex;
@@ -243,49 +216,21 @@
       gap: 8px;
     }
 
-    .hero-image-wrapper {
+    .hero-img-box {
       position: relative;
     }
 
     .hero-img {
       width: 100%;
-      height: 380px;
+      height: 400px;
       object-fit: cover;
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(15, 32, 39, 0.12);
+      border: 1px solid var(--border);
     }
-
-    .hero-card-float {
-      position: absolute;
-      bottom: -20px;
-      left: 20px;
-      background: var(--surface);
-      padding: 16px 20px;
-      border-radius: 14px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      border: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .float-icon {
-      width: 38px;
-      height: 38px;
-      background: var(--accent-light);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary);
-      font-size: 18px;
-    }
-
-    .float-text h4 { font-size: 13px; font-weight: 800; color: var(--primary-dark); }
-    .float-text p { font-size: 11px; color: var(--text-muted); }
 
     /* =========================================================
-       DIFFERENTIALS / FEATURES
+       DIFERENCIAIS / DESTAQUES
     ========================================================= */
     .section-padding { padding: 60px 5%; }
 
@@ -299,42 +244,48 @@
       gap: 20px;
     }
 
-    .feature-card {
+    .card-diff {
       background: var(--surface);
-      padding: 28px;
-      border-radius: 16px;
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--border);
+      padding: 30px;
+      border-radius: 14px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      transition: transform 0.3s;
     }
 
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, rgba(15, 82, 186, 0.1) 0%, rgba(0, 180, 216, 0.1) 100%);
-      border-radius: 12px;
+    .card-diff:hover {
+      transform: translateY(-5px);
+    }
+
+    .diff-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--gold-light);
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 22px;
-      color: var(--primary);
+      color: var(--gold);
       margin-bottom: 20px;
     }
 
-    .feature-title {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--primary-dark);
+    .diff-title {
+      font-family: var(--font-title);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary);
       margin-bottom: 8px;
     }
 
-    .feature-desc {
+    .diff-desc {
       font-size: 13.5px;
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     /* =========================================================
-       SERVICES
+       SERVIÇOS
     ========================================================= */
     .section-header {
       text-align: center;
@@ -342,20 +293,21 @@
       margin: 0 auto 40px;
     }
 
-    .tagline {
-      color: var(--primary);
-      font-size: 12px;
+    .section-subtitle {
+      color: var(--gold);
+      font-size: 11px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
       margin-bottom: 8px;
       display: block;
     }
 
     .section-title {
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--primary-dark);
+      font-family: var(--font-title);
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--primary);
     }
 
     .services-grid {
@@ -366,21 +318,16 @@
 
     .service-card {
       background: var(--surface);
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
       padding: 24px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
     }
 
     .service-title {
       font-size: 16px;
       font-weight: 700;
-      color: var(--primary-dark);
+      color: var(--primary);
       margin-bottom: 6px;
     }
 
@@ -391,18 +338,18 @@
     }
 
     /* =========================================================
-       REVIEWS (GOOGLE)
+       DEPOIMENTOS GOOGLE
     ========================================================= */
-    .reviews-section {
+    .reviews-bg {
       background: var(--surface);
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
 
     .review-card {
-      background: var(--bg-light);
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
+      background: var(--bg-page);
+      border: 1px solid var(--border);
+      border-radius: 12px;
       padding: 24px;
       display: flex;
       flex-direction: column;
@@ -414,7 +361,7 @@
       color: var(--text-main);
       line-height: 1.6;
       font-style: italic;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     .review-user {
@@ -423,12 +370,12 @@
       gap: 12px;
     }
 
-    .user-avatar {
+    .avatar {
       width: 40px;
       height: 40px;
-      border-radius: 50%;
       background: var(--primary);
-      color: #fff;
+      color: var(--gold);
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -436,36 +383,36 @@
       font-size: 14px;
     }
 
-    .user-info h5 { font-size: 13px; font-weight: 700; color: var(--primary-dark); }
+    .user-info h5 { font-size: 13px; font-weight: 700; color: var(--primary); }
     .user-info p { font-size: 11px; color: var(--text-muted); }
 
     /* =========================================================
-       LOCATION & CONTACT
+       LOCALIZAÇÃO E CONTATO
     ========================================================= */
-    .location-box {
+    .contact-box {
       background: var(--surface);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
       overflow: hidden;
       display: grid;
       grid-template-columns: 1fr;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
     }
 
     @media (min-width: 800px) {
-      .location-box {
+      .contact-box {
         grid-template-columns: 1fr 1fr;
       }
     }
 
-    .location-info {
+    .contact-info {
       padding: 36px;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
-    .info-item {
+    .info-row {
       display: flex;
       align-items: flex-start;
       gap: 14px;
@@ -473,58 +420,55 @@
     }
 
     .info-icon {
-      width: 36px;
-      height: 36px;
-      background: var(--accent-light);
+      width: 38px;
+      height: 38px;
+      background: var(--gold-light);
       border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--primary);
-      flex-shrink: 0;
+      color: var(--gold);
       font-size: 16px;
+      flex-shrink: 0;
     }
 
-    .info-content h4 { font-size: 14px; font-weight: 700; color: var(--primary-dark); margin-bottom: 2px; }
-    .info-content p { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
+    .info-text h4 { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 2px; }
+    .info-text p { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
 
-    .location-map-btn {
-      width: 100%;
-      height: 100%;
-      min-height: 250px;
+    .contact-map {
       background: url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
-      position: relative;
+      min-height: 250px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .map-overlay-btn {
+    .btn-map {
       background: var(--surface);
-      color: var(--primary-dark);
+      color: var(--primary);
       padding: 12px 24px;
       border-radius: 30px;
       font-weight: 700;
       font-size: 13px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      border: none;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
 
     /* =========================================================
        FOOTER
     ========================================================= */
     .footer {
-      background: var(--primary-dark);
+      background: var(--primary);
       color: rgba(255, 255, 255, 0.8);
       padding: 40px 5% 30px;
       text-align: center;
       font-size: 12px;
     }
 
-    .footer-logo {
-      font-size: 18px;
-      font-weight: 800;
-      color: #fff;
+    .footer-title {
+      font-family: var(--font-title);
+      font-size: 22px;
+      color: var(--gold-light);
       margin-bottom: 8px;
     }
 
@@ -532,22 +476,22 @@
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       padding-top: 20px;
       margin-top: 20px;
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 0.4);
     }
 
     /* =========================================================
-       FIXED MOBILE BAR
+       BARRA FIXA MOBILE
     ========================================================= */
-    .fixed-bottom-bar {
+    .fixed-bar {
       position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
       height: 66px;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(250, 248, 245, 0.95);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-top: 1px solid var(--border-color);
+      border-top: 1px solid var(--border);
       z-index: 1000;
       display: grid;
       grid-template-columns: 1fr 1.5fr;
@@ -555,11 +499,11 @@
       padding: 10px 5%;
     }
 
-    .bar-btn-call {
-      background: var(--bg-light);
-      border: 1px solid var(--border-color);
-      color: var(--primary-dark);
-      border-radius: 10px;
+    .btn-bar-call {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--primary);
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -568,10 +512,10 @@
       font-weight: 700;
     }
 
-    .bar-btn-wa {
+    .btn-bar-wa {
       background: var(--green-wa);
       color: #fff;
-      border-radius: 10px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -585,143 +529,134 @@
 <body>
 
   <div class="top-bar">
-    <div class="status-badge">
-      <span class="status-dot"></span> Aberto Hoje • Fecha às 19:00
+    <div class="badge-inclusive">
+      🏳️‍🌈 Empresa Inclusiva (LGBTQ+ Friendly)
     </div>
-    <div>📍 R. Mal. Deodoro, 1214 - Centro</div>
+    <div>📍 Rua Voluntários da Franca, 1442 - Centro</div>
   </div>
 
   <header class="header">
     <div class="brand-logo">
-      <div class="logo-icon">🦷</div>
-      <div class="logo-text">
-        <span class="logo-title">Odontológica</span>
-        <span class="logo-subtitle">Do Terminal • Franca</span>
-      </div>
+      <span class="brand-name">Ateliê do Sorriso</span>
+      <span class="brand-tag">Clínica Odontológica</span>
     </div>
-    <a href="https://wa.me/551634022380?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="btn-header">
+    <a href="https://wa.me/5516991410254?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20no%20Ateli%C3%AA%20do%20Sorriso." target="_blank" class="btn-header">
       Agendar
     </a>
   </header>
 
   <section class="hero">
     <div>
-      <div class="badge-google">
-        <span class="stars">★★★★★</span> 5.0 no Google (16 Avaliações)
+      <div class="google-rating">
+        <span class="stars">★★★★★</span> 4.7 no Google (20 Avaliações)
       </div>
-      <h1 class="hero-title">Seu tratamento rápido, com <span>carinho e preço justo</span>.</h1>
+      <h1 class="hero-title">Onde a arte e a ciência cuidam do seu <span>sorriso</span>.</h1>
       <p class="hero-desc">
-        Atendimento odontológico humanizado e acessível no centro de Franca. Dentistas altamente capacitados para cuidar do seu sorriso e de toda a sua família.
+        Localizada no coração de Franca, a Clínica Ateliê do Sorriso oferece tratamentos odontológicos completos, equipe altamente capacitada, ambiente acolhedor e higiene rigorosa.
       </p>
       <div class="hero-buttons">
-        <a href="https://wa.me/551634022380?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" class="btn-main">
-          💬 Agendar Consulta
+        <a href="https://wa.me/5516991410254?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" class="btn-main">
+          💬 Agendar via WhatsApp
         </a>
-        <a href="tel:1634022380" class="btn-outline">
-          📞 (16) 3402-2380
+        <a href="tel:16991410254" class="btn-outline">
+          📞 (16) 99141-0254
         </a>
       </div>
     </div>
 
-    <div class="hero-image-wrapper">
-      <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" alt="Consultório Odontológico Moderno" class="hero-img">
-      <div class="hero-card-float">
-        <div class="float-icon">📍</div>
-        <div class="float-text">
-          <h4>Fácil Acesso</h4>
-          <p>Ao lado do Terminal de Ônibus</p>
-        </div>
-      </div>
+    <div class="hero-img-box">
+      <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" alt="Consultório Ateliê do Sorriso em Franca" class="hero-img">
     </div>
   </section>
 
   <section class="section-padding">
     <div class="grid-3">
-      <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <h3 class="feature-title">Tratamento Ágil</h3>
-        <p class="feature-desc">Respeito ao seu tempo com planejamento eficiente para você conquistar o sorriso ideal rapidamente.</p>
+      <div class="card-diff">
+        <div class="diff-icon">✨</div>
+        <h3 class="diff-title">Atendimento Impecável</h3>
+        <p class="diff-desc">Atenção personalizada desde a recepção até o pós-procedimento. Respondemos a todas as suas dúvidas com máxima clareza.</p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon">🧸</div>
-        <h3 class="feature-title">Atendimento Infantil</h3>
-        <p class="feature-desc">Carinho, paciência e ambiente acolhedor preparado para cuidar dos dentes dos pequenos sem traumas.</p>
+      <div class="card-diff">
+        <div class="diff-icon">🧼</div>
+        <h3 class="diff-title">Higiene & Biossegurança</h3>
+        <p class="diff-desc">Seguimos os mais rígidos padrões de esterilização e higiene para garantir a sua total segurança durante o tratamento.</p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon">💎</div>
-        <h3 class="feature-title">Preço Acessível</h3>
-        <p class="feature-desc">Tratamentos completos com orçamento justo e condições facilitadas para caber no seu bolso.</p>
+      <div class="card-diff">
+        <div class="diff-icon">🤝</div>
+        <h3 class="diff-title">Espaço Acolhedor</h3>
+        <p class="diff-desc">Ambiente seguro, livre de julgamentos e totalmente preparado para acolher toda a comunidade com respeito e carinho.</p>
       </div>
     </div>
   </section>
 
-  <section class="section-padding" style="background: var(--surface); border-top: 1px solid var(--border-color);">
+  <section class="section-padding" style="background: var(--surface); border-top: 1px solid var(--border);">
     <div class="section-header">
-      <span class="tagline">Especialidades</span>
-      <h2 class="section-title">Cuidados completos para o seu sorriso</h2>
+      <span class="section-subtitle">Nossos Tratamentos</span>
+      <h2 class="section-title">Soluções completas para a sua saúde bucal</h2>
     </div>
 
     <div class="services-grid">
       <div class="service-card">
+        <h3 class="service-title">Estética Dental</h3>
+        <p class="service-desc">Lentes de contato, facetas e clareamento para transformar a harmonia do seu sorriso.</p>
+      </div>
+
+      <div class="service-card">
         <h3 class="service-title">Ortodontia</h3>
-        <p class="service-desc">Aparelhos estéticos e convencionais para alinhamento e correção dentária.</p>
+        <p class="service-desc">Aparelhos estéticos e alinhadores modernos para o alinhamento funcional dos dentes.</p>
       </div>
 
       <div class="service-card">
-        <h3 class="service-title">Limpeza & Profilaxia</h3>
-        <p class="service-desc">Remoção de tártaro, placa bacteriana e polimento para manter a gengiva saudável.</p>
+        <h3 class="service-title">Implantes & Próteses</h3>
+        <p class="service-desc">Reabilitação oral completa para recuperar a mastigação e a confiança de sorrir.</p>
+
       </div>
 
       <div class="service-card">
-        <h3 class="service-title">Clareamento Dental</h3>
-        <p class="service-desc">Técnicas seguras para devolver o brilho e a brancura natural dos seus dentes.</p>
-      </div>
-
-      <div class="service-card">
-        <h3 class="service-title">Restaurações & Estética</h3>
-        <p class="service-desc">Recuperação da anatomia e estética com resinas de alta qualidade.</p>
+        <h3 class="service-title">Clínica Geral & Prevenção</h3>
+        <p class="service-desc">Limpeza profunda, tratamento de cáries e cuidados preventivos para toda a família.</p>
       </div>
     </div>
   </section>
 
-  <section class="section-padding reviews-section">
+  <section class="section-padding reviews-bg">
     <div class="section-header">
-      <span class="tagline">Depoimentos Reais</span>
-      <h2 class="section-title">O que dizem nossos pacientes</h2>
+      <span class="section-subtitle">Aprovação de Nossos Pacientes</span>
+      <h2 class="section-title">O que dizem sobre o Ateliê</h2>
     </div>
 
     <div class="grid-3">
       <div class="review-card">
-        <p class="review-text">"Ótimo lugar, meu tratamento está sendo muito rápido e o atendimento excelente, super recomendo! Obrigada meninas pelo carinho de sempre ❤"</p>
+        <p class="review-text">"A melhor clínica de Franca. Super completa, com profissionais muito capacitados. Atendimento impecável e o melhor de tudo, tratamento que me deixou muito satisfeito. Indico muito!"</p>
         <div class="review-user">
-          <div class="user-avatar">J</div>
+          <div class="avatar">L</div>
           <div class="user-info">
-            <h5>Júlia</h5>
+            <h5>Lucas Fernandes</h5>
             <p>Avaliação no Google ★★★★★</p>
           </div>
         </div>
       </div>
 
       <div class="review-card">
-        <p class="review-text">"Atendimento excelente, além do carinho com meu filho, recomendo!"</p>
+        <p class="review-text">"Só tenho a agradecer a atenção e o profissionalismo desta conceituada Clínica, profissionais capacitados com excelência na profissão! RECOMENDO."</p>
         <div class="review-user">
-          <div class="user-avatar">P</div>
+          <div class="avatar">C</div>
           <div class="user-info">
-            <h5>Paloma Andrade</h5>
+            <h5>Carmen Guilherme</h5>
             <p>Local Guide no Google ★★★★★</p>
           </div>
         </div>
       </div>
 
       <div class="review-card">
-        <p class="review-text">"Excelentes profissionais, muito bem organizada e preços acessíveis!"</p>
+        <p class="review-text">"Eu fui perfeitamente atendido, todas as minhas perguntas foram respondidas com eficiência. A higiene é impecável e toda equipe merece os parabéns!"</p>
         <div class="review-user">
-          <div class="user-avatar">D</div>
+          <div class="avatar">R</div>
           <div class="user-info">
-            <h5>Davi Mamede</h5>
-            <p>Local Guide no Google ★★★★★</p>
+            <h5>Ronald Santos</h5>
+            <p>Avaliação no Google ★★★★★</p>
           </div>
         </div>
       </div>
@@ -729,55 +664,57 @@
   </section>
 
   <section class="section-padding">
-    <div class="location-box">
-      <div class="location-info">
-        <h2 style="font-size: 24px; font-weight: 800; color: var(--primary-dark); margin-bottom: 24px;">Venha nos visitar</h2>
+    <div class="contact-box">
+      <div class="contact-info">
+        <h2 style="font-family: var(--font-title); font-size: 28px; color: var(--primary); margin-bottom: 24px;">Visite a nossa clínica</h2>
         
-        <div class="info-item">
+        <div class="info-row">
           <div class="info-icon">📍</div>
-          <div class="info-content">
+          <div class="info-text">
             <h4>Endereço</h4>
-            <p>R. Mal. Deodoro, 1214 - Centro<br>Franca - SP, 14400-440 (Próximo ao Terminal)</p>
+            <p>Rua Voluntários da Franca, 1442 - Centro<br>Franca - SP, 14400-440</p>
           </div>
         </div>
 
-        <div class="info-item">
+        <div class="info-row">
           <div class="info-icon">⏰</div>
-          <div class="info-content">
-            <h4>Horário de Atendimento</h4>
-            <p>Segunda a Sexta: 08:00 às 19:00</p>
+          <div class="info-text">
+            <h4>Horário de Funcionamento</h4>
+            <p>Aberto de Segunda a Sexta • Encerra às 19:00</p>
           </div>
         </div>
 
-        <div class="info-item">
-          <div class="info-icon">📞</div>
-          <div class="info-content">
-            <h4>Telefone</h4>
-            <p>(16) 3402-2380</p>
+        <div class="info-row">
+          <div class="info-icon">📱</div>
+          <div class="info-text">
+            <h4>WhatsApp / Telefone</h4>
+            <p>(16) 99141-0254</p>
           </div>
         </div>
       </div>
 
-      <a href="https://maps.google.com/?q=R.+Mal.+Deodoro,+1214+-+Centro,+Franca+-+SP,+14400-440" target="_blank" class="location-map-btn">
-        <button class="map-overlay-btn">🗺️ Abrir no Google Maps</button>
-      </a>
+      <div class="contact-map">
+        <a href="https://maps.google.com/?q=Rua+Voluntários+da+Franca,+1442+-+Centro,+Franca+-+SP" target="_blank" class="btn-map">
+          🗺️ Abrir no Google Maps
+        </a>
+      </div>
     </div>
   </section>
 
   <footer class="footer">
-    <div class="footer-logo">Clínica Odontológica do Terminal</div>
-    <p>Rua Marechal Deodoro, 1214 - Centro - Franca/SP</p>
+    <div class="footer-title">Clínica Ateliê do Sorriso</div>
+    <p>Rua Voluntários da Franca, 1442 - Centro, Franca - SP</p>
     <div class="footer-copy">
-      © 2026 Clínica Odontológica do Terminal. Todos os direitos reservados.
+      © 2026 Clínica Ateliê do Sorriso. Todos os direitos reservados.
     </div>
   </footer>
 
-  <div class="fixed-bottom-bar">
-    <a href="tel:1634022380" class="bar-btn-call">
+  <div class="fixed-bar">
+    <a href="tel:16991410254" class="btn-bar-call">
       📞 Ligar
     </a>
-    <a href="https://wa.me/551634022380?text=Ol%C3%A1,%20gostaria%20de%20agendar%20um%20hor%C3%A1rio!" target="_blank" class="bar-btn-wa">
-      💬 Chamar no Whats
+    <a href="https://wa.me/5516991410254?text=Ol%C3%A1,%20gostaria%20de%20agendar%20um%20hor%C3%A1rio!" target="_blank" class="btn-bar-wa">
+      💬 WhatsApp
     </a>
   </div>
 
