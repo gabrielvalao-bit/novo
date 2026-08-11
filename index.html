@@ -2,17 +2,17 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Auto Mecânica Doctor Car — Franca / SP</title>
-  <meta name="description" content="Doctor Car em Franca-SP. Diagnóstico preciso, freios, manutenção e mecânica de alta performance com nota 4,9 estrelas no Google.">
+  <meta name="description" content="Oficina mecânica em Franca-SP. Diagnóstico preciso, freios, manutenção preventiva com nota 4,9 estrelas no Google.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
   <style>
     /* =========================================================
-       DESIGN SYSTEM & VARIABLES
+       DESIGN SYSTEM & MOBILE-FIRST VARIABLES
     ========================================================= */
     :root {
       --bg-dark: #070708;
@@ -21,11 +21,11 @@
       --red-racing: #e10600;
       --red-glow: rgba(225, 6, 0, 0.45);
       --red-bright: #ff2a2a;
+      --green-wa: #25d366;
       --gold-star: #ffb400;
       --text-main: #f0f0f2;
       --text-muted: #8e9299;
       --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-active: rgba(225, 6, 0, 0.5);
       --font-heading: 'Syne', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
     }
@@ -34,6 +34,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
     html {
@@ -43,71 +44,53 @@
       font-family: var(--font-body);
     }
 
-    /* Scrollbar */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: var(--bg-dark); }
-    ::-webkit-scrollbar-thumb { background: #22242a; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--red-racing); }
+    body {
+      overflow-x: hidden;
+      padding-bottom: 70px; /* Espaço para o botão flutuante mobile */
+    }
 
     /* =========================================================
-       HEADER & NAVIGATION
+       HEADER & MOBILE NAVIGATION
     ========================================================= */
     .header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 84px;
+      height: 70px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 5%;
       z-index: 1000;
-      transition: all 0.4s ease;
-      border-bottom: 1px solid transparent;
-    }
-
-    .header.scrolled {
-      height: 70px;
-      background: rgba(7, 7, 8, 0.9);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      background: rgba(7, 7, 8, 0.95);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
       border-bottom: 1px solid var(--border-subtle);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
-    /* Logo Exclusivo */
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
       text-decoration: none;
-      cursor: pointer;
     }
 
     .emblem {
-      width: 46px;
-      height: 46px;
+      width: 40px;
+      height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
       background: linear-gradient(145deg, #181a20 0%, #0a0b0d 100%);
       border: 1px solid rgba(225, 6, 0, 0.4);
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(225, 6, 0, 0.25);
-      transition: all 0.4s ease;
-    }
-
-    .logo-container:hover .emblem {
-      border-color: var(--red-bright);
-      box-shadow: 0 0 30px var(--red-glow);
-      transform: scale(1.05) rotate(-2deg);
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(225, 6, 0, 0.25);
     }
 
     .emblem svg {
-      width: 26px;
-      height: 26px;
-      filter: drop-shadow(0 0 6px var(--red-glow));
+      width: 22px;
+      height: 22px;
     }
 
     .logo-text {
@@ -117,245 +100,202 @@
 
     .brand-title {
       font-family: var(--font-heading);
-      font-size: 20px;
+      font-size: 17px;
       font-weight: 800;
-      letter-spacing: -0.5px;
       color: #fff;
       line-height: 1;
     }
 
     .brand-title span {
       color: var(--red-bright);
-      text-shadow: 0 0 10px rgba(225, 6, 0, 0.5);
     }
 
     .brand-sub {
-      font-size: 9px;
+      font-size: 8px;
       font-weight: 700;
-      letter-spacing: 2.2px;
+      letter-spacing: 1.5px;
       color: var(--text-muted);
       text-transform: uppercase;
-      margin-top: 4px;
+      margin-top: 3px;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: #b0b4ba;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-      transition: color 0.3s;
-      position: relative;
-    }
-
-    .nav-links a:hover {
-      color: #fff;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background: var(--red-racing);
-      box-shadow: 0 0 8px var(--red-racing);
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .rating-badge-nav {
-      display: flex;
-      align-items: center;
-      gap: 6px;
+    /* Hamburger Button */
+    .menu-toggle {
+      width: 42px;
+      height: 42px;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-subtle);
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .rating-badge-nav .star {
-      color: var(--gold-star);
-    }
-
-    .btn-cta {
-      background: linear-gradient(135deg, var(--red-racing) 0%, #a00400 100%);
-      color: #fff;
-      padding: 12px 22px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      cursor: pointer;
-      box-shadow: 0 4px 20px rgba(225, 6, 0, 0.35);
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-flex;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 1001;
     }
 
-    .btn-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(225, 6, 0, 0.6);
-      background: linear-gradient(135deg, #ff1a14 0%, var(--red-racing) 100%);
+    .menu-toggle span {
+      width: 20px;
+      height: 2px;
+      background: var(--text-main);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile Menu Drawer */
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 300px;
+      height: 100vh;
+      background: var(--bg-surface);
+      border-left: 1px solid var(--border-subtle);
+      z-index: 999;
+      padding: 90px 24px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: -10px 0 30px rgba(0,0,0,0.8);
+    }
+
+    .mobile-drawer.active {
+      right: 0;
+    }
+
+    .mobile-drawer a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 998;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .drawer-overlay.active {
+      opacity: 1;
+      pointer-events: all;
     }
 
     /* =========================================================
-       HERO SECTION
+       HERO MOBILE SECTION
     ========================================================= */
     .hero {
-      position: relative;
-      min-height: 100vh;
+      padding: 100px 5% 40px;
+      min-height: auto;
       display: flex;
-      align-items: center;
-      padding: 140px 5% 80px;
-      background: radial-gradient(circle at 80% 30%, rgba(225, 6, 0, 0.15) 0%, transparent 55%),
-                  radial-gradient(circle at 10% 80%, rgba(15, 16, 19, 0.9) 0%, var(--bg-dark) 100%);
-      overflow: hidden;
-    }
-
-    .hero-grid-bg {
-      position: absolute;
-      inset: 0;
-      background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
-      pointer-events: none;
-    }
-
-    .hero-content {
+      flex-direction: column;
+      justify-content: center;
       position: relative;
-      z-index: 2;
-      max-width: 720px;
     }
 
-    .google-status-pill {
+    .rating-pill {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       background: rgba(225, 6, 0, 0.1);
       border: 1px solid rgba(225, 6, 0, 0.3);
-      padding: 6px 16px;
-      border-radius: 30px;
-      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 11px;
       font-weight: 700;
       color: var(--red-bright);
-      margin-bottom: 24px;
+      margin-bottom: 18px;
+      width: fit-content;
     }
 
-    .google-status-pill .status-dot {
-      width: 8px;
-      height: 8px;
-      background: #00e676;
-      border-radius: 50%;
-      box-shadow: 0 0 10px #00e676;
+    .rating-pill .star {
+      color: var(--gold-star);
     }
 
     .hero h1 {
       font-family: var(--font-heading);
-      font-size: clamp(40px, 5.2vw, 72px);
+      font-size: 34px;
       font-weight: 800;
-      line-height: 1;
-      letter-spacing: -2px;
-      margin-bottom: 24px;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
       text-transform: uppercase;
     }
 
     .hero h1 span {
-      background: linear-gradient(180deg, #ffffff 0%, #9e0200 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero h1 em {
-      font-style: normal;
       color: var(--red-bright);
-      -webkit-text-fill-color: initial;
-      text-shadow: 0 0 25px rgba(225, 6, 0, 0.4);
     }
 
     .hero-description {
-      font-size: 16px;
-      line-height: 1.7;
+      font-size: 14px;
+      line-height: 1.6;
       color: var(--text-muted);
-      margin-bottom: 36px;
-      max-width: 580px;
+      margin-bottom: 24px;
     }
 
-    .hero-actions {
+    .btn-main-mobile {
+      width: 100%;
+      min-height: 52px;
+      background: linear-gradient(135deg, var(--red-racing) 0%, #a00400 100%);
+      color: #fff;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
+      justify-content: center;
       gap: 10px;
-      color: var(--text-main);
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 13px 22px;
-      border: 1px solid var(--border-subtle);
-      border-radius: 6px;
-      transition: all 0.3s ease;
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    .btn-secondary:hover {
-      border-color: rgba(255, 255, 255, 0.3);
-      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 6px 20px rgba(225, 6, 0, 0.4);
     }
 
     /* =========================================================
-       LOCAL INFO STRIP (FRANCA - SP)
+       INFO CARDS (LOCALIZAÇÃO & HORÁRIO)
     ========================================================= */
-    .info-strip {
-      background: var(--bg-surface);
-      border-top: 1px solid var(--border-subtle);
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 30px 5%;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
+    .info-section {
+      padding: 20px 5%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
-    .info-box {
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 16px;
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
     }
 
-    .info-icon {
-      width: 44px;
-      height: 44px;
+    .info-card-icon {
+      width: 40px;
+      height: 40px;
       background: rgba(225, 6, 0, 0.1);
-      border: 1px solid rgba(225, 6, 0, 0.2);
-      border-radius: 10px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -363,129 +303,110 @@
       flex-shrink: 0;
     }
 
-    .info-text h4 {
-      font-size: 14px;
+    .info-card-text h4 {
+      font-size: 13px;
       font-weight: 700;
       color: #fff;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
 
-    .info-text p {
-      font-size: 12px;
+    .info-card-text p {
+      font-size: 11px;
       color: var(--text-muted);
-      line-height: 1.4;
+      line-height: 1.3;
     }
 
     /* =========================================================
-       REVIEWS / AVALIAÇÕES REAL DO GOOGLE
+       REVIEWS / AVALIAÇÕES MOBILE
     ========================================================= */
     .reviews-section {
-      padding: 100px 5%;
-      background: var(--bg-dark);
-    }
-
-    .section-header {
-      margin-bottom: 50px;
-    }
-
-    .section-subtitle {
-      color: var(--red-bright);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
+      padding: 40px 5%;
     }
 
     .section-title {
       font-family: var(--font-heading);
-      font-size: clamp(28px, 3.5vw, 44px);
+      font-size: 24px;
       font-weight: 800;
-      letter-spacing: -1px;
-    }
-
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
+      margin-bottom: 20px;
     }
 
     .review-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.3s ease;
-    }
-
-    .review-card:hover {
-      border-color: var(--border-active);
-      transform: translateY(-4px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 14px;
     }
 
     .review-header {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      margin-bottom: 16px;
+      align-items: center;
+      margin-bottom: 10px;
     }
 
-    .reviewer-info h5 {
-      font-size: 15px;
+    .reviewer-name {
+      font-size: 14px;
       font-weight: 700;
       color: #fff;
     }
 
-    .reviewer-info span {
+    .stars {
+      color: var(--gold-star);
+      font-size: 12px;
+    }
+
+    .review-text {
+      font-size: 13px;
+      color: #c5c8ce;
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    .owner-reply {
+      margin-top: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 2px solid var(--red-racing);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
       font-size: 11px;
       color: var(--text-muted);
     }
 
-    .stars {
-      color: var(--gold-star);
+    /* =========================================================
+       BOTÃO FLUTUANTE WHATSAPP (FIXO NO RODAPÉ MOBILE)
+    ========================================================= */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 16px;
+      left: 5%;
+      right: 5%;
+      height: 52px;
+      background: var(--green-wa);
+      color: #fff;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
       font-size: 14px;
-      letter-spacing: 1px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+      z-index: 990;
     }
 
-    .review-comment {
-      font-size: 14px;
-      color: #c5c8ce;
-      line-height: 1.6;
-      font-style: italic;
-      margin-bottom: 20px;
-    }
-
-    .owner-reply {
-      background: rgba(255, 255, 255, 0.03);
-      border-left: 2px solid var(--red-racing);
-      padding: 10px 14px;
-      border-radius: 0 8px 8px 0;
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .owner-reply strong {
-      color: var(--red-bright);
-      display: block;
-      margin-bottom: 2px;
-      font-style: normal;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .hero { padding-top: 120px; }
-      .hero h1 { font-size: 38px; }
+    .floating-whatsapp svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
     }
   </style>
 </head>
 <body>
 
-  <header class="header" id="mainHeader">
+  <header class="header">
     <a href="#" class="logo-container">
       <div class="emblem">
         <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -496,157 +417,122 @@
       </div>
       <div class="logo-text">
         <span class="brand-title">DOCTOR <span>CAR</span></span>
-        <span class="brand-sub">AUTO MECÂNICA • FRANCA-SP</span>
+        <span class="brand-sub">FRANCA - SP</span>
       </div>
     </a>
 
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#sobre">Sobre Nós</a></li>
-        <li><a href="#localizacao">Localização</a></li>
-        <li><a href="#avaliacoes">Avaliações (4.9★)</a></li>
-      </ul>
-    </nav>
-
-    <div class="header-right">
-      <div class="rating-badge-nav">
-        <span class="star">★</span> 4.9 <span style="color: var(--text-muted); font-weight:400;">(80)</span>
-      </div>
-      <a href="https://wa.me/5516991520843?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20or%C3%A7amento%20para%20meu%20carro." target="_blank" class="btn-cta">
-        <span>Falar no WhatsApp</span>
-      </a>
+    <div class="menu-toggle" id="menuBtn">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-grid-bg"></div>
+  <div class="drawer-overlay" id="overlay"></div>
+  <nav class="mobile-drawer" id="drawer">
+    <a href="#inicio" onclick="closeMenu()">Início</a>
+    <a href="#localizacao" onclick="closeMenu()">Endereço & Horário</a>
+    <a href="#avaliacoes" onclick="closeMenu()">Avaliações (4.9★)</a>
+    <a href="https://wa.me/5516991520843" target="_blank" style="color: var(--green-wa);">Falar no WhatsApp</a>
+  </nav>
 
-    <div class="hero-content">
-      <div class="google-status-pill">
-        <span class="status-dot"></span>
-        Oficina Aberta • Fecha às 18:00
-      </div>
-
-      <h1>
-        Mecânica de Precisão <span>Com Preço Justo</span> & <em>Transparência</em>
-      </h1>
-
-      <p class="hero-description">
-        Sua oficina de confiança na Vila Nicacio em Franca-SP. Diagnóstico qualificado, equipe especializada (David, Igor e time) e atendimento com nota 4,9 estrelas no Google.
-      </p>
-
-      <div class="hero-actions">
-        <a href="https://wa.me/5516991520843?text=Ol%C3%A1,%20gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank" class="btn-cta">
-          Agendar Serviço via WhatsApp
-        </a>
-        <a href="#localizacao" class="btn-secondary">
-          📍 Ver Endereço
-        </a>
-      </div>
+  <section class="hero" id="inicio">
+    <div class="rating-pill">
+      <span class="star">★</span> 4.9 de 5.0 (80 avaliações no Google)
     </div>
+
+    <h1>Mecânica com <span>Preço Justo</span> & Qualidade</h1>
+
+    <p class="hero-description">
+      Diagnóstico preciso para o seu veículo na Vila Nicacio em Franca-SP. Atendimento diferenciado com a equipe do David e do Igor.
+    </p>
+
+    <a href="https://wa.me/5516991520843?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento." class="btn-main-mobile" target="_blank">
+      Solicitar Orçamento
+    </a>
   </section>
 
-  <section class="info-strip" id="localizacao">
-    <div class="info-box">
-      <div class="info-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+  <section class="info-section" id="localizacao">
+    <div class="info-card">
+      <div class="info-card-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
       </div>
-      <div class="info-text">
+      <div class="info-card-text">
         <h4>R. Torquato Caleiro, 341</h4>
         <p>Vila Nicacio, Franca - SP, 14405-118</p>
       </div>
     </div>
 
-    <div class="info-box">
-      <div class="info-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <div class="info-card">
+      <div class="info-card-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       </div>
-      <div class="info-text">
-        <h4>(16) 99152-0843</h4>
-        <p>Atendimento rápido via WhatsApp e ligação</p>
+      <div class="info-card-text">
+        <h4>Aberto Hoje até 18:00</h4>
+        <p>Segunda a Sexta das 08h às 18h</p>
       </div>
     </div>
 
-    <div class="info-box">
-      <div class="info-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <div class="info-card">
+      <div class="info-card-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       </div>
-      <div class="info-text">
-        <h4>Segunda a Sexta</h4>
-        <p>Aberto das 08:00 às 18:00</p>
+      <div class="info-card-text">
+        <h4>(16) 99152-0843</h4>
+        <p>Ligue ou chame no WhatsApp</p>
       </div>
     </div>
   </section>
 
   <section class="reviews-section" id="avaliacoes">
-    <div class="section-header">
-      <div class="section-subtitle">O Que Dizem Nossos Clientes</div>
-      <h2 class="section-title">Avaliado em 4,9 / 5.0 no Google</h2>
+    <h2 class="section-title">Clientes Satisfeitos</h2>
+
+    <div class="review-card">
+      <div class="review-header">
+        <span class="reviewer-name">Eduardo Silveira</span>
+        <span class="stars">★★★★★</span>
+      </div>
+      <p class="review-text">"Gostei muito do atendimento do pessoal, do David e principalmente do Igor. Resolvido o problema no freio com valor muito justo!"</p>
+      <div class="owner-reply">
+        <strong>Doctor Car:</strong> Ficamos felizes em atendê-lo!
+      </div>
     </div>
 
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div>
-          <div class="review-header">
-            <div class="reviewer-info">
-              <h5>Ronilson Ribeiro</h5>
-              <span>5 avaliações</span>
-            </div>
-            <div class="stars">★★★★★</div>
-          </div>
-          <p class="review-comment">"Ótimo atendimento, serviços de excelência e preço justo!"</p>
-        </div>
-        <div class="owner-reply">
-          <strong>Resposta da Doctor Car:</strong>
-          "Obrigado pelo feedback, estamos sempre em busca de melhorar!"
-        </div>
+    <div class="review-card">
+      <div class="review-header">
+        <span class="reviewer-name">Ronilson Ribeiro</span>
+        <span class="stars">★★★★★</span>
       </div>
-
-      <div class="review-card">
-        <div>
-          <div class="review-header">
-            <div class="reviewer-info">
-              <h5>Eduardo Silveira</h5>
-              <span>Local Guide · 103 avaliações</span>
-            </div>
-            <div class="stars">★★★★★</div>
-          </div>
-          <p class="review-comment">"Gostei muito do atendimento do pessoal, do David e principalmente do Igor. Foi resolvido o problema no freio com valor de peça e mão de obra muito justo!"</p>
-        </div>
-        <div class="owner-reply">
-          <strong>Resposta da Doctor Car:</strong>
-          "Ficamos muito felizes em atendê-lo. Estaremos sempre à disposição!"
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div>
-          <div class="review-header">
-            <div class="reviewer-info">
-              <h5>Tony Alberto</h5>
-              <span>Local Guide · 25 avaliações</span>
-            </div>
-            <div class="stars">★★★★★</div>
-          </div>
-          <p class="review-comment">"Os meninos são muito educados e atenciosos. Me ajudaram prontamente com profissionalismo impecável. Sem dúvida levarei meu carro sempre lá!"</p>
-        </div>
-        <div class="owner-reply">
-          <strong>Resposta da Doctor Car:</strong>
-          "Agradecemos a confiança e a parceria de sempre!"
-        </div>
-      </div>
+      <p class="review-text">"Ótimo atendimento, serviços de excelência e preço justo."</p>
     </div>
   </section>
 
+  <a href="https://wa.me/5516991520843?text=Ol%C3%A1,%20gostaria%20de%20agendar%20um%20servi%C3%A7o!" class="floating-whatsapp" target="_blank">
+    <svg viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+    </svg>
+    Chamar no WhatsApp
+  </a>
+
   <script>
-    window.addEventListener('scroll', () => {
-      const header = document.getElementById('mainHeader');
-      if (window.scrollY > 30) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
+    const menuBtn = document.getElementById('menuBtn');
+    const drawer = document.getElementById('drawer');
+    const overlay = document.getElementById('overlay');
+
+    function toggleMenu() {
+      menuBtn.classList.toggle('active');
+      drawer.classList.toggle('active');
+      overlay.classList.toggle('active');
+    }
+
+    function closeMenu() {
+      menuBtn.classList.remove('active');
+      drawer.classList.remove('active');
+      overlay.classList.remove('active');
+    }
+
+    menuBtn.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', closeMenu);
   </script>
 </body>
 </html>
