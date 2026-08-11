@@ -1,1679 +1,1099 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Auto Mecânica Doctor Car | Oficina Mecânica em Franca - SP</title>
-
-  <meta
-    name="description"
-    content="Auto Mecânica Doctor Car em Franca - SP. Manutenção automotiva, revisão, freios, suspensão, motor e diagnóstico. Atendimento profissional e preço justo."
-  />
-
-  <meta name="theme-color" content="#080808" />
-
-  <meta property="og:title" content="Auto Mecânica Doctor Car" />
-  <meta
-    property="og:description"
-    content="Seu carro merece uma mecânica de confiança."
-  />
-  <meta property="og:type" content="website" />
-
-  <style>
-    :root {
-      --bg: #070707;
-      --bg-2: #0d0d0d;
-      --card: #121212;
-      --card-2: #171717;
-      --text: #ffffff;
-      --muted: #a5a5a5;
-      --line: rgba(255,255,255,.09);
-      --red: #e10600;
-      --red-2: #ff2a23;
-      --green: #25d366;
-      --max: 1180px;
-      --radius: 18px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(92%, var(--max));
-      margin: auto;
-    }
-
-    /* =========================
-       HEADER
-    ========================== */
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(7,7,7,.78);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-
-    .nav {
-      height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 900;
-      letter-spacing: -.5px;
-    }
-
-    .logo-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 11px;
-      background: linear-gradient(135deg, var(--red), #8b0000);
-      display: grid;
-      place-items: center;
-      font-size: 21px;
-      box-shadow: 0 8px 30px rgba(225,6,0,.25);
-    }
-
-    .logo-text span {
-      display: block;
-      font-size: 10px;
-      color: #aaa;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .logo-text strong {
-      font-size: 16px;
-    }
-
-    .menu {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .menu a {
-      color: #d5d5d5;
-      font-size: 14px;
-      transition: .25s;
-    }
-
-    .menu a:hover {
-      color: white;
-    }
-
-    .nav-cta {
-      background: var(--red);
-      padding: 12px 18px;
-      border-radius: 10px;
-      font-weight: 800 !important;
-      color: white !important;
-    }
-
-    .nav-cta:hover {
-      background: var(--red-2);
-      transform: translateY(-2px);
-    }
-
-    .mobile-btn {
-      display: none;
-      background: transparent;
-      color: white;
-      border: 0;
-      font-size: 27px;
-      cursor: pointer;
-    }
-
-    /* =========================
-       HERO
-    ========================== */
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding-top: 76px;
-      background:
-        radial-gradient(circle at 80% 35%, rgba(225,6,0,.19), transparent 30%),
-        radial-gradient(circle at 20% 90%, rgba(225,6,0,.08), transparent 35%),
-        linear-gradient(135deg, #080808 0%, #0d0d0d 50%, #050505 100%);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: .18;
-      background-image:
-        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-      background-size: 55px 55px;
-      mask-image: linear-gradient(to bottom, black, transparent);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 760px;
-      padding: 90px 0;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      border: 1px solid rgba(225,6,0,.35);
-      background: rgba(225,6,0,.08);
-      color: #ff625c;
-      padding: 8px 13px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 24px;
-    }
-
-    .eyebrow-dot {
-      width: 7px;
-      height: 7px;
-      background: var(--red);
-      border-radius: 50%;
-      box-shadow: 0 0 15px var(--red);
-    }
-
-    h1 {
-      font-size: clamp(42px, 7vw, 78px);
-      line-height: .98;
-      letter-spacing: -4px;
-      margin-bottom: 25px;
-      max-width: 800px;
-    }
-
-    h1 span {
-      color: var(--red);
-    }
-
-    .hero-description {
-      max-width: 650px;
-      color: #b7b7b7;
-      font-size: clamp(16px, 2vw, 20px);
-      margin-bottom: 30px;
-    }
-
-    .rating {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 32px;
-      flex-wrap: wrap;
-    }
-
-    .stars {
-      color: #ffc400;
-      letter-spacing: 2px;
-      font-size: 18px;
-    }
-
-    .rating strong {
-      font-size: 15px;
-    }
-
-    .rating small {
-      color: #9d9d9d;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 13px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 9px;
-      min-height: 52px;
-      padding: 0 22px;
-      border-radius: 11px;
-      font-size: 14px;
-      font-weight: 900;
-      transition: .25s;
-      border: 1px solid transparent;
-    }
-
-    .btn-primary {
-      background: var(--red);
-      box-shadow: 0 12px 35px rgba(225,6,0,.23);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      background: var(--red-2);
-      box-shadow: 0 16px 45px rgba(225,6,0,.35);
-    }
-
-    .btn-outline {
-      border-color: var(--line);
-      background: rgba(255,255,255,.04);
-    }
-
-    .btn-outline:hover {
-      background: rgba(255,255,255,.08);
-      transform: translateY(-3px);
-    }
-
-    /* =========================
-       TRUST BAR
-    ========================== */
-
-    .trust {
-      background: #0d0d0d;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .trust-item {
-      padding: 28px 20px;
-      text-align: center;
-      border-right: 1px solid var(--line);
-    }
-
-    .trust-item:last-child {
-      border-right: 0;
-    }
-
-    .trust-icon {
-      font-size: 22px;
-      margin-bottom: 5px;
-    }
-
-    .trust-item strong {
-      display: block;
-      font-size: 18px;
-    }
-
-    .trust-item span {
-      color: #888;
-      font-size: 12px;
-    }
-
-    /* =========================
-       SECTIONS
-    ========================== */
-
-    section {
-      padding: 100px 0;
-    }
-
-    .section-head {
-      max-width: 700px;
-      margin-bottom: 50px;
-    }
-
-    .section-label {
-      color: #ff4c45;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 11px;
-      font-weight: 900;
-      margin-bottom: 10px;
-    }
-
-    .section-title {
-      font-size: clamp(30px, 5vw, 48px);
-      line-height: 1.05;
-      letter-spacing: -2px;
-      margin-bottom: 15px;
-    }
-
-    .section-description {
-      color: #929292;
-      font-size: 16px;
-    }
-
-    /* =========================
-       SERVICES
-    ========================== */
-
-    .services {
-      background: #090909;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-    }
-
-    .service-card {
-      background: linear-gradient(145deg, #141414, #0f0f0f);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 28px;
-      transition: .3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .service-card::after {
-      content: "";
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      background: rgba(225,6,0,.12);
-      filter: blur(35px);
-      right: -50px;
-      bottom: -50px;
-      opacity: 0;
-      transition: .3s;
-    }
-
-    .service-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(225,6,0,.35);
-    }
-
-    .service-card:hover::after {
-      opacity: 1;
-    }
-
-    .service-icon {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      border-radius: 13px;
-      background: rgba(225,6,0,.1);
-      border: 1px solid rgba(225,6,0,.18);
-      font-size: 23px;
-      margin-bottom: 20px;
-    }
-
-    .service-card h3 {
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-
-    .service-card p {
-      color: #858585;
-      font-size: 14px;
-    }
-
-    /* =========================
-       DIFFERENTIALS
-    ========================== */
-
-    .differentials {
-      background: #050505;
-    }
-
-    .diff-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 12px;
-    }
-
-    .diff-card {
-      padding: 25px 20px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: #0d0d0d;
-    }
-
-    .diff-number {
-      color: var(--red);
-      font-size: 13px;
-      font-weight: 900;
-      margin-bottom: 22px;
-    }
-
-    .diff-card h3 {
-      font-size: 16px;
-      margin-bottom: 9px;
-    }
-
-    .diff-card p {
-      color: #818181;
-      font-size: 13px;
-    }
-
-    /* =========================
-       ABOUT
-    ========================== */
-
-    .about {
-      background:
-        radial-gradient(circle at 90% 50%, rgba(225,6,0,.09), transparent 35%),
-        #0a0a0a;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 70px;
-      align-items: center;
-    }
-
-    .about-box {
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      min-height: 450px;
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(145deg, rgba(225,6,0,.15), transparent 40%),
-        linear-gradient(135deg, #1a1a1a, #080808);
-      display: flex;
-      align-items: flex-end;
-      padding: 30px;
-    }
-
-    .about-box::before {
-      content: "DOCTOR CAR";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%) rotate(-8deg);
-      font-size: clamp(45px, 7vw, 90px);
-      font-weight: 1000;
-      color: rgba(255,255,255,.025);
-      white-space: nowrap;
-    }
-
-    .about-badge {
-      position: relative;
-      z-index: 2;
-      padding: 18px;
-      border-radius: 15px;
-      background: rgba(0,0,0,.72);
-      border: 1px solid var(--line);
-      backdrop-filter: blur(10px);
-      width: 100%;
-    }
-
-    .about-badge strong {
-      display: block;
-      font-size: 24px;
-    }
-
-    .about-badge span {
-      color: #888;
-      font-size: 13px;
-    }
-
-    .about-text p {
-      color: #999;
-      margin-bottom: 18px;
-      font-size: 16px;
-    }
-
-    /* =========================
-       REVIEWS
-    ========================== */
-
-    .reviews {
-      background: #090909;
-    }
-
-    .review-summary {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 25px;
-      background: #121212;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      margin-bottom: 25px;
-      max-width: 430px;
-    }
-
-    .review-score {
-      font-size: 48px;
-      font-weight: 1000;
-      line-height: 1;
-    }
-
-    .review-summary small {
-      color: #888;
-    }
-
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-    }
-
-    .review {
-      background: #111;
-      border: 1px solid var(--line);
-      padding: 28px;
-      border-radius: 18px;
-    }
-
-    .review-stars {
-      color: #ffc400;
-      margin-bottom: 18px;
-    }
-
-    .review p {
-      color: #bbb;
-      font-size: 14px;
-      margin-bottom: 22px;
-    }
-
-    .review-author {
-      font-weight: 800;
-      font-size: 13px;
-    }
-
-    .review-author span {
-      display: block;
-      color: #666;
-      font-weight: 400;
-      margin-top: 3px;
-    }
-
-    /* =========================
-       CTA
-    ========================== */
-
-    .cta {
-      padding: 80px 0;
-      background:
-        radial-gradient(circle at 50% 0%, rgba(255,255,255,.13), transparent 35%),
-        linear-gradient(135deg, #a30000, #e10600 55%, #820000);
-      text-align: center;
-    }
-
-    .cta h2 {
-      font-size: clamp(32px, 5vw, 56px);
-      line-height: 1;
-      letter-spacing: -2px;
-      margin-bottom: 15px;
-    }
-
-    .cta p {
-      max-width: 620px;
-      margin: auto;
-      color: rgba(255,255,255,.82);
-      margin-bottom: 28px;
-    }
-
-    .cta .btn {
-      background: white;
-      color: #111;
-    }
-
-    .cta .btn:hover {
-      transform: translateY(-3px) scale(1.02);
-    }
-
-    /* =========================
-       LOCATION
-    ========================== */
-
-    .location {
-      background: #070707;
-    }
-
-    .location-grid {
-      display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      gap: 20px;
-    }
-
-    .contact-card,
-    .map-card {
-      background: #111;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 30px;
-    }
-
-    .contact-item {
-      padding: 18px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .contact-item:last-child {
-      border-bottom: 0;
-    }
-
-    .contact-item small {
-      display: block;
-      color: #777;
-      margin-bottom: 4px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 10px;
-      font-weight: 900;
-    }
-
-    .contact-item strong {
-      font-size: 15px;
-    }
-
-    .map-card {
-      padding: 0;
-      overflow: hidden;
-      min-height: 380px;
-    }
-
-    .map-card iframe {
-      width: 100%;
-      height: 100%;
-      min-height: 380px;
-      border: 0;
-      filter: grayscale(1) contrast(1.15);
-    }
-
-    /* =========================
-       FAQ
-    ========================== */
-
-    .faq {
-      background: #0a0a0a;
-    }
-
-    .faq-list {
-      max-width: 850px;
-      margin: auto;
-    }
-
-    details {
-      border-bottom: 1px solid var(--line);
-      padding: 20px 0;
-    }
-
-    summary {
-      cursor: pointer;
-      font-weight: 800;
-      list-style: none;
-      position: relative;
-      padding-right: 30px;
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    summary::after {
-      content: "+";
-      position: absolute;
-      right: 0;
-      font-size: 22px;
-      color: var(--red);
-    }
-
-    details[open] summary::after {
-      content: "−";
-    }
-
-    details p {
-      color: #858585;
-      padding-top: 13px;
-      max-width: 700px;
-    }
-
-    /* =========================
-       FOOTER
-    ========================== */
-
-    footer {
-      background: #030303;
-      border-top: 1px solid var(--line);
-      padding: 55px 0 25px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 50px;
-      padding-bottom: 45px;
-    }
-
-    .footer-title {
-      font-weight: 900;
-      margin-bottom: 15px;
-    }
-
-    .footer p,
-    .footer a {
-      color: #777;
-      font-size: 14px;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .footer-links a:hover {
-      color: white;
-    }
-
-    .copyright {
-      border-top: 1px solid var(--line);
-      padding-top: 20px;
-      color: #555;
-      font-size: 12px;
-      text-align: center;
-    }
-
-    /* =========================
-       WHATSAPP
-    ========================== */
-
-    .whatsapp {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      width: 61px;
-      height: 61px;
-      border-radius: 50%;
-      background: var(--green);
-      color: white;
-      display: grid;
-      place-items: center;
-      font-size: 29px;
-      z-index: 999;
-      box-shadow: 0 10px 35px rgba(37,211,102,.3);
-      transition: .25s;
-    }
-
-    .whatsapp:hover {
-      transform: scale(1.08);
-    }
-
-    .whatsapp-label {
-      position: absolute;
-      right: 72px;
-      white-space: nowrap;
-      background: #111;
-      border: 1px solid var(--line);
-      color: white;
-      padding: 8px 12px;
-      border-radius: 8px;
-      font-size: 11px;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateX(10px);
-      transition: .2s;
-    }
-
-    .whatsapp:hover .whatsapp-label {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    /* =========================
-       ANIMATION
-    ========================== */
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(25px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* =========================
-       RESPONSIVE
-    ========================== */
-
-    @media (max-width: 900px) {
-      .menu {
-        position: fixed;
-        top: 76px;
-        left: 0;
-        width: 100%;
-        padding: 20px;
-        background: #0a0a0a;
-        border-bottom: 1px solid var(--line);
-        display: none;
-        flex-direction: column;
-      }
-
-      .menu.active {
-        display: flex;
-      }
-
-      .mobile-btn {
-        display: block;
-      }
-
-      .nav-cta {
-        display: none;
-      }
-
-      .trust-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .trust-item:nth-child(2) {
-        border-right: 0;
-      }
-
-      .trust-item:nth-child(-n+2) {
-        border-bottom: 1px solid var(--line);
-      }
-
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .diff-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .about-grid,
-      .location-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .reviews-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .nav {
-        height: 68px;
-      }
-
-      .menu {
-        top: 68px;
-      }
-
-      .hero {
-        padding-top: 68px;
-      }
-
-      .hero-content {
-        padding: 70px 0;
-      }
-
-      h1 {
-        font-size: 45px;
-        letter-spacing: -2.5px;
-      }
-
-      .hero-description {
-        font-size: 16px;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-      }
-
-      .hero-buttons .btn {
-        width: 100%;
-      }
-
-      section {
-        padding: 75px 0;
-      }
-
-      .services-grid,
-      .diff-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-grid {
-        gap: 35px;
-      }
-
-      .about-box {
-        min-height: 300px;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .whatsapp {
-        right: 16px;
-        bottom: 16px;
-        width: 57px;
-        height: 57px;
-      }
-
-      .whatsapp-label {
-        display: none;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctor Car | Oficina Mecânica</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#050608;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+:root{
+    --red:#ff1717;
+    --red2:#ff3b3b;
+    --dark:#050608;
+    --card:#0c0e12;
+    --gray:#9da3ad;
+}
+
+/* CURSOR LIGHT */
+.cursor-light{
+    position:fixed;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    pointer-events:none;
+    background:radial-gradient(circle,rgba(255,20,20,.12),transparent 65%);
+    transform:translate(-50%,-50%);
+    z-index:0;
+}
+
+/* NAV */
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    z-index:100;
+    background:rgba(5,6,8,.72);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.logo{
+    font-size:24px;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:var(--red);
+}
+
+nav ul{
+    display:flex;
+    gap:35px;
+    list-style:none;
+}
+
+nav a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:14px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:var(--red);
+}
+
+.nav-btn{
+    background:var(--red);
+    padding:13px 22px;
+    border-radius:8px;
+    font-weight:700;
+    color:#fff;
+    text-decoration:none;
+    box-shadow:0 0 25px rgba(255,0,0,.25);
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    padding:130px 7% 70px;
+    overflow:hidden;
+    background:
+    radial-gradient(circle at 75% 50%,rgba(255,0,0,.13),transparent 35%),
+    linear-gradient(110deg,#050608 40%,#090b10);
+}
+
+.grid{
+    position:absolute;
+    inset:0;
+    opacity:.18;
+    background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+    background-size:50px 50px;
+    mask-image:linear-gradient(to bottom,transparent,black,transparent);
+}
+
+.hero-content{
+    position:relative;
+    z-index:5;
+    max-width:650px;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    border:1px solid rgba(255,30,30,.35);
+    background:rgba(255,0,0,.07);
+    padding:8px 13px;
+    border-radius:30px;
+    color:#ff6b6b;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:25px;
+}
+
+.badge i{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#ff2222;
+    box-shadow:0 0 12px red;
+}
+
+h1{
+    font-size:clamp(48px,6vw,86px);
+    line-height:.95;
+    letter-spacing:-5px;
+    margin-bottom:28px;
+}
+
+h1 span{
+    color:var(--red);
+    text-shadow:0 0 40px rgba(255,0,0,.3);
+}
+
+.hero p{
+    color:#a9adb5;
+    max-width:570px;
+    line-height:1.7;
+    font-size:17px;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 25px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:800;
+    transition:.3s;
+}
+
+.btn-red{
+    background:var(--red);
+    color:white;
+    box-shadow:0 10px 35px rgba(255,0,0,.25);
+}
+
+.btn-red:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 45px rgba(255,0,0,.4);
+}
+
+.btn-dark{
+    border:1px solid rgba(255,255,255,.12);
+    color:#fff;
+    background:rgba(255,255,255,.03);
+}
+
+.btn-dark:hover{
+    border-color:var(--red);
+}
+
+/* ENGINE */
+.engine-area{
+    position:absolute;
+    right:-4%;
+    top:50%;
+    transform:translateY(-50%);
+    width:54vw;
+    height:650px;
+    perspective:1200px;
+}
+
+.engine{
+    position:absolute;
+    width:500px;
+    height:330px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%) rotateX(12deg) rotateY(-20deg);
+    transform-style:preserve-3d;
+    animation:floatEngine 5s ease-in-out infinite;
+}
+
+@keyframes floatEngine{
+    0%,100%{transform:translate(-50%,-50%) rotateX(12deg) rotateY(-20deg) translateY(0)}
+    50%{transform:translate(-50%,-50%) rotateX(12deg) rotateY(-20deg) translateY(-15px)}
+}
+
+.engine-block{
+    position:absolute;
+    width:430px;
+    height:210px;
+    left:35px;
+    top:70px;
+    border-radius:25px;
+    background:
+    linear-gradient(145deg,#24282e,#080a0d);
+    border:2px solid #393e45;
+    box-shadow:
+    0 35px 70px rgba(0,0,0,.8),
+    inset 0 0 40px rgba(255,255,255,.04);
+    transform:translateZ(20px);
+}
+
+.engine-top{
+    position:absolute;
+    width:390px;
+    height:75px;
+    left:20px;
+    top:-45px;
+    border-radius:20px;
+    background:linear-gradient(145deg,#15181c,#30343a);
+    border:2px solid #4a4f56;
+    transform:skewX(-10deg) translateZ(40px);
+}
+
+.engine-top:after{
+    content:"DOCTOR CAR";
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#ff2020;
+    font-weight:900;
+    letter-spacing:4px;
+    text-shadow:0 0 15px red;
+}
+
+.cylinder{
+    position:absolute;
+    width:70px;
+    height:145px;
+    top:92px;
+    border-radius:15px;
+    background:linear-gradient(90deg,#111,#4b5057,#111);
+    border:2px solid #5a6068;
+    box-shadow:inset 0 0 20px #000;
+    transform:translateZ(70px);
+}
+
+.c1{left:70px}
+.c2{left:150px}
+.c3{left:230px}
+.c4{left:310px}
+
+.piston{
+    position:absolute;
+    width:50px;
+    height:65px;
+    background:linear-gradient(90deg,#999,#eee,#777);
+    border-radius:8px;
+    left:10px;
+    top:20px;
+    animation:piston 1s infinite ease-in-out;
+}
+
+.c2 .piston{animation-delay:.15s}
+.c3 .piston{animation-delay:.3s}
+.c4 .piston{animation-delay:.45s}
+
+@keyframes piston{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(42px)}
+}
+
+.crank{
+    position:absolute;
+    width:400px;
+    height:30px;
+    left:50px;
+    top:250px;
+    background:linear-gradient(#777,#222,#777);
+    border-radius:20px;
+    transform:translateZ(100px) rotateZ(-5deg);
+    box-shadow:0 0 20px rgba(255,0,0,.2);
+}
+
+.gear{
+    position:absolute;
+    border:10px dashed #777;
+    border-radius:50%;
+    animation:spin 2s linear infinite;
+}
+
+.gear1{
+    width:110px;
+    height:110px;
+    right:-30px;
+    top:20px;
+}
+
+.gear2{
+    width:75px;
+    height:75px;
+    right:65px;
+    top:75px;
+    animation-direction:reverse;
+}
+
+@keyframes spin{
+    to{transform:rotate(360deg)}
+}
+
+.pipe{
+    position:absolute;
+    width:260px;
+    height:35px;
+    border:9px solid #777;
+    border-left-color:#222;
+    border-radius:40px;
+    right:-70px;
+    top:120px;
+    transform:rotate(-25deg) translateZ(100px);
+}
+
+.glow-ring{
+    position:absolute;
+    width:620px;
+    height:620px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    border:1px solid rgba(255,0,0,.12);
+    border-radius:50%;
+    box-shadow:0 0 100px rgba(255,0,0,.08);
+}
+
+/* SCROLL INDICATOR */
+.scroll{
+    position:absolute;
+    bottom:30px;
+    left:7%;
+    color:#666;
+    font-size:11px;
+    letter-spacing:3px;
+}
+
+/* STATS */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    max-width:700px;
+    margin-top:55px;
+    border-top:1px solid rgba(255,255,255,.08);
+    padding-top:25px;
+}
+
+.stat strong{
+    font-size:27px;
+}
+
+.stat span{
+    display:block;
+    color:#777;
+    font-size:12px;
+    margin-top:5px;
+}
+
+/* SERVICES */
+section{
+    position:relative;
+    padding:120px 7%;
+}
+
+.section-title{
+    max-width:700px;
+    margin-bottom:60px;
+}
+
+.section-title small{
+    color:var(--red);
+    font-weight:800;
+    letter-spacing:3px;
+}
+
+.section-title h2{
+    font-size:clamp(38px,5vw,65px);
+    line-height:1;
+    margin:15px 0;
+    letter-spacing:-3px;
+}
+
+.section-title p{
+    color:#8c9199;
+    line-height:1.7;
+}
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    padding:35px;
+    background:linear-gradient(145deg,#101216,#090a0c);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:18px;
+    transition:.5s;
+    position:relative;
+    overflow:hidden;
+}
+
+.card:before{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    background:var(--red);
+    filter:blur(100px);
+    opacity:0;
+    transition:.5s;
+    right:-50px;
+    top:-50px;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    border-color:rgba(255,0,0,.35);
+}
+
+.card:hover:before{
+    opacity:.25;
+}
+
+.icon{
+    width:55px;
+    height:55px;
+    display:grid;
+    place-items:center;
+    border-radius:12px;
+    background:rgba(255,0,0,.1);
+    color:#ff2929;
+    font-size:25px;
+    margin-bottom:25px;
+}
+
+.card h3{
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#858a92;
+    font-size:14px;
+    line-height:1.7;
+}
+
+/* 5D SECTION */
+.xray{
+    background:#08090c;
+    overflow:hidden;
+}
+
+.xray-container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
+}
+
+.car-visual{
+    height:550px;
+    position:relative;
+    perspective:1000px;
+}
+
+.car-body{
+    position:absolute;
+    width:520px;
+    height:220px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%) rotateX(55deg) rotateZ(-8deg);
+    border-radius:50% 50% 20% 20%;
+    background:linear-gradient(145deg,#191c21,#050607);
+    border:2px solid #3b3e43;
+    box-shadow:0 40px 80px #000;
+}
+
+.car-body:before{
+    content:"";
+    position:absolute;
+    width:330px;
+    height:110px;
+    left:95px;
+    top:-70px;
+    border:2px solid #555;
+    border-bottom:none;
+    border-radius:100px 100px 0 0;
+    background:rgba(255,255,255,.02);
+}
+
+.component{
+    position:absolute;
+    border-radius:50%;
+    background:#222;
+    border:3px solid #777;
+    box-shadow:0 0 30px rgba(255,0,0,.25);
+}
+
+.component.one{
+    width:100px;
+    height:100px;
+    left:100px;
+    top:65px;
+}
+
+.component.two{
+    width:75px;
+    height:75px;
+    right:100px;
+    top:80px;
+}
+
+.component.three{
+    width:45px;
+    height:45px;
+    left:235px;
+    top:100px;
+    background:#ff1717;
+    box-shadow:0 0 40px red;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    50%{box-shadow:0 0 80px red}
+}
+
+.energy{
+    position:absolute;
+    width:300px;
+    height:3px;
+    background:linear-gradient(90deg,transparent,red,transparent);
+    left:110px;
+    top:150px;
+    animation:energy 1s linear infinite;
+}
+
+@keyframes energy{
+    from{transform:translateX(-200px)}
+    to{transform:translateX(300px)}
+}
+
+.xray-text h2{
+    font-size:clamp(40px,5vw,65px);
+    line-height:1;
+    letter-spacing:-3px;
+    margin:15px 0 25px;
+}
+
+.xray-text p{
+    color:#8e939c;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.features{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.feature{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    color:#ddd;
+}
+
+.feature span{
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    background:rgba(255,0,0,.1);
+    display:grid;
+    place-items:center;
+    color:red;
+}
+
+/* CTA */
+.cta{
+    text-align:center;
+    background:
+    radial-gradient(circle at center,rgba(255,0,0,.12),transparent 45%),
+    #050608;
+}
+
+.cta h2{
+    font-size:clamp(40px,6vw,75px);
+    letter-spacing:-4px;
+    max-width:850px;
+    margin:auto;
+}
+
+.cta p{
+    color:#858991;
+    max-width:600px;
+    margin:25px auto 35px;
+    line-height:1.7;
+}
+
+/* FOOTER */
+footer{
+    padding:35px 7%;
+    border-top:1px solid rgba(255,255,255,.07);
+    display:flex;
+    justify-content:space-between;
+    color:#666;
+    font-size:12px;
+}
+
+/* PARTICLES */
+.particle{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:#ff2222;
+    border-radius:50%;
+    box-shadow:0 0 10px red;
+    animation:particle linear infinite;
+}
+
+@keyframes particle{
+    from{transform:translateY(100vh);opacity:0}
+    20%{opacity:1}
+    80%{opacity:1}
+    to{transform:translateY(-100px);opacity:0}
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+    nav ul{
+        display:none;
+    }
+
+    .hero{
+        min-height:auto;
+        padding-top:140px;
+    }
+
+    .engine-area{
+        position:relative;
+        width:100%;
+        height:400px;
+        right:auto;
+        top:auto;
+        transform:none;
+        margin-top:30px;
+    }
+
+    .engine{
+        transform:translate(-50%,-50%) scale(.65) rotateX(12deg) rotateY(-20deg);
+    }
+
+    .hero{
+        flex-direction:column;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr 1fr;
+    }
+
+    .services{
+        grid-template-columns:1fr;
+    }
+
+    .xray-container{
+        grid-template-columns:1fr;
+    }
+
+    .car-visual{
+        transform:scale(.75);
+        margin-left:-12%;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:10px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container nav">
+<div class="cursor-light"></div>
 
-      <a href="#inicio" class="logo">
-        <div class="logo-mark">DC</div>
-        <div class="logo-text">
-          <span>Auto Mecânica</span>
-          <strong>Doctor Car</strong>
-        </div>
-      </a>
+<!-- PARTICULAS -->
+<div class="particle" style="left:5%;animation-duration:9s"></div>
+<div class="particle" style="left:15%;animation-duration:13s"></div>
+<div class="particle" style="left:28%;animation-duration:8s"></div>
+<div class="particle" style="left:45%;animation-duration:11s"></div>
+<div class="particle" style="left:62%;animation-duration:15s"></div>
+<div class="particle" style="left:78%;animation-duration:10s"></div>
+<div class="particle" style="left:91%;animation-duration:12s"></div>
 
-      <nav class="menu" id="menu">
-        <a href="#inicio">Início</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#avaliacoes">Avaliações</a>
-        <a href="#contato">Contato</a>
-      </nav>
+<nav>
+    <div class="logo">DOCTOR<span>CAR</span></div>
 
-      <a
-        class="btn nav-cta"
-        href="https://wa.me/5516991520843?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Auto%20Mec%C3%A2nica%20Doctor%20Car%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
-        target="_blank"
-        rel="noopener"
-      >
-        AGENDAR
-      </a>
+    <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#tecnologia">Tecnologia</a></li>
+        <li><a href="#contato">Contato</a></li>
+    </ul>
 
-      <button class="mobile-btn" id="mobileBtn" aria-label="Abrir menu">
-        ☰
-      </button>
+    <a class="nav-btn" href="https://wa.me/5516999999999">
+        Agendar
+    </a>
+</nav>
 
-    </div>
-  </header>
+<!-- HERO -->
+<section class="hero" id="inicio">
 
-  <!-- HERO -->
-  <main>
+    <div class="grid"></div>
 
-    <section class="hero" id="inicio">
-      <div class="container">
-        <div class="hero-content reveal">
+    <div class="hero-content">
 
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Oficina mecânica em Franca
-          </div>
-
-          <h1>
-            Seu carro merece uma
-            <span>mecânica de confiança.</span>
-          </h1>
-
-          <p class="hero-description">
-            Manutenção automotiva com atendimento profissional,
-            preço justo e compromisso com a qualidade.
-          </p>
-
-          <div class="rating">
-            <div class="stars">★★★★★</div>
-            <strong>4,9 no Google</strong>
-            <small>• 80+ avaliações</small>
-          </div>
-
-          <div class="hero-buttons">
-            <a
-              class="btn btn-primary"
-              href="https://wa.me/5516991520843?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Auto%20Mec%C3%A2nica%20Doctor%20Car%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
-              target="_blank"
-              rel="noopener"
-            >
-              💬 AGENDAR PELO WHATSAPP
-            </a>
-
-            <a class="btn btn-outline" href="#servicos">
-              VER SERVIÇOS →
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- TRUST -->
-    <section class="trust">
-      <div class="container trust-grid">
-
-        <div class="trust-item reveal">
-          <div class="trust-icon">★★★★★</div>
-          <strong>4,9 estrelas</strong>
-          <span>Avaliação no Google</span>
+        <div class="badge">
+            <i></i>
+            OFICINA MECÂNICA PREMIUM
         </div>
 
-        <div class="trust-item reveal">
-          <div class="trust-icon">👥</div>
-          <strong>80+</strong>
-          <span>Avaliações reais</span>
-        </div>
-
-        <div class="trust-item reveal">
-          <div class="trust-icon">✓</div>
-          <strong>Preço justo</strong>
-          <span>Transparência no atendimento</span>
-        </div>
-
-        <div class="trust-item reveal">
-          <div class="trust-icon">🔧</div>
-          <strong>Equipe preparada</strong>
-          <span>Profissionais qualificados</span>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section class="services" id="servicos">
-      <div class="container">
-
-        <div class="section-head reveal">
-          <div class="section-label">Nossos serviços</div>
-
-          <h2 class="section-title">
-            Tudo o que seu carro precisa em um só lugar.
-          </h2>
-
-          <p class="section-description">
-            Conte com uma equipe preparada para cuidar da manutenção
-            e do funcionamento do seu veículo.
-          </p>
-        </div>
-
-        <div class="services-grid">
-
-          <article class="service-card reveal">
-            <div class="service-icon">🔍</div>
-            <h3>Diagnóstico automotivo</h3>
-            <p>Identificação dos problemas do veículo para orientar o serviço adequado.</p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-icon">🔧</div>
-            <h3>Revisão preventiva</h3>
-            <p>Cuidados importantes para manter seu carro em boas condições.</p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-icon">🛑</div>
-            <h3>Sistema de freios</h3>
-            <p>Manutenção e avaliação dos componentes do sistema de frenagem.</p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-icon">⚙️</div>
-            <h3>Suspensão</h3>
-            <p>Avaliação e manutenção dos componentes da suspensão.</p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-icon">🚗</div>
-            <h3>Motor</h3>
-            <p>Manutenção automotiva para manter o desempenho do veículo.</p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-icon">🛢️</div>
-            <h3>Troca de óleo</h3>
-            <p>Manutenção essencial para o bom funcionamento e conservação do motor.</p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-icon">🌡️</div>
-            <h3>Arrefecimento</h3>
-            <p>Cuidados com o sistema responsável pelo controle da temperatura do motor.</p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-icon">⚡</div>
-            <h3>Injeção eletrônica</h3>
-            <p>Avaliação do sistema eletrônico relacionado ao funcionamento do veículo.</p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-icon">🔩</div>
-            <h3>Manutenção geral</h3>
-            <p>Serviços de manutenção para diferentes necessidades do seu veículo.</p>
-          </article>
-
-        </div>
-
-        <div style="text-align:center;margin-top:35px;">
-          <a
-            class="btn btn-primary"
-            href="https://wa.me/5516991520843?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20Doctor%20Car."
-            target="_blank"
-            rel="noopener"
-          >
-            FALAR COM A DOCTOR CAR
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- DIFFERENTIALS -->
-    <section class="differentials">
-      <div class="container">
-
-        <div class="section-head reveal">
-          <div class="section-label">Por que escolher a Doctor Car?</div>
-          <h2 class="section-title">
-            Seu carro. Nosso compromisso.
-          </h2>
-        </div>
-
-        <div class="diff-grid">
-
-          <div class="diff-card reveal">
-            <div class="diff-number">01</div>
-            <h3>Atendimento de confiança</h3>
-            <p>Atendimento próximo e transparente em cada serviço.</p>
-          </div>
-
-          <div class="diff-card reveal">
-            <div class="diff-number">02</div>
-            <h3>Preço justo</h3>
-            <p>Foco em transparência e valores competitivos.</p>
-          </div>
-
-          <div class="diff-card reveal">
-            <div class="diff-number">03</div>
-            <h3>Equipe preparada</h3>
-            <p>Profissionais comprometidos com a qualidade.</p>
-          </div>
-
-          <div class="diff-card reveal">
-            <div class="diff-number">04</div>
-            <h3>Diagnóstico correto</h3>
-            <p>Buscamos identificar a causa do problema.</p>
-          </div>
-
-          <div class="diff-card reveal">
-            <div class="diff-number">05</div>
-            <h3>Compromisso</h3>
-            <p>O objetivo é entregar um serviço de qualidade.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="about" id="sobre">
-      <div class="container about-grid">
-
-        <div class="about-box reveal">
-          <div class="about-badge">
-            <strong>DOCTOR CAR</strong>
-            <span>Seu carro em boas mãos.</span>
-          </div>
-        </div>
-
-        <div class="about-text reveal">
-
-          <div class="section-label">Sobre a Doctor Car</div>
-
-          <h2 class="section-title">
-            Experiência, confiança e respeito pelo seu carro.
-          </h2>
-
-          <p>
-            A Auto Mecânica Doctor Car atende motoristas de Franca
-            e região oferecendo serviços de manutenção automotiva
-            com foco em qualidade, transparência e preço justo.
-          </p>
-
-          <p>
-            Nossa equipe trabalha para identificar corretamente
-            os problemas do veículo e oferecer a solução mais
-            adequada para cada cliente.
-          </p>
-
-          <p>
-            Aqui, você não é apenas mais um cliente. Nosso compromisso
-            é cuidar do seu carro com responsabilidade e atenção.
-          </p>
-
-          <a
-            class="btn btn-primary"
-            href="https://wa.me/5516991520843?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20melhor%20os%20servi%C3%A7os%20da%20Doctor%20Car."
-            target="_blank"
-            rel="noopener"
-          >
-            CONHECER A DOCTOR CAR
-          </a>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- REVIEWS -->
-    <section class="reviews" id="avaliacoes">
-      <div class="container">
-
-        <div class="section-head reveal">
-          <div class="section-label">Avaliações</div>
-
-          <h2 class="section-title">
-            Quem leva o carro para a Doctor Car, recomenda.
-          </h2>
-        </div>
-
-        <div class="review-summary reveal">
-          <div class="review-score">4,9</div>
-
-          <div>
-            <div class="stars">★★★★★</div>
-            <strong>Google</strong>
-            <small>80+ avaliações</small>
-          </div>
-        </div>
-
-        <div class="reviews-grid">
-
-          <article class="review reveal">
-            <div class="review-stars">★★★★★</div>
-
-            <p>
-              "Ótimo atendimento. Serviços de excelência.
-              Preço justo."
-            </p>
-
-            <div class="review-author">
-              Ronilson Ribeiro
-              <span>Avaliação no Google</span>
-            </div>
-          </article>
-
-          <article class="review reveal">
-            <div class="review-stars">★★★★★</div>
-
-            <p>
-              "Gostei muito do atendimento do pessoal, do David
-              e principalmente do Igor. Foi resolvido o problema
-              que estava no carro em relação ao freio e o valor
-              da peça e da mão de obra bem mais barata."
-            </p>
-
-            <div class="review-author">
-              Eduardo Silveira
-              <span>Avaliação no Google</span>
-            </div>
-          </article>
-
-          <article class="review reveal">
-            <div class="review-stars">★★★★★</div>
-
-            <p>
-              "Os meninos são muito educados, atenciosos...
-              Tive um problema no ar condicionado do meu carro,
-              mesmo eles não trabalhando com essa parte, me
-              ajudaram e foram muito profissionais."
-            </p>
-
-            <div class="review-author">
-              Tony Alberto Neves Almeida
-              <span>Avaliação no Google</span>
-            </div>
-          </article>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta">
-      <div class="container reveal">
-
-        <h2>Está na hora de cuidar do seu carro?</h2>
+        <h1>
+            Seu carro merece
+            <span>mais.</span>
+        </h1>
 
         <p>
-          Fale com a equipe da Auto Mecânica Doctor Car
-          e consulte a disponibilidade para o seu veículo.
+            Diagnóstico preciso, tecnologia avançada e profissionais
+            especializados para deixar seu veículo funcionando como novo.
         </p>
 
-        <a
-          class="btn"
-          href="https://wa.me/5516991520843?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Auto%20Mec%C3%A2nica%20Doctor%20Car%20e%20quero%20agendar%20um%20atendimento."
-          target="_blank"
-          rel="noopener"
-        >
-          💬 QUERO AGENDAR MEU ATENDIMENTO
-        </a>
-
-      </div>
-    </section>
-
-    <!-- LOCATION -->
-    <section class="location" id="contato">
-      <div class="container">
-
-        <div class="section-head reveal">
-          <div class="section-label">Localização</div>
-
-          <h2 class="section-title">
-            Estamos em Franca – SP.
-          </h2>
-
-          <p class="section-description">
-            Venha conhecer a Auto Mecânica Doctor Car.
-          </p>
-        </div>
-
-        <div class="location-grid">
-
-          <div class="contact-card reveal">
-
-            <div class="contact-item">
-              <small>WhatsApp / Telefone</small>
-              <strong>(16) 99152-0843</strong>
-            </div>
-
-            <div class="contact-item">
-              <small>Endereço</small>
-              <strong>
-                R. Torquato Caleiro, 341<br>
-                Vila Nicacio<br>
-                Franca - SP<br>
-                14405-118
-              </strong>
-            </div>
-
-            <div class="contact-item">
-              <small>Horário</small>
-              <strong>Atendimento até 18:00</strong>
-            </div>
-
-            <div style="margin-top:25px;">
-              <a
-                class="btn btn-primary"
-                href="https://www.google.com/maps/search/?api=1&query=Auto+Mec%C3%A2nica+Doctor+Car+R.+Torquato+Caleiro+341+Franca+SP"
-                target="_blank"
-                rel="noopener"
-              >
-                📍 COMO CHEGAR
-              </a>
-            </div>
-
-          </div>
-
-          <div class="map-card reveal">
-
-            <iframe
-              src="https://www.google.com/maps?q=R.+Torquato+Caleiro,+341,+Franca,+SP&output=embed"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Localização Auto Mecânica Doctor Car"
-            ></iframe>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq">
-      <div class="container">
-
-        <div class="section-head reveal" style="margin-left:auto;margin-right:auto;text-align:center;">
-          <div class="section-label">Dúvidas frequentes</div>
-
-          <h2 class="section-title">
-            Antes de trazer seu carro?
-          </h2>
-        </div>
-
-        <div class="faq-list">
-
-          <details class="reveal">
-            <summary>Preciso agendar antes de levar meu carro?</summary>
-            <p>
-              Para confirmar disponibilidade e o melhor horário,
-              entre em contato com a equipe da Doctor Car pelo WhatsApp.
-            </p>
-          </details>
-
-          <details class="reveal">
-            <summary>Posso solicitar orçamento pelo WhatsApp?</summary>
-            <p>
-              Sim. Entre em contato pelo WhatsApp para explicar
-              o que está acontecendo com o veículo e verificar
-              as possibilidades de atendimento.
-            </p>
-          </details>
-
-          <details class="reveal">
-            <summary>Vocês fazem diagnóstico automotivo?</summary>
-            <p>
-              A Doctor Car oferece diagnóstico automotivo.
-              Entre em contato para confirmar o serviço necessário
-              para o seu veículo.
-            </p>
-          </details>
-
-          <details class="reveal">
-            <summary>Quais serviços a Doctor Car oferece?</summary>
-            <p>
-              A oficina trabalha com manutenção automotiva,
-              revisão preventiva, freios, suspensão, motor,
-              troca de óleo, arrefecimento, injeção eletrônica
-              e manutenção geral.
-            </p>
-          </details>
-
-          <details class="reveal">
-            <summary>Onde fica a Doctor Car?</summary>
-            <p>
-              A oficina fica na R. Torquato Caleiro, 341,
-              Vila Nicacio, Franca - SP, 14405-118.
-            </p>
-          </details>
-
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-
-      <div class="footer-grid">
-
-        <div>
-          <div class="logo" style="margin-bottom:18px;">
-            <div class="logo-mark">DC</div>
-            <div class="logo-text">
-              <span>Auto Mecânica</span>
-              <strong>Doctor Car</strong>
-            </div>
-          </div>
-
-          <p>
-            Seu carro em boas mãos.
-          </p>
-
-          <p style="margin-top:12px;">
-            Manutenção automotiva com atendimento profissional,
-            transparência e preço justo.
-          </p>
-        </div>
-
-        <div>
-          <div class="footer-title">Navegação</div>
-
-          <div class="footer-links">
-            <a href="#inicio">Início</a>
-            <a href="#servicos">Serviços</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#avaliacoes">Avaliações</a>
-            <a href="#contato">Contato</a>
-          </div>
-        </div>
-
-        <div>
-          <div class="footer-title">Contato</div>
-
-          <div class="footer-links">
-            <a href="tel:+5516991520843">(16) 99152-0843</a>
-
-            <a
-              href="https://wa.me/5516991520843"
-              target="_blank"
-              rel="noopener"
-            >
-              WhatsApp
+        <div class="buttons">
+            <a href="https://wa.me/5516999999999" class="btn btn-red">
+                Agendar diagnóstico →
             </a>
 
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=Auto+Mec%C3%A2nica+Doctor+Car+R.+Torquato+Caleiro+341+Franca+SP"
-              target="_blank"
-              rel="noopener"
-            >
-              Ver localização
+            <a href="#tecnologia" class="btn btn-dark">
+                Ver tecnologia
             </a>
-          </div>
         </div>
 
-      </div>
+        <div class="stats">
+            <div class="stat">
+                <strong>4.9★</strong>
+                <span>AVALIAÇÃO GOOGLE</span>
+            </div>
 
-      <div class="copyright">
-        © 2026 Auto Mecânica Doctor Car. Todos os direitos reservados.
-      </div>
+            <div class="stat">
+                <strong>80+</strong>
+                <span>AVALIAÇÕES</span>
+            </div>
+
+            <div class="stat">
+                <strong>100%</strong>
+                <span>TRANSPARÊNCIA</span>
+            </div>
+        </div>
 
     </div>
-  </footer>
 
-  <!-- WHATSAPP -->
-  <a
-    class="whatsapp"
-    href="https://wa.me/5516991520843?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Auto%20Mec%C3%A2nica%20Doctor%20Car%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
-    target="_blank"
-    rel="noopener"
-    aria-label="Falar com a Doctor Car pelo WhatsApp"
-  >
-    ☎
-    <span class="whatsapp-label">
-      Fale conosco pelo WhatsApp
-    </span>
-  </a>
+    <!-- MOTOR 3D -->
+    <div class="engine-area">
 
-  <script>
-    // MENU MOBILE
-    const mobileBtn = document.getElementById("mobileBtn");
-    const menu = document.getElementById("menu");
+        <div class="glow-ring"></div>
 
-    mobileBtn.addEventListener("click", () => {
-      menu.classList.toggle("active");
+        <div class="engine">
+
+            <div class="engine-block"></div>
+
+            <div class="engine-top"></div>
+
+            <div class="cylinder c1">
+                <div class="piston"></div>
+            </div>
+
+            <div class="cylinder c2">
+                <div class="piston"></div>
+            </div>
+
+            <div class="cylinder c3">
+                <div class="piston"></div>
+            </div>
+
+            <div class="cylinder c4">
+                <div class="piston"></div>
+            </div>
+
+            <div class="crank"></div>
+
+            <div class="gear gear1"></div>
+            <div class="gear gear2"></div>
+
+            <div class="pipe"></div>
+
+        </div>
+
+    </div>
+
+    <div class="scroll">
+        SCROLL ↓
+    </div>
+
+</section>
+
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+
+    <div class="section-title">
+        <small>ESPECIALISTAS</small>
+
+        <h2>
+            Cuidamos do seu carro
+            <span style="color:red">por inteiro.</span>
+        </h2>
+
+        <p>
+            Da manutenção preventiva ao diagnóstico eletrônico,
+            utilizamos equipamentos modernos para encontrar o problema
+            antes que ele vire um prejuízo.
+        </p>
+    </div>
+
+    <div class="services">
+
+        <div class="card">
+            <div class="icon">⚙</div>
+            <h3>Diagnóstico Eletrônico</h3>
+            <p>
+                Identificamos falhas eletrônicas e mecânicas
+                utilizando equipamentos profissionais de diagnóstico.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔧</div>
+            <h3>Manutenção Preventiva</h3>
+            <p>
+                Evite problemas inesperados realizando revisões
+                e substituições no momento correto.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🚗</div>
+            <h3>Suspensão e Freios</h3>
+            <p>
+                Segurança em primeiro lugar. Revisamos suspensão,
+                freios e componentes essenciais do veículo.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- 5D / RAIO X -->
+<section class="xray" id="tecnologia">
+
+    <div class="xray-container">
+
+        <div class="car-visual">
+
+            <div class="car-body">
+
+                <div class="component one"></div>
+
+                <div class="component two"></div>
+
+                <div class="component three"></div>
+
+                <div class="energy"></div>
+
+            </div>
+
+        </div>
+
+        <div class="xray-text">
+
+            <small style="color:red;font-weight:800;letter-spacing:3px;">
+                TECNOLOGIA 5D
+            </small>
+
+            <h2>
+                Nós enxergamos
+                o problema antes
+                de você.
+            </h2>
+
+            <p>
+                Nossa tecnologia permite analisar os principais sistemas
+                do veículo e identificar componentes que precisam de
+                atenção antes que uma pequena falha se transforme em
+                um grande problema.
+            </p>
+
+            <div class="features">
+
+                <div class="feature">
+                    <span>✓</span>
+                    Diagnóstico computadorizado
+                </div>
+
+                <div class="feature">
+                    <span>✓</span>
+                    Análise completa do veículo
+                </div>
+
+                <div class="feature">
+                    <span>✓</span>
+                    Orçamento transparente
+                </div>
+
+                <div class="feature">
+                    <span>✓</span>
+                    Profissionais especializados
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+<section class="cta" id="contato">
+
+    <h2>
+        Seu carro está pedindo
+        <span style="color:red">socorro?</span>
+    </h2>
+
+    <p>
+        Não espere a luz do painel virar um problema maior.
+        Agende uma avaliação com a Doctor Car.
+    </p>
+
+    <a href="https://wa.me/5516999999999" class="btn btn-red">
+        Falar com a Doctor Car pelo WhatsApp →
+    </a>
+
+</section>
+
+
+<footer>
+
+    <div>
+        © 2026 Doctor Car — Oficina Mecânica
+    </div>
+
+    <div>
+        Qualidade • Tecnologia • Transparência
+    </div>
+
+</footer>
+
+
+<script>
+
+/* CURSOR */
+const cursor = document.querySelector('.cursor-light');
+
+document.addEventListener('mousemove',(e)=>{
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+});
+
+
+/* PARALLAX MOTOR */
+const engine = document.querySelector('.engine');
+
+document.addEventListener('mousemove',(e)=>{
+
+    if(window.innerWidth < 900) return;
+
+    const x = (window.innerWidth/2 - e.clientX) / 45;
+    const y = (window.innerHeight/2 - e.clientY) / 45;
+
+    engine.style.transform =
+        `translate(-50%,-50%) rotateX(${12+y}deg) rotateY(${-20+x}deg)`;
+});
+
+
+/* REVEAL ANIMATION */
+const observer = new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.style.opacity='1';
+            entry.target.style.transform='translateY(0)';
+
+        }
+
     });
 
-    document.querySelectorAll(".menu a").forEach(link => {
-      link.addEventListener("click", () => {
-        menu.classList.remove("active");
-      });
+},{threshold:.15});
+
+
+document.querySelectorAll('.card,.section-title,.xray-text,.car-visual')
+.forEach(el=>{
+
+    el.style.opacity='0';
+    el.style.transform='translateY(40px)';
+    el.style.transition='1s ease';
+
+    observer.observe(el);
+
+});
+
+
+/* 3D TILT NOS CARDS */
+document.querySelectorAll('.card').forEach(card=>{
+
+    card.addEventListener('mousemove',(e)=>{
+
+        const rect=card.getBoundingClientRect();
+
+        const x=e.clientX-rect.left;
+        const y=e.clientY-rect.top;
+
+        const rotateX=(y-rect.height/2)/15;
+        const rotateY=(rect.width/2-x)/15;
+
+        card.style.transform=
+            `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+
     });
 
-    // ANIMAÇÕES AO ENTRAR NA TELA
-    const revealElements = document.querySelectorAll(".reveal");
+    card.addEventListener('mouseleave',()=>{
 
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.12
-      }
-    );
+        card.style.transform='';
 
-    revealElements.forEach(element => {
-      observer.observe(element);
     });
-  </script>
+
+});
+
+</script>
 
 </body>
 </html>
-```
