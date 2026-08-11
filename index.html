@@ -1,722 +1,1415 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Clínica Ateliê do Sorriso | Dentista em Franca - SP</title>
-  <meta name="description" content="A melhor clínica odontológica de Franca-SP. Atendimento humano, inclusivo, tecnologia avançada e higiene impecável. Agende sua consulta no Ateliê do Sorriso.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07090d">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<title>AutoCheck — Descubra o Problema do Seu Carro</title>
 
-  <style>
-    /* =========================================================
-       PALETA DE CORES & DESIGN SYSTEM - ATELIÊ LUXURY & CLEAN
-    ========================================================= */
-    :root {
-      --primary: #0F2027;        /* Azul Marinho Nobre */
-      --primary-light: #2C5364;
-      --gold: #C5A059;           /* Dourado Ateliê */
-      --gold-light: #F4EAD3;
-      --bg-page: #FAF8F5;        /* Off-white Acolhedor */
-      --surface: #FFFFFF;
-      --text-main: #2D3748;
-      --text-muted: #718096;
-      --green-wa: #25D366;
-      --border: rgba(197, 160, 89, 0.2);
-      
-      --font-title: 'Cormorant Garamond', serif;
-      --font-body: 'Plus Jakarta Sans', sans-serif;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
+:root{
+  --red:#ff3028;
+  --red2:#ff5149;
+  --green:#31d47c;
+  --bg:#05070a;
+  --card:#0d1219;
+  --card2:#111821;
+  --border:#222c38;
+  --text:#f5f7fa;
+  --muted:#9ba7b5;
+}
 
-    html {
-      scroll-behavior: smooth;
-      background-color: var(--bg-page);
-      color: var(--text-main);
-      font-family: var(--font-body);
-    }
+html{
+  scroll-behavior:smooth;
+}
 
-    body {
-      overflow-x: hidden;
-      padding-bottom: 70px;
-    }
+body{
+  background:
+    radial-gradient(circle at 50% -10%,rgba(255,48,40,.16),transparent 35%),
+    radial-gradient(circle at 10% 40%,rgba(40,100,180,.08),transparent 30%),
+    var(--bg);
+  color:var(--text);
+  font-family:Inter,Arial,Helvetica,sans-serif;
+  min-height:100vh;
+}
 
-    a { text-decoration: none; color: inherit; }
+.container{
+  width:100%;
+  max-width:760px;
+  margin:auto;
+  padding:16px;
+}
 
-    /* =========================================================
-       TOP BAR & HEADER
-    ========================================================= */
-    .top-bar {
-      background: var(--primary);
-      color: rgba(255, 255, 255, 0.85);
-      padding: 8px 5%;
-      font-size: 11px;
-      font-weight: 500;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--border);
-    }
+.logo{
+  text-align:center;
+  font-weight:1000;
+  font-size:25px;
+  letter-spacing:-1px;
+  padding:15px 0 20px;
+}
 
-    .badge-inclusive {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      color: #F6AD55;
-      font-weight: 600;
-    }
+.logo span{
+  color:var(--red);
+}
 
-    .header {
-      position: sticky;
-      top: 0;
-      width: 100%;
-      height: 76px;
-      background: rgba(250, 248, 245, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 5%;
-      z-index: 1000;
-    }
+.card{
+  background:rgba(13,18,25,.94);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:26px;
+  padding:28px;
+  box-shadow:
+    0 25px 80px rgba(0,0,0,.45),
+    inset 0 1px rgba(255,255,255,.03);
+}
 
-    .brand-logo {
-      display: flex;
-      flex-direction: column;
-    }
+.screen{
+  display:none;
+}
 
-    .brand-name {
-      font-family: var(--font-title);
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--primary);
-      line-height: 1;
-      letter-spacing: 0.5px;
-    }
+.screen.active{
+  display:block;
+  animation:enter .4s ease;
+}
 
-    .brand-tag {
-      font-size: 9px;
-      font-weight: 700;
-      color: var(--gold);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-top: 3px;
-    }
+@keyframes enter{
+  from{
+    opacity:0;
+    transform:translateY(18px) scale(.99);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
 
-    .btn-header {
-      background: var(--primary);
-      color: var(--gold-light);
-      padding: 10px 20px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      border: 1px solid var(--gold);
-      transition: all 0.3s;
-    }
+/* HERO */
 
-    /* =========================================================
-       HERO SECTION
-    ========================================================= */
-    .hero {
-      padding: 50px 5% 70px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 30px;
-      align-items: center;
-      background: linear-gradient(180deg, rgba(244, 234, 211, 0.3) 0%, var(--bg-page) 100%);
-    }
+.hero{
+  text-align:center;
+}
 
-    @media (min-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr 1fr;
-        padding: 80px 8%;
-        gap: 50px;
-      }
-    }
+.car{
+  font-size:80px;
+  margin:5px 0 20px;
+  filter:drop-shadow(0 12px 30px rgba(255,48,40,.25));
+}
 
-    .google-rating {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 6px 16px;
-      border-radius: 30px;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    }
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  background:rgba(255,48,40,.1);
+  border:1px solid rgba(255,48,40,.25);
+  color:#ff716b;
+  padding:8px 13px;
+  border-radius:50px;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.5px;
+  margin-bottom:18px;
+}
 
-    .stars { color: #F59E0B; }
+h1{
+  font-size:40px;
+  line-height:1.03;
+  letter-spacing:-1.5px;
+  margin-bottom:17px;
+}
 
-    .hero-title {
-      font-family: var(--font-title);
-      font-size: clamp(36px, 6vw, 54px);
-      font-weight: 700;
-      line-height: 1.1;
-      color: var(--primary);
-      margin-bottom: 18px;
-    }
+h2{
+  font-size:28px;
+  line-height:1.1;
+  letter-spacing:-.7px;
+  margin-bottom:20px;
+}
 
-    .hero-title span {
-      color: var(--gold);
-      font-style: italic;
-    }
+p{
+  color:var(--muted);
+  line-height:1.65;
+  margin-bottom:18px;
+}
 
-    .hero-desc {
-      font-size: 15px;
-      line-height: 1.6;
-      color: var(--text-muted);
-      margin-bottom: 30px;
-      max-width: 500px;
-    }
+strong{
+  color:#fff;
+}
 
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
+.green{
+  color:var(--green);
+}
 
-    .btn-main {
-      background: var(--gold);
-      color: var(--primary);
-      padding: 16px 28px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 8px 20px rgba(197, 160, 89, 0.3);
-    }
+.btn{
+  width:100%;
+  border:0;
+  border-radius:15px;
+  padding:18px 20px;
+  font-size:16px;
+  font-weight:1000;
+  cursor:pointer;
+  transition:.2s;
+}
 
-    .btn-outline {
-      background: transparent;
-      color: var(--primary);
-      border: 1px solid var(--primary);
-      padding: 16px 24px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
+.btn:hover{
+  transform:translateY(-2px);
+}
 
-    .hero-img-box {
-      position: relative;
-    }
+.primary{
+  color:white;
+  background:linear-gradient(135deg,var(--red),#e51912);
+  box-shadow:0 14px 35px rgba(255,48,40,.22);
+}
 
-    .hero-img {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 16px;
-      box-shadow: 0 20px 40px rgba(15, 32, 39, 0.12);
-      border: 1px solid var(--border);
-    }
+.primary:hover{
+  box-shadow:0 18px 45px rgba(255,48,40,.35);
+}
 
-    /* =========================================================
-       DIFERENCIAIS / DESTAQUES
-    ========================================================= */
-    .section-padding { padding: 60px 5%; }
+.trust{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:15px;
+  margin-top:17px;
+  color:#687483;
+  font-size:11px;
+}
 
-    @media (min-width: 900px) {
-      .section-padding { padding: 80px 8%; }
-    }
+/* QUIZ */
 
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
+.progress-info{
+  display:flex;
+  justify-content:space-between;
+  color:#7d8998;
+  font-size:12px;
+  margin-bottom:9px;
+}
 
-    .card-diff {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 30px;
-      border-radius: 14px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-      transition: transform 0.3s;
-    }
+.progress{
+  width:100%;
+  height:7px;
+  background:#18202a;
+  border-radius:30px;
+  overflow:hidden;
+  margin-bottom:30px;
+}
 
-    .card-diff:hover {
-      transform: translateY(-5px);
-    }
+.progress-bar{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,var(--red),#ff827b);
+  transition:.4s;
+}
 
-    .diff-icon {
-      width: 50px;
-      height: 50px;
-      background: var(--gold-light);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      color: var(--gold);
-      margin-bottom: 20px;
-    }
+.answers{
+  display:grid;
+  gap:11px;
+}
 
-    .diff-title {
-      font-family: var(--font-title);
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 8px;
-    }
+.answer{
+  width:100%;
+  padding:17px;
+  border-radius:15px;
+  background:#101720;
+  color:#f3f5f7;
+  border:1px solid #27313d;
+  text-align:left;
+  cursor:pointer;
+  font-size:15px;
+  transition:.2s;
+}
 
-    .diff-desc {
-      font-size: 13.5px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
+.answer:hover{
+  border-color:var(--red);
+  background:#161d26;
+  transform:translateX(3px);
+}
 
-    /* =========================================================
-       SERVIÇOS
-    ========================================================= */
-    .section-header {
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto 40px;
-    }
+.answer .emoji{
+  font-size:21px;
+  margin-right:10px;
+}
 
-    .section-subtitle {
-      color: var(--gold);
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 8px;
-      display: block;
-    }
+/* LOADING */
 
-    .section-title {
-      font-family: var(--font-title);
-      font-size: 34px;
-      font-weight: 700;
-      color: var(--primary);
-    }
+.loading{
+  text-align:center;
+  padding:30px 0;
+}
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-    }
+.spinner{
+  width:55px;
+  height:55px;
+  border:4px solid #202a35;
+  border-top-color:var(--red);
+  border-radius:50%;
+  margin:10px auto 25px;
+  animation:spin 1s linear infinite;
+}
 
-    .service-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-    }
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
 
-    .service-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 6px;
-    }
+/* RESULT */
 
-    .service-desc {
-      font-size: 12.5px;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
+.result-icon{
+  font-size:70px;
+  text-align:center;
+  margin-bottom:10px;
+}
 
-    /* =========================================================
-       DEPOIMENTOS GOOGLE
-    ========================================================= */
-    .reviews-bg {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
+.result-head{
+  text-align:center;
+}
 
-    .review-card {
-      background: var(--bg-page);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+.result-box{
+  background:#101720;
+  border:1px solid #25303d;
+  border-radius:19px;
+  padding:20px;
+  margin:22px 0;
+}
 
-    .review-text {
-      font-size: 13.5px;
-      color: var(--text-main);
-      line-height: 1.6;
-      font-style: italic;
-      margin-bottom: 20px;
-    }
+.result-label{
+  color:#7d8998;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  font-weight:900;
+  margin-bottom:7px;
+}
 
-    .review-user {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+.result-name{
+  font-size:24px;
+  font-weight:1000;
+  margin-bottom:10px;
+}
 
-    .avatar {
-      width: 40px;
-      height: 40px;
-      background: var(--primary);
-      color: var(--gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 14px;
-    }
+.cause{
+  display:flex;
+  gap:11px;
+  padding:12px 0;
+  border-bottom:1px solid #202a35;
+  color:#cbd2da;
+  line-height:1.4;
+}
 
-    .user-info h5 { font-size: 13px; font-weight: 700; color: var(--primary); }
-    .user-info p { font-size: 11px; color: var(--text-muted); }
+.cause:last-child{
+  border-bottom:0;
+}
 
-    /* =========================================================
-       LOCALIZAÇÃO E CONTATO
-    ========================================================= */
-    .contact-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 1fr;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-    }
+.alert{
+  background:rgba(255,174,0,.08);
+  border:1px solid rgba(255,174,0,.22);
+  border-radius:15px;
+  padding:15px;
+  color:#ffd778;
+  font-size:12px;
+  line-height:1.55;
+  margin:20px 0;
+}
 
-    @media (min-width: 800px) {
-      .contact-box {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
+/* OFFER */
 
-    .contact-info {
-      padding: 36px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+.offer{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 90% 0%,rgba(255,48,40,.13),transparent 35%),
+    linear-gradient(145deg,#121a24,#0b1016);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:22px;
+  padding:24px;
+  margin-top:22px;
+}
 
-    .info-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      margin-bottom: 20px;
-    }
+.offer::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:2px;
+  background:linear-gradient(90deg,transparent,var(--red),transparent);
+}
 
-    .info-icon {
-      width: 38px;
-      height: 38px;
-      background: var(--gold-light);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold);
-      font-size: 16px;
-      flex-shrink: 0;
-    }
+.offer-tag{
+  display:inline-block;
+  background:var(--red);
+  padding:7px 10px;
+  border-radius:7px;
+  font-size:10px;
+  font-weight:1000;
+  margin-bottom:14px;
+}
 
-    .info-text h4 { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 2px; }
-    .info-text p { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
+.offer h3{
+  font-size:25px;
+  line-height:1.15;
+  margin-bottom:10px;
+}
 
-    .contact-map {
-      background: url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
-      min-height: 250px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.features{
+  margin:18px 0;
+}
 
-    .btn-map {
-      background: var(--surface);
-      color: var(--primary);
-      padding: 12px 24px;
-      border-radius: 30px;
-      font-weight: 700;
-      font-size: 13px;
-      border: 1px solid var(--border);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
+.feature{
+  display:flex;
+  gap:10px;
+  margin:10px 0;
+  color:#dce2e8;
+  font-size:14px;
+}
 
-    /* =========================================================
-       FOOTER
-    ========================================================= */
-    .footer {
-      background: var(--primary);
-      color: rgba(255, 255, 255, 0.8);
-      padding: 40px 5% 30px;
-      text-align: center;
-      font-size: 12px;
-    }
+.check{
+  color:var(--green);
+  font-weight:900;
+}
 
-    .footer-title {
-      font-family: var(--font-title);
-      font-size: 22px;
-      color: var(--gold-light);
-      margin-bottom: 8px;
-    }
+.price{
+  margin:20px 0;
+}
 
-    .footer-copy {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 20px;
-      margin-top: 20px;
-      color: rgba(255, 255, 255, 0.4);
-    }
+.old-price{
+  color:#6d7784;
+  text-decoration:line-through;
+  font-size:14px;
+}
 
-    /* =========================================================
-       BARRA FIXA MOBILE
-    ========================================================= */
-    .fixed-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 66px;
-      background: rgba(250, 248, 245, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-top: 1px solid var(--border);
-      z-index: 1000;
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 10px;
-      padding: 10px 5%;
-    }
+.new-price{
+  font-size:42px;
+  font-weight:1000;
+  letter-spacing:-2px;
+}
 
-    .btn-bar-call {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--primary);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 700;
-    }
+.payment{
+  color:#778391;
+  font-size:11px;
+  margin-top:5px;
+}
 
-    .btn-bar-wa {
-      background: var(--green-wa);
-      color: #fff;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 800;
-      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-    }
-  </style>
+.guarantee{
+  margin-top:18px;
+  padding:14px;
+  border-radius:13px;
+  background:rgba(49,212,124,.06);
+  border:1px solid rgba(49,212,124,.15);
+  color:#9de7bc;
+  font-size:11px;
+  line-height:1.5;
+}
+
+/* TESTIMONIALS */
+
+.testimonials{
+  margin-top:25px;
+}
+
+.testimonials h3{
+  font-size:18px;
+  margin-bottom:13px;
+}
+
+.testimonial{
+  background:#0c1117;
+  border:1px solid #1d2732;
+  padding:15px;
+  border-radius:15px;
+  margin-bottom:10px;
+}
+
+.stars{
+  color:#ffc400;
+  font-size:13px;
+  margin-bottom:6px;
+}
+
+.testimonial p{
+  font-size:12px;
+  margin:0;
+}
+
+/* FOOTER */
+
+.footer{
+  text-align:center;
+  color:#515d6b;
+  font-size:10px;
+  padding:25px 0;
+  line-height:1.6;
+}
+
+@media(max-width:600px){
+
+  .container{
+    padding:10px;
+  }
+
+  .card{
+    padding:21px;
+    border-radius:21px;
+  }
+
+  h1{
+    font-size:31px;
+  }
+
+  h2{
+    font-size:24px;
+  }
+
+  .car{
+    font-size:65px;
+  }
+
+  .new-price{
+    font-size:38px;
+  }
+}
+</style>
 </head>
+
 <body>
 
-  <div class="top-bar">
-    <div class="badge-inclusive">
-      🏳️‍🌈 Empresa Inclusiva (LGBTQ+ Friendly)
+<div class="container">
+
+<div class="logo">
+  AUTO<span>CHECK</span> 🚗
+</div>
+
+
+<!-- ===================== -->
+<!-- TELA INICIAL -->
+<!-- ===================== -->
+
+<section id="intro" class="card screen active">
+
+  <div class="hero">
+
+    <div class="car">🚘</div>
+
+    <div class="badge">
+      🔎 DIAGNÓSTICO INTELIGENTE
     </div>
-    <div>📍 Rua Voluntários da Franca, 1442 - Centro</div>
+
+    <h1>
+      O que pode estar acontecendo com seu carro?
+    </h1>
+
+    <p>
+      Responda algumas perguntas sobre os sintomas do seu veículo e
+      descubra <strong>quais sistemas podem estar relacionados ao problema.</strong>
+    </p>
+
+    <p>
+      O teste leva aproximadamente <strong>2 minutos</strong>.
+    </p>
+
+    <button class="btn primary" onclick="startQuiz()">
+      COMEÇAR MEU DIAGNÓSTICO →
+    </button>
+
+    <div class="trust">
+      <span>✓ Rápido</span>
+      <span>✓ Interativo</span>
+      <span>✓ Resultado personalizado</span>
+    </div>
+
   </div>
 
-  <header class="header">
-    <div class="brand-logo">
-      <span class="brand-name">Ateliê do Sorriso</span>
-      <span class="brand-tag">Clínica Odontológica</span>
-    </div>
-    <a href="https://wa.me/5516991410254?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20no%20Ateli%C3%AA%20do%20Sorriso." target="_blank" class="btn-header">
-      Agendar
-    </a>
-  </header>
+</section>
 
-  <section class="hero">
-    <div>
-      <div class="google-rating">
-        <span class="stars">★★★★★</span> 4.7 no Google (20 Avaliações)
+
+<!-- ===================== -->
+<!-- QUIZ -->
+<!-- ===================== -->
+
+<section id="quiz" class="card screen">
+
+  <div class="progress-info">
+    <span id="questionCounter">
+      Pergunta 1 de 10
+    </span>
+
+    <span id="percentage">
+      10%
+    </span>
+  </div>
+
+  <div class="progress">
+    <div id="progressBar" class="progress-bar"></div>
+  </div>
+
+  <h2 id="question"></h2>
+
+  <div id="answers" class="answers"></div>
+
+</section>
+
+
+<!-- ===================== -->
+<!-- PROCESSANDO -->
+<!-- ===================== -->
+
+<section id="loading" class="card screen">
+
+  <div class="loading">
+
+    <div class="spinner"></div>
+
+    <h2>
+      Analisando suas respostas...
+    </h2>
+
+    <p>
+      Estamos cruzando os sintomas informados para identificar
+      os sistemas que merecem maior atenção.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ===================== -->
+<!-- RESULTADO -->
+<!-- ===================== -->
+
+<section id="result" class="card screen">
+
+  <div class="result-head">
+
+    <div id="resultIcon" class="result-icon">
+      🔎
+    </div>
+
+    <div class="badge">
+      ✓ ANÁLISE CONCLUÍDA
+    </div>
+
+    <h2 id="resultTitle">
+      Resultado
+    </h2>
+
+    <p id="resultDescription">
+      Resultado da análise.
+    </p>
+
+  </div>
+
+
+  <div class="result-box">
+
+    <div class="result-label">
+      PRINCIPAL ÁREA IDENTIFICADA
+    </div>
+
+    <div id="resultName" class="result-name">
+      —
+    </div>
+
+    <div id="causes"></div>
+
+  </div>
+
+
+  <div class="alert">
+
+    ⚠️ <strong>Importante:</strong> este resultado é uma
+    triagem baseada nos sintomas informados. Ele não substitui
+    uma inspeção física, testes ou diagnóstico realizado por
+    um mecânico qualificado.
+
+  </div>
+
+
+  <!-- OFERTA -->
+
+  <div class="offer">
+
+    <div class="offer-tag">
+      OFERTA ESPECIAL
+    </div>
+
+    <h3>
+      Descubra o que verificar no seu carro
+    </h3>
+
+    <p>
+      Seu resultado mostrou possíveis pontos relacionados ao problema.
+      Agora você pode acessar o nosso
+      <strong>Diagnóstico Completo do Problema do Carro</strong>
+      e receber uma análise muito mais detalhada.
+    </p>
+
+
+    <div class="features">
+
+      <div class="feature">
+        <span class="check">✓</span>
+        Análise detalhada dos sintomas
       </div>
-      <h1 class="hero-title">Onde a arte e a ciência cuidam do seu <span>sorriso</span>.</h1>
-      <p class="hero-desc">
-        Localizada no coração de Franca, a Clínica Ateliê do Sorriso oferece tratamentos odontológicos completos, equipe altamente capacitada, ambiente acolhedor e higiene rigorosa.
+
+      <div class="feature">
+        <span class="check">✓</span>
+        Possíveis causas organizadas
+      </div>
+
+      <div class="feature">
+        <span class="check">✓</span>
+        Componentes que devem ser verificados
+      </div>
+
+      <div class="feature">
+        <span class="check">✓</span>
+        Perguntas importantes para levar ao mecânico
+      </div>
+
+      <div class="feature">
+        <span class="check">✓</span>
+        Orientação para evitar trocar peças sem necessidade
+      </div>
+
+    </div>
+
+
+    <div class="price">
+
+      <div class="old-price">
+        De R$ 39,90
+      </div>
+
+      <div class="new-price">
+        R$ 19,90
+      </div>
+
+      <div class="payment">
+        Pagamento único
+      </div>
+
+    </div>
+
+
+    <button
+      class="btn primary"
+      onclick="goToCheckout()">
+
+      QUERO MEU DIAGNÓSTICO COMPLETO →
+
+    </button>
+
+
+    <div class="guarantee">
+
+      🔒 <strong>Compra segura</strong><br>
+      Você será direcionado para uma página de pagamento segura.
+      O diagnóstico é uma ferramenta de orientação e não substitui
+      avaliação profissional presencial.
+
+    </div>
+
+  </div>
+
+
+  <!-- DEPOIMENTOS -->
+  <!-- Substitua pelos depoimentos reais quando tiver -->
+
+  <div class="testimonials">
+
+    <h3>
+      O que nossos clientes dizem
+    </h3>
+
+    <div class="testimonial">
+
+      <div class="stars">
+        ★★★★★
+      </div>
+
+      <p>
+        “O relatório me ajudou a entender quais pontos eu deveria
+        perguntar ao mecânico antes de autorizar qualquer serviço.”
       </p>
-      <div class="hero-buttons">
-        <a href="https://wa.me/5516991410254?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" class="btn-main">
-          💬 Agendar via WhatsApp
-        </a>
-        <a href="tel:16991410254" class="btn-outline">
-          📞 (16) 99141-0254
-        </a>
-      </div>
+
     </div>
 
-    <div class="hero-img-box">
-      <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" alt="Consultório Ateliê do Sorriso em Franca" class="hero-img">
-    </div>
-  </section>
+    <div class="testimonial">
 
-  <section class="section-padding">
-    <div class="grid-3">
-      <div class="card-diff">
-        <div class="diff-icon">✨</div>
-        <h3 class="diff-title">Atendimento Impecável</h3>
-        <p class="diff-desc">Atenção personalizada desde a recepção até o pós-procedimento. Respondemos a todas as suas dúvidas com máxima clareza.</p>
+      <div class="stars">
+        ★★★★★
       </div>
 
-      <div class="card-diff">
-        <div class="diff-icon">🧼</div>
-        <h3 class="diff-title">Higiene & Biossegurança</h3>
-        <p class="diff-desc">Seguimos os mais rígidos padrões de esterilização e higiene para garantir a sua total segurança durante o tratamento.</p>
-      </div>
+      <p>
+        “Gostei porque consegui organizar os sintomas que meu carro
+        estava apresentando.”
+      </p>
 
-      <div class="card-diff">
-        <div class="diff-icon">🤝</div>
-        <h3 class="diff-title">Espaço Acolhedor</h3>
-        <p class="diff-desc">Ambiente seguro, livre de julgamentos e totalmente preparado para acolher toda a comunidade com respeito e carinho.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-padding" style="background: var(--surface); border-top: 1px solid var(--border);">
-    <div class="section-header">
-      <span class="section-subtitle">Nossos Tratamentos</span>
-      <h2 class="section-title">Soluções completas para a sua saúde bucal</h2>
     </div>
 
-    <div class="services-grid">
-      <div class="service-card">
-        <h3 class="service-title">Estética Dental</h3>
-        <p class="service-desc">Lentes de contato, facetas e clareamento para transformar a harmonia do seu sorriso.</p>
-      </div>
-
-      <div class="service-card">
-        <h3 class="service-title">Ortodontia</h3>
-        <p class="service-desc">Aparelhos estéticos e alinhadores modernos para o alinhamento funcional dos dentes.</p>
-      </div>
-
-      <div class="service-card">
-        <h3 class="service-title">Implantes & Próteses</h3>
-        <p class="service-desc">Reabilitação oral completa para recuperar a mastigação e a confiança de sorrir.</p>
-
-      </div>
-
-      <div class="service-card">
-        <h3 class="service-title">Clínica Geral & Prevenção</h3>
-        <p class="service-desc">Limpeza profunda, tratamento de cáries e cuidados preventivos para toda a família.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-padding reviews-bg">
-    <div class="section-header">
-      <span class="section-subtitle">Aprovação de Nossos Pacientes</span>
-      <h2 class="section-title">O que dizem sobre o Ateliê</h2>
-    </div>
-
-    <div class="grid-3">
-      <div class="review-card">
-        <p class="review-text">"A melhor clínica de Franca. Super completa, com profissionais muito capacitados. Atendimento impecável e o melhor de tudo, tratamento que me deixou muito satisfeito. Indico muito!"</p>
-        <div class="review-user">
-          <div class="avatar">L</div>
-          <div class="user-info">
-            <h5>Lucas Fernandes</h5>
-            <p>Avaliação no Google ★★★★★</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <p class="review-text">"Só tenho a agradecer a atenção e o profissionalismo desta conceituada Clínica, profissionais capacitados com excelência na profissão! RECOMENDO."</p>
-        <div class="review-user">
-          <div class="avatar">C</div>
-          <div class="user-info">
-            <h5>Carmen Guilherme</h5>
-            <p>Local Guide no Google ★★★★★</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <p class="review-text">"Eu fui perfeitamente atendido, todas as minhas perguntas foram respondidas com eficiência. A higiene é impecável e toda equipe merece os parabéns!"</p>
-        <div class="review-user">
-          <div class="avatar">R</div>
-          <div class="user-info">
-            <h5>Ronald Santos</h5>
-            <p>Avaliação no Google ★★★★★</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-padding">
-    <div class="contact-box">
-      <div class="contact-info">
-        <h2 style="font-family: var(--font-title); font-size: 28px; color: var(--primary); margin-bottom: 24px;">Visite a nossa clínica</h2>
-        
-        <div class="info-row">
-          <div class="info-icon">📍</div>
-          <div class="info-text">
-            <h4>Endereço</h4>
-            <p>Rua Voluntários da Franca, 1442 - Centro<br>Franca - SP, 14400-440</p>
-          </div>
-        </div>
-
-        <div class="info-row">
-          <div class="info-icon">⏰</div>
-          <div class="info-text">
-            <h4>Horário de Funcionamento</h4>
-            <p>Aberto de Segunda a Sexta • Encerra às 19:00</p>
-          </div>
-        </div>
-
-        <div class="info-row">
-          <div class="info-icon">📱</div>
-          <div class="info-text">
-            <h4>WhatsApp / Telefone</h4>
-            <p>(16) 99141-0254</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-map">
-        <a href="https://maps.google.com/?q=Rua+Voluntários+da+Franca,+1442+-+Centro,+Franca+-+SP" target="_blank" class="btn-map">
-          🗺️ Abrir no Google Maps
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="footer-title">Clínica Ateliê do Sorriso</div>
-    <p>Rua Voluntários da Franca, 1442 - Centro, Franca - SP</p>
-    <div class="footer-copy">
-      © 2026 Clínica Ateliê do Sorriso. Todos os direitos reservados.
-    </div>
-  </footer>
-
-  <div class="fixed-bar">
-    <a href="tel:16991410254" class="btn-bar-call">
-      📞 Ligar
-    </a>
-    <a href="https://wa.me/5516991410254?text=Ol%C3%A1,%20gostaria%20de%20agendar%20um%20hor%C3%A1rio!" target="_blank" class="btn-bar-wa">
-      💬 WhatsApp
-    </a>
   </div>
+
+</section>
+
+
+<div class="footer">
+
+  AutoCheck © 2026<br>
+  Ferramenta de orientação automotiva.<br>
+  Não substitui diagnóstico presencial de um profissional.
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   CONFIGURAÇÃO
+   ========================================================= */
+
+/*
+   QUANDO TIVER SEU CHECKOUT:
+
+   Substitua:
+
+   COLE-SEU-LINK-DE-CHECKOUT-AQUI
+
+   pelo endereço da sua página de pagamento.
+
+*/
+
+const CHECKOUT_URL =
+"COLE-SEU-LINK-DE-CHECKOUT-AQUI";
+
+
+/* =========================================================
+   PERGUNTAS
+   ========================================================= */
+
+const questions = [
+
+{
+  question:
+  "Qual é o principal problema que você está percebendo no carro?",
+
+  answers:[
+    ["🚫","O carro não liga","start"],
+    ["⚙️","O motor está falhando ou engasgando","engine"],
+    ["⛽","Está gastando muito combustível","fuel"],
+    ["🌡️","Está esquentando","heat"],
+    ["🛑","Problema ao frear","brake"],
+    ["🔊","Está fazendo barulho","noise"],
+    ["💡","Acendeu uma luz no painel","electrical"],
+    ["🔋","Problema na bateria ou partida","battery"]
+  ]
+},
+
+{
+  question:
+  "Quando o problema costuma aparecer?",
+
+  answers:[
+    ["🌅","Na primeira partida do dia","cold"],
+    ["🚗","Durante a condução","drive"],
+    ["🏁","Quando acelero","acceleration"],
+    ["🛑","Quando freio","brake"],
+    ["⏱️","Depois que o carro esquenta","hot"],
+    ["🔄","Acontece aleatoriamente","random"]
+  ]
+},
+
+{
+  question:
+  "Como o motor está funcionando?",
+
+  answers:[
+    ["😵","Falhando ou engasgando","engine"],
+    ["📉","Sem força / perdendo potência","power"],
+    ["〰️","Tremendo ou vibrando","vibration"],
+    ["🔊","Com barulho diferente","noise"],
+    ["✅","Parece normal","normal"]
+  ]
+},
+
+{
+  question:
+  "Como está o consumo de combustível?",
+
+  answers:[
+    ["📈","Aumentou bastante","fuel"],
+    ["📈","Aumentou um pouco","fuel"],
+    ["➡️","Está normal","normal"],
+    ["❓","Não sei informar","unknown"]
+  ]
+},
+
+{
+  question:
+  "Alguma luz de advertência está acesa no painel?",
+
+  answers:[
+    ["🟠","Luz da injeção","injection"],
+    ["🔋","Luz da bateria","battery"],
+    ["🌡️","Luz de temperatura","heat"],
+    ["🛢️","Luz do óleo","oil"],
+    ["💡","Outra luz","electrical"],
+    ["✅","Nenhuma","normal"]
+  ]
+},
+
+{
+  question:
+  "Como está a partida do carro?",
+
+  answers:[
+    ["🐌","O motor gira muito devagar","battery"],
+    ["🔘","Só faz um clique","battery"],
+    ["🚫","Não acontece nada","battery"],
+    ["🔄","O motor gira mas não pega","start"],
+    ["✅","Liga normalmente","normal"]
+  ]
+},
+
+{
+  question:
+  "Você percebe algum ruído diferente?",
+
+  answers:[
+    ["🔨","Batidas ou pancadas","noise"],
+    ["🎵","Chiado","noise"],
+    ["⚙️","Rangido","suspension"],
+    ["🌀","Barulho ao acelerar","engine"],
+    ["🛞","Barulho vindo das rodas","wheel"],
+    ["✅","Nenhum","normal"]
+  ]
+},
+
+{
+  question:
+  "Como está o sistema de freios?",
+
+  answers:[
+    ["⬇️","Pedal muito baixo","brake"],
+    ["📢","Freio fazendo barulho","brake"],
+    ["↔️","Carro puxa para um lado","brake"],
+    ["〰️","Volante treme ao frear","brake"],
+    ["🔥","Freios parecem esquentar","brake"],
+    ["✅","Normal","normal"]
+  ]
+},
+
+{
+  question:
+  "Você percebeu alguma alteração na temperatura?",
+
+  answers:[
+    ["🔥","Está esquentando demais","heat"],
+    ["🌡️","Temperatura oscila","heat"],
+    ["💧","Está perdendo líquido","coolant"],
+    ["🚗","Normal","normal"]
+  ]
+},
+
+{
+  question:
+  "Quando foi a última manutenção completa?",
+
+  answers:[
+    ["🟢","Menos de 3 meses","maintenance"],
+    ["🟡","3 a 6 meses","maintenance"],
+    ["🟠","Mais de 6 meses","maintenance"],
+    ["🔴","Não lembro","maintenance"],
+    ["❓","Nunca fiz uma revisão completa","maintenance"]
+  ]
+}
+
+];
+
+
+/* =========================================================
+   ESTADO
+   ========================================================= */
+
+let currentQuestion = 0;
+
+let scores = {};
+
+
+/* =========================================================
+   TROCAR TELAS
+   ========================================================= */
+
+function showScreen(id){
+
+  document
+    .querySelectorAll(".screen")
+    .forEach(screen=>{
+      screen.classList.remove("active");
+    });
+
+  document
+    .getElementById(id)
+    .classList.add("active");
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+
+/* =========================================================
+   COMEÇAR
+   ========================================================= */
+
+function startQuiz(){
+
+  currentQuestion=0;
+  scores={};
+
+  showScreen("quiz");
+
+  renderQuestion();
+}
+
+
+/* =========================================================
+   RENDER
+   ========================================================= */
+
+function renderQuestion(){
+
+  const q=questions[currentQuestion];
+
+  const total=questions.length;
+
+  const percentage=
+    Math.round(((currentQuestion+1)/total)*100);
+
+  document
+    .getElementById("questionCounter")
+    .textContent=
+    Pergunta ${currentQuestion+1} de ${total};
+
+  document
+    .getElementById("percentage")
+    .textContent=
+    percentage+"%";
+
+  document
+    .getElementById("progressBar")
+    .style.width=
+    percentage+"%";
+
+  document
+    .getElementById("question")
+    .textContent=
+    q.question;
+
+  const answersBox=
+    document.getElementById("answers");
+
+  answersBox.innerHTML="";
+
+  q.answers.forEach(answer=>{
+
+    const button=
+      document.createElement("button");
+
+    button.className="answer";
+
+    button.innerHTML=
+      <span class="emoji">${answer[0]}</span>${answer[1]};
+
+    button.onclick=()=>{
+      selectAnswer(answer[2]);
+    };
+
+    answersBox.appendChild(button);
+
+  });
+
+}
+
+
+/* =========================================================
+   RESPOSTA
+   ========================================================= */
+
+function selectAnswer(type){
+
+  scores[type]=
+    (scores[type]||0)+1;
+
+  currentQuestion++;
+
+  if(currentQuestion < questions.length){
+
+    renderQuestion();
+
+  }else{
+
+    showLoading();
+
+  }
+
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+function showLoading(){
+
+  showScreen("loading");
+
+  setTimeout(()=>{
+
+    showResult();
+
+  },1800);
+
+}
+
+
+/* =========================================================
+   RESULTADO
+   ========================================================= */
+
+function showResult(){
+
+  const result=
+    calculateResult();
+
+  document
+    .getElementById("resultIcon")
+    .textContent=
+    result.icon;
+
+  document
+    .getElementById("resultTitle")
+    .textContent=
+    result.title;
+
+  document
+    .getElementById("resultDescription")
+    .textContent=
+    result.description;
+
+  document
+    .getElementById("resultName")
+    .textContent=
+    result.name;
+
+  document
+    .getElementById("causes")
+    .innerHTML=
+    result.causes
+      .map(cause=>`
+        <div class="cause">
+          <span>🔧</span>
+          <span>${cause}</span>
+        </div>
+      `)
+      .join("");
+
+  showScreen("result");
+
+}
+
+
+/* =========================================================
+   CÁLCULO DO RESULTADO
+   ========================================================= */
+
+function calculateResult(){
+
+  const priority=[
+    "brake",
+    "heat",
+    "battery",
+    "start",
+    "fuel",
+    "injection",
+    "engine",
+    "power",
+    "noise",
+    "suspension",
+    "wheel",
+    "electrical"
+  ];
+
+  let strongest="engine";
+  let max=0;
+
+  priority.forEach(type=>{
+
+    const score=
+      scores[type]||0;
+
+    if(score>max){
+
+      max=score;
+      strongest=type;
+
+    }
+
+  });
+
+
+  const results={
+
+    brake:{
+      icon:"🛑",
+      title:
+      "Encontramos sinais relacionados ao sistema de freios",
+
+      name:
+      "Sistema de frenagem",
+
+      description:
+      "Suas respostas apresentam sintomas que podem estar relacionados ao sistema de frenagem e merecem atenção.",
+
+      causes:[
+        "Pastilhas ou discos desgastados",
+        "Sistema hidráulico",
+        "Pinças e componentes de frenagem",
+        "Desgaste ou irregularidade no conjunto"
+      ]
+    },
+
+    heat:{
+      icon:"🌡️",
+      title:
+      "Encontramos sinais relacionados à temperatura do motor",
+
+      name:
+      "Sistema de arrefecimento",
+
+      description:
+      "Os sintomas informados podem estar relacionados ao sistema responsável pelo controle da temperatura do motor.",
+
+      causes:[
+        "Nível ou circulação do líquido de arrefecimento",
+        "Válvula termostática",
+        "Ventoinha",
+        "Radiador ou circulação do sistema"
+      ]
+    },
+
+    battery:{
+      icon:"🔋",
+      title:
+      "Encontramos sinais relacionados à partida elétrica",
+
+      name:
+      "Bateria / sistema de partida",
+
+      description:
+      "As respostas indicam sintomas compatíveis com dificuldades no sistema elétrico ou de partida.",
+
+      causes:[
+        "Bateria com baixa capacidade",
+        "Alternador",
+        "Cabos e conexões",
+        "Motor de partida"
+      ]
+    },
+
+    start:{
+      icon:"🚨",
+      title:
+      "Encontramos sinais relacionados à partida do motor",
+
+      name:
+      "Sistema de partida / funcionamento",
+
+      description:
+      "Seu relato indica uma dificuldade de partida que pode ter diferentes causas.",
+
+      causes:[
+        "Alimentação de combustível",
+        "Sistema de ignição",
+        "Bateria ou motor de partida",
+        "Sensores e gerenciamento eletrônico"
+      ]
+    },
+
+    fuel:{
+      icon:"⛽",
+      title:
+      "Encontramos sinais relacionados ao consumo",
+
+      name:
+      "Sistema de alimentação / eficiência",
+
+      description:
+      "O aumento do consumo pode estar relacionado a diferentes componentes e condições de funcionamento.",
+
+      causes:[
+        "Sistema de injeção",
+        "Sensores do motor",
+        "Filtros",
+        "Velas e sistema de ignição"
+      ]
+    },
+
+    injection:{
+      icon:"💡",
+      title:
+      "Atenção à luz de injeção",
+
+      name:
+      "Gerenciamento eletrônico do motor",
+
+      description:
+      "Uma luz de injeção pode estar relacionada a diferentes condições e deve ser investigada.",
+
+      causes:[
+        "Sensores",
+        "Sistema de ignição",
+        "Alimentação de combustível",
+        "Sistema de emissões"
+      ]
+    },
+
+    engine:{
+      icon:"⚙️",
+      title:
+      "Encontramos sinais relacionados ao funcionamento do motor",
+
+      name:
+      "Motor / gerenciamento",
+
+      description:
+      "Suas respostas apresentam sintomas que podem estar relacionados ao funcionamento do motor.",
+
+      causes:[
+        "Sistema de ignição",
+        "Alimentação de combustível",
+        "Sensores",
+        "Entrada de ar",
+        "Manutenção preventiva"
+      ]
+    },
+
+    noise:{
+      icon:"🔊",
+      title:
+      "Encontramos sinais de ruído anormal",
+
+      name:
+      "Componentes mecânicos",
+
+      description:
+      "O tipo de ruído relatado pode estar relacionado a diferentes componentes mecânicos.",
+
+      causes:[
+        "Componentes do motor",
+        "Correias ou rolamentos",
+        "Suspensão",
+        "Rodas e componentes móveis"
+      ]
+    },
+
+    suspension:{
+      icon:"🛞",
+      title:
+      "Encontramos sinais relacionados à suspensão",
+
+      name:
+      "Suspensão / direção",
+
+      description:
+      "Os sintomas podem estar relacionados a componentes da suspensão ou direção.",
+
+      causes:[
+        "Amortecedores",
+        "Buchas",
+        "Pivôs e terminais",
+        "Componentes da direção"
+      ]
+    },
+
+    wheel:{
+      icon:"🛞",
+      title:
+      "Encontramos sinais relacionados às rodas",
+
+      name:
+      "Rodas / componentes móveis",
+
+      description:
+      "O comportamento relatado pode estar relacionado a componentes das rodas ou conjunto de rodagem.",
+
+      causes:[
+        "Rolamentos",
+        "Pneus",
+        "Balanceamento",
+        "Componentes da suspensão"
+      ]
+    },
+
+    electrical:{
+      icon:"⚡",
+      title:
+      "Encontramos sinais relacionados ao sistema elétrico",
+
+      name:
+      "Sistema elétrico",
+
+      description:
+      "As respostas indicam sintomas que podem estar relacionados ao sistema elétrico do veículo.",
+
+      causes:[
+        "Bateria",
+        "Alternador",
+        "Fusíveis e conexões",
+        "Sensores ou módulos"
+      ]
+    }
+
+  };
+
+  return results[strongest] || results.engine;
+
+}
+
+
+/* =========================================================
+   CHECKOUT
+   ========================================================= */
+
+function goToCheckout(){
+
+  if(
+    !CHECKOUT_URL ||
+    CHECKOUT_URL.includes("COLE-SEU")
+  ){
+
+    alert(
+      "O checkout ainda não foi configurado. Quando você criar sua página de pagamento, coloque o link na variável CHECKOUT_URL."
+    );
+
+    return;
+
+  }
+
+  window.location.href=
+    CHECKOUT_URL;
+
+}
+
+</script>
 
 </body>
 </html>
